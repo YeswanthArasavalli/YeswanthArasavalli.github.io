@@ -13,8 +13,14 @@ import ProjectDetail from "./pages/ProjectDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+const App = () => {
+  const [initialPath] = useState(() => {
+    const path = (window as any).__initialPath;
+    (window as any).__initialPath = undefined;
+    return path || '/';
+  });
 
-const App = () => (
+  return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -34,5 +40,6 @@ const App = () => (
     </TooltipProvider>
   </QueryClientProvider>
 );
+};
 
 export default App;
