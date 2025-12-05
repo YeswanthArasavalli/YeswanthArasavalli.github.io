@@ -58,8 +58,7 @@ export default function Contact() {
                   <input
                     type="hidden"
                     name="_next"
-                    value="https://yeswanth-projects.vercel.app/contact"
-                  />
+            value="https://yeswantharasavalli.me/contact"                  />
 
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="space-y-2">
@@ -96,21 +95,6 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="subject"
-                      className="text-sm font-medium text-foreground"
-                    >
-                      Subject
-                    </label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      placeholder="Project, collaboration, or question"
-                      required
-                      maxLength={150}
-                    />
-                  </div>
 
                   <div className="space-y-2">
                     <label
