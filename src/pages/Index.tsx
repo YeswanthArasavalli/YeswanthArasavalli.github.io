@@ -1,7 +1,20 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Download, CheckCircle, BarChart3, Palette, Cog, Brain, ExternalLink, Github, Clock, Calendar } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkles,
+  Download,
+  CheckCircle,
+  BarChart3,
+  Palette,
+  Cog,
+  Brain,
+  ExternalLink,
+  Github,
+  Clock,
+  Calendar,
+} from "lucide-react";
 import { projects } from "@/data/projects";
 import { blogPosts } from "@/data/blog";
 
@@ -45,9 +58,10 @@ export default function Index() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-400">
             <Button
               size="lg"
-               <Link to="/contact">
               className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 shadow-medium hover:shadow-lg transition-all"
-            >
+    asChild
+  >
+              <Link to="/contact">
               Hire Me
               <ArrowRight className="ml-2 w-5 h-5" />
                </Link>
