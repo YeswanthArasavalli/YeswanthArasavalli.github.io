@@ -1,246 +1,150 @@
-"use client";
-
-import { useState } from "react";
+import { useParams, Navigate, Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
+import { CTASection } from "@/components/sections/CTASection";
+import { getProjectBySlug } from "@/data/projects";
+import { ArrowLeft, ExternalLink, Github, CheckCircle, BarChart3 } from "lucide-react";
 
-export default function Contact() {
-  const whatsappNumberDisplay = "Yeswanth";
-  const whatsappNumber = "+918500251322"; // wa.me should not include '+'
-  const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+export default function ProjectDetail() {
+  const { slug } = useParams<{ slug: string }>();
+  const project = slug ? getProjectBySlug(slug) : undefined;
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setIsSuccess(false);
-    setError(null);
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    const payload = {
-      _subject: "New portfolio contact",
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      message: formData.get("message") as string,
-    };
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const data = await res.json().catch(() => null);
-
-      if (res.ok && data?.ok) {
-        setIsSuccess(true);
-        form.reset();
-      } else {
-        setError(
-          data?.message ||
-            "Something went wrong while sending your message. Please try again."
-        );
-      }
-    } catch (err) {
-      setError("Network error. Please check your connection and try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
+  if (!project) {
+    return <Navigate to="/404" replace />;
   }
 
   return (
     <Layout>
-      <div className="min-h-[calc(100vh-200px)] bg-gradient-to-b from-background via-background/80 to-muted/30">
-        <main className="container mx-auto px-4 py-16 md:py-24">
-          <div className="max-w-4xl mx-auto">
-            {/* Header */}
-            <section className="mb-12 text-center space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-4 py-1 text-xs font-medium text-muted-foreground mb-4">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10">
-                  <Mail className="h-3 w-3 text-primary" />
-                </span>
-                Open to freelance opportunities and collaborations
-              </div>
-
-              <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Let&apos;s work together
-              </h1>
-              <p className="mx-auto max-w-2xl text-muted-foreground">
-                Have a project in mind or want to collaborate? Share a few
-                details and you&apos;ll get a response within 24 hours.
-              </p>
-            </section>
-
-            <div className="grid gap-10 md:grid-cols-[1.2fr,1fr] items-start">
-              {/* Form */}
-              <section className="rounded-2xl border border-border bg-card/80 p-6 md:p-8 shadow-soft backdrop-blur">
-                <form className="space-y-6" onSubmit={handleSubmit}>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div className="space-y-2">
-                      <label
-                        htmlFor="name"
-                        className="text-sm font-medium text-foreground"
-                      >
-                        Name
-                      </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        placeholder="Your name"
-                        required
-                        maxLength={100}
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label
-                        htmlFor="email"
-                        className="text-sm font-medium text-foreground"
-                      >
-                        Email
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="your@email.com"
-                        required
-                        maxLength={255}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="message"
-                      className="text-sm font-medium text-foreground"
-                    >
-                      Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Tell me about your project, timeline, or questions..."
-                      rows={6}
-                      required
-                      maxLength={1000}
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    variant="hero"
-                    size="lg"
-                    className="w-full"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                    <Send className="ml-2 h-5 w-5" />
-                  </Button>
-
-                  {isSuccess && (
-                    <p className="text-xs text-emerald-500 text-center">
-                      Thanks for reaching out! Your message has been sent.
-                    </p>
-                  )}
-
-                  {error && (
-                    <p className="text-xs text-red-500 text-center">
-                      {error}
-                    </p>
-                  )}
-
-                  <p className="text-xs text-muted-foreground text-center">
-                    By submitting this form, your message will be securely
-                    delivered to my inbox.
-                  </p>
-                </form>
-              </section>
-
-              {/* Contact info */}
-              <section className="space-y-6">
-                <div className="rounded-2xl border border-border bg-card/60 p-6">
-                  <h2 className="mb-4 text-sm font-semibold tracking-[0.18em] text-muted-foreground uppercase">
-                    Contact details
-                  </h2>
-                  <div className="space-y-4 text-sm">
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1 rounded-lg bg-primary/10 p-2">
-                        <Mail className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                          Email
-                        </p>
-                        <a
-                          href="mailto:yeswanthdatalabs@gmail.com"
-                          className="font-medium hover:text-primary transition-colors"
-                        >
-                          yeswanthdatalabs@gmail.com
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1 rounded-lg bg-primary/10 p-2">
-                        <MessageCircle className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                          WhatsApp
-                        </p>
-                        <a
-                          href={whatsappUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-medium hover:text-primary transition-colors"
-                        >
-                          Chat on WhatsApp ({whatsappNumberDisplay})
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1 rounded-lg bg-primary/10 p-2">
-                        <MapPin className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                          Location
-                        </p>
-                        <p className="font-medium">India (IST)</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1 rounded-lg bg-primary/10 p-2">
-                        <Clock className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                          Response time
-                        </p>
-                        <p className="font-medium">Within 24 hours</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
+      {/* Hero Section */}
+      <section className="py-16 md:py-24 bg-gradient-subtle">
+        <div className="container">
+          <Link
+            to="/#projects"
+            className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors mb-8"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Projects
+          </Link>
+          
+          <div className="max-w-4xl space-y-6 animate-slide-up">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+              {project.title}
+            </h1>
+            <p className="text-xl text-muted-foreground">{project.summary}</p>
+            <div className="flex flex-wrap gap-4">
+              <Button asChild variant="hero" size="lg">
+                <Link to="/contact">Discuss Your Project</Link>
+              </Button>
+              {project.codeUrl && (
+                <Button asChild variant="hero-outline" size="lg">
+                  <a href={project.codeUrl} target="_blank" rel="noopener noreferrer">
+                    <Github className="mr-2 h-5 w-5" />
+                    View Source Code
+                  </a>
+                </Button>
+              )}
             </div>
           </div>
-        </main>
-      </div>
+        </div>
+      </section>
+
+      {/* Project Overview */}
+      <section className="py-16">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-foreground mb-6">Project Overview</h2>
+            <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Role & Tech Stack */}
+      <section className="py-16 bg-secondary/30">
+        <div className="container">
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-2xl font-bold text-foreground mb-6">My Role</h2>
+              <p className="text-muted-foreground leading-relaxed">{project.role}</p>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-foreground mb-6">Tech Stack</h2>
+              <div className="flex flex-wrap gap-3">
+                {project.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-4 py-2 bg-card border border-border rounded-lg text-foreground font-medium"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Approach */}
+      <section className="py-16">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-foreground mb-8">Detailed Approach</h2>
+            <div className="space-y-4">
+              {project.approach.map((step, index) => (
+                <div key={index} className="flex gap-4 p-4 bg-card rounded-lg border border-border">
+                  <div className="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-sm">
+                    {index + 1}
+                  </div>
+                  <p className="text-muted-foreground pt-1">{step}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visuals */}
+      <section className="py-16 bg-secondary/30">
+        <div className="container">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Project Visuals</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {project.images.map((_, index) => (
+                <div
+                  key={index}
+                  className="aspect-video bg-card rounded-lg border border-border flex items-center justify-center"
+                >
+                  <div className="text-center">
+                    <BarChart3 className="h-12 w-12 text-primary/30 mx-auto mb-2" />
+                    <p className="text-sm text-muted-foreground">Visual {index + 1}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Impact & Results */}
+      <section className="py-16">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-foreground mb-8">Impact & Results</h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {project.impact.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-3 p-4 bg-accent/50 rounded-lg"
+                >
+                  <CheckCircle className="h-6 w-6 text-primary shrink-0" />
+                  <p className="text-foreground font-medium">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CTASection />
     </Layout>
   );
 }
