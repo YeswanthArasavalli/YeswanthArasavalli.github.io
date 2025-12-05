@@ -40,7 +40,6 @@ export default function Contact() {
                   action="https://formsubmit.co/yeswanthdatalabs@gmail.com"
                   method="POST"
                   className="space-y-6"
-                  onSubmit={() => setIsSubmitting(true)}
                 >
                   {/* FormSubmit config */}
                   <input type="hidden" name="_captcha" value="false" />
@@ -134,9 +133,8 @@ export default function Contact() {
                     variant="hero"
                     size="lg"
                     className="w-full"
-                    disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    Send Message
                     <Send className="ml-2 h-5 w-5" />
                   </Button>
 
