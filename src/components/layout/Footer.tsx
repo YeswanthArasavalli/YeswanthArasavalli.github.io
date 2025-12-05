@@ -3,7 +3,7 @@ import { Mail, MessageCircle, Linkedin, Github, MapPin, Clock } from "lucide-rea
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background py-12">
+    <footer className="bg-foreground text-white py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
@@ -109,13 +109,33 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="mt-8 pt-8 border-t border-border text-center">
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Yeswanth Arasavalli. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </div>
+          <div className="mt-8 pt-8 border-t border-border flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+  <p className="text-sm text-zinc-400">
+    © {new Date().getFullYear()} Yeswanth Arasavalli. All rights reserved.
+  </p>
+
+  <div className="flex gap-4 justify-start md:justify-end">
+    <a
+      href="https://github.com/YeswanthArasavalli"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-2 rounded-lg bg-card hover:bg-accent transition-colors"
+      aria-label="GitHub"
+    >
+      <Github className="h-5 w-5" />
+    </a>
+    <a
+      href="https://www.linkedin.com/in/yeswanth-arasavalli/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-2 rounded-lg bg-card hover:bg-accent transition-colors"
+      aria-label="LinkedIn"
+    >
+      <Linkedin className="h-5 w-5" />
+    </a>
+  </div>
+</div>
+
     </footer>
   );
 }
