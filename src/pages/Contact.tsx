@@ -37,7 +37,7 @@ export default function Contact() {
               {/* Form (FormSubmit) */}
               <section className="rounded-2xl border border-border bg-card/80 p-6 md:p-8 shadow-soft backdrop-blur">
                 <form
-                  action="https://formspree.io/f/xjknoaap
+                  action="https://formspree.io/f/yeswanthdatalabs@gmail.com
                   method="POST"
                   className="space-y-6"
                   onSubmit={() => setIsSubmitting(true)}
