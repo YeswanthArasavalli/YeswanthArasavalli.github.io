@@ -48,11 +48,11 @@ export default function Index() {
           
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up">
             Transforming data into{" "}
-            <span className="gradient-text">clear insights</span> and smarter decisions.
+            <span className="gradient-text">clear insights</span> and smarter decisions
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
-            I help businesses with data analysis, dashboards, reporting, automation — and I am expanding into AI & data science.
+            I help businesses with data analysis, dashboards, reporting, automation — and I am expanding into AI & data science
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-400">
