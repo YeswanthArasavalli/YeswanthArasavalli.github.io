@@ -46,9 +46,11 @@ export default function Index() {
             <span className="text-sm font-medium text-primary">Data Analyst & AI Explorer</span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up">
-            Transforming data into{" "}
-            <span className="gradient-text">clear insights</span> and smarter decisions.
+          <h1 className="text-3xl md:text-4xl font-semibold leading-tight text-white">
+            Transforming data into
+            <br />
+            <span className="text-primary"> clear insights</span> 
+            <br /> and smarter decisions.
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
