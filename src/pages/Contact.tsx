@@ -13,38 +13,59 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       toast({
         title: "Please fill in all fields",
-        variant: "destructive"
+        variant: "destructive",
       });
       return;
     }
 
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Message sent!",
-      description: "I'll get back to you within 24 hours."
-    });
-    
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error("Request failed");
+      }
+
+      toast({
+        title: "Message sent!",
+        description: "I'll get back to you within 24 hours.",
+      });
+
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -54,7 +75,9 @@ export default function Contact() {
       <section className="py-16 md:py-24 bg-gradient-subtle">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center space-y-6 animate-slide-up">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">Let's Work Together</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+              Let's Work Together
+            </h1>
             <p className="text-lg text-muted-foreground">
               Tell me what you need — I'll reply with ideas and a proposal.
             </p>
@@ -69,9 +92,12 @@ export default function Contact() {
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-2xl font-bold text-foreground mb-6">Get in Touch</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-6">
+                  Get in Touch
+                </h2>
                 <p className="text-muted-foreground">
-                  Whether you have a specific project in mind or just want to explore how data can help your business, I'd love to hear from you.
+                  Whether you have a specific project in mind or just want to
+                  explore how data can help your business, I'd love to hear from you.
                 </p>
               </div>
 
@@ -85,7 +111,9 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Email</h3>
-                    <p className="text-muted-foreground">yeswanthdatalabs@gmail.com</p>
+                    <p className="text-muted-foreground">
+                      yeswanthdatalabs@gmail.com
+                    </p>
                   </div>
                 </a>
 
@@ -100,8 +128,12 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">WhatsApp</h3>
-                    <p className="text-muted-foreground">Click to start a conversation</p>
-                    <p className="text-sm text-primary">Usually reply within 24 hours</p>
+                    <p className="text-muted-foreground">
+                      Click to start a conversation
+                    </p>
+                    <p className="text-sm text-primary">
+                      Usually reply within 24 hours
+                    </p>
                   </div>
                 </a>
 
@@ -120,19 +152,28 @@ export default function Contact() {
                     <Clock className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">Availability</h3>
+                    <h3 className="font-semibold text-foreground">
+                      Availability
+                    </h3>
                     <p className="text-muted-foreground">Mon-Fri, 9AM-6PM IST</p>
                   </div>
                 </div>
               </div>
 
               <div className="p-6 bg-accent/50 rounded-lg">
-                <h3 className="font-semibold text-foreground mb-2">Prefer WhatsApp?</h3>
+                <h3 className="font-semibold text-foreground mb-2">
+                  Prefer WhatsApp?
+                </h3>
                 <p className="text-muted-foreground text-sm mb-4">
-                  For quick questions or to start a casual conversation about your project, WhatsApp is often the fastest way to reach me.
+                  For quick questions or to start a casual conversation about
+                  your project, WhatsApp is often the fastest way to reach me.
                 </p>
                 <Button asChild variant="default">
-                  <a href="https://wa.me/+918500251322" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://wa.me/+918500251322"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <MessageCircle className="mr-2 h-4 w-4" />
                     Chat on WhatsApp
                   </a>
@@ -142,7 +183,9 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div className="bg-card rounded-xl border border-border p-8">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Send a Message</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">
+                Send a Message
+              </h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor="name">Name</Label>
