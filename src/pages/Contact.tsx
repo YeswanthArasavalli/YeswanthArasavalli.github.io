@@ -7,9 +7,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjknoaap";
+
 export default function Contact() {
   const whatsappNumberDisplay = "Yeswanth";
-  const whatsappNumber = "+918500251322"; // wa.me should not include '+'
+  // wa.me number should NOT have +
+  const whatsappNumber = "918500251322";
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -25,32 +28,27 @@ export default function Contact() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const payload = {
-      _subject: "New portfolio contact",
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      message: formData.get("message") as string,
-    };
+    // Optional: add subject for Formspree
+    formData.append("_subject", "New portfolio contact");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify(payload),
+        body: formData,
       });
 
-      const data = await res.json().catch(() => null);
-
-      if (res.ok && data?.ok) {
+      if (res.ok) {
         setIsSuccess(true);
         form.reset();
       } else {
-        setError(
-          data?.message ||
-            "Something went wrong while sending your message. Please try again."
-        );
+        const data = await res.json().catch(() => null);
+        const msg =
+          data?.errors?.[0]?.message ||
+          "Something went wrong while sending your message. Please try again.";
+        setError(msg);
       }
     } catch (err) {
       setError("Network error. Please check your connection and try again.");
@@ -156,9 +154,7 @@ export default function Contact() {
                   )}
 
                   {error && (
-                    <p className="text-xs text-red-500 text-center">
-                      {error}
-                    </p>
+                    <p className="text-xs text-red-500 text-center">{error}</p>
                   )}
 
                   <p className="text-xs text-muted-foreground text-center">
