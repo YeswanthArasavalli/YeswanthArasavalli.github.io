@@ -6,12 +6,50 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
 
 export default function Contact() {
-  // WhatsApp expects number without "+" in the URL
   const whatsappNumberDisplay = "Yeswanth";
-  const whatsappNumber = "+918500251322";
+  const whatsappNumber = "+918500251322"; // wa.me should not include '+'
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjknoaap";
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setIsSuccess(false);
+    setError(null);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (res.ok) {
+        setIsSuccess(true);
+        form.reset();
+      } else {
+        const data = await res.json().catch(() => null);
+        const msg =
+          data?.errors?.[0]?.message ||
+          "Something went wrong while sending your message. Please try again.";
+        setError(msg);
+      }
+    } catch (err) {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
     <Layout>
@@ -37,27 +75,14 @@ export default function Contact() {
             </section>
 
             <div className="grid gap-10 md:grid-cols-[1.2fr,1fr] items-start">
-              {/* Form (FormSubmit) */}
+              {/* Form (Formspree) */}
               <section className="rounded-2xl border border-border bg-card/80 p-6 md:p-8 shadow-soft backdrop-blur">
-                <form
-                  action="https://formsubmit.co/yeswanthdatalabs@gmail.com"
-                  method="POST"
-                  className="space-y-6"
-                  onSubmit={() => setIsSubmitting(true)}
-                >
-                  {/* FormSubmit config */}
-                  <input type="hidden" name="_captcha" value="false" />
+                <form className="space-y-6" onSubmit={handleSubmit}>
+                  {/* You can still pass a subject to Formspree as a field */}
                   <input
                     type="hidden"
                     name="_subject"
                     value="New portfolio contact"
-                  />
-                  <input type="hidden" name="_template" value="table" />
-                  {/* optional redirect after submit */}
-                  <input
-                    type="hidden"
-                    name="_next"
-                    value="https://yeswantharasavalli.me/contact"
                   />
 
                   <div className="grid gap-4 md:grid-cols-2">
@@ -122,6 +147,18 @@ export default function Contact() {
                     {isSubmitting ? "Sending..." : "Send Message"}
                     <Send className="ml-2 h-5 w-5" />
                   </Button>
+
+                  {isSuccess && (
+                    <p className="text-xs text-emerald-500 text-center">
+                      Thanks for reaching out! Your message has been sent.
+                    </p>
+                  )}
+
+                  {error && (
+                    <p className="text-xs text-red-500 text-center">
+                      {error}
+                    </p>
+                  )}
 
                   <p className="text-xs text-muted-foreground text-center">
                     By submitting this form, your message will be securely
