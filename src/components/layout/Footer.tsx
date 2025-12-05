@@ -6,14 +6,15 @@ export function Footer() {
     <footer className="bg-foreground text-white py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
+          {/* Top grid */}
           <div className="grid md:grid-cols-3 gap-8 mb-8">
+            {/* Brand */}
             <div>
-              {/* Brand */}
               <div className="space-y-4">
                 <span className="text-xl font-bold text-gradient">
                   Yeswanth Arasavalli
                 </span>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-white">
                   Data Analyst &amp; AI Explorer
                   <br />
                   helping businesses transform data into actionable insights.
@@ -23,29 +24,29 @@ export function Footer() {
 
             {/* Quick Links */}
             <div className="space-y-4">
-              <h4 className="font-semibold text-foreground">Quick Links</h4>
+              <h4 className="font-semibold text-white">Quick Links</h4>
               <nav className="flex flex-col gap-2">
                 <Link
                   to="/about"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-white hover:text-primary transition-colors"
                 >
                   About
                 </Link>
                 <Link
                   to="/services"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-white hover:text-primary transition-colors"
                 >
                   Services
                 </Link>
                 <Link
                   to="/blog"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-white hover:text-primary transition-colors"
                 >
                   Blog
                 </Link>
                 <Link
                   to="/contact"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm text-white hover:text-primary transition-colors"
                 >
                   Contact
                 </Link>
@@ -54,11 +55,11 @@ export function Footer() {
 
             {/* Contact Info */}
             <div className="space-y-4">
-              <h4 className="font-semibold text-foreground">Contact</h4>
+              <h4 className="font-semibold text-white">Contact</h4>
               <div className="flex flex-col gap-3">
                 <a
                   href="mailto:yeswanthdatalabs@gmail.com"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="flex items-center gap-2 text-sm text-white hover:text-primary transition-colors"
                 >
                   <Mail className="h-4 w-4" />
                   yeswanthdatalabs@gmail.com
@@ -67,75 +68,17 @@ export function Footer() {
                   href="https://wa.me/+918500251322"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="flex items-center gap-2 text-sm text-white hover:text-primary transition-colors"
                 >
                   <MessageCircle className="h-4 w-4" />
                   WhatsApp
                 </a>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2 text-sm text-white">
                   <MapPin className="h-4 w-4" />
                   India (IST)
                 </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2 text-sm text-white">
                   <Clock className="h-4 w-4" />
                   Mon-Fri, 9AM-6PM IST
                 </div>
               </div>
-            </div>
-
-            {/* Social */}
-            <div className="space-y-4">
-              <h4 className="font-semibold text-foreground">Connect</h4>
-              <div className="flex gap-4">
-                <a
-                  href="https://github.com/YeswanthArasavalli"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-card hover:bg-accent transition-colors"
-                  aria-label="GitHub"
-                >
-                  <Github className="h-5 w-5" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/yeswanth-arasavalli/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-card hover:bg-accent transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 pt-8 border-t border-border flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-  <p className="text-sm text-zinc-400">
-    © {new Date().getFullYear()} Yeswanth Arasavalli. All rights reserved.
-  </p>
-
-  <div className="flex gap-4 justify-start md:justify-end">
-    <a
-      href="https://github.com/YeswanthArasavalli"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="p-2 rounded-lg bg-card hover:bg-accent transition-colors"
-      aria-label="GitHub"
-    >
-      <Github className="h-5 w-5" />
-    </a>
-    <a
-      href="https://www.linkedin.com/in/yeswanth-arasavalli/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="p-2 rounded-lg bg-card hover:bg-accent transition-colors"
-      aria-label="LinkedIn"
-    >
-      <Linkedin className="h-5 w-5" />
-    </a>
-  </div>
-</div>
-
-    </footer>
-  );
-}
