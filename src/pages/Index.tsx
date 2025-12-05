@@ -45,11 +45,12 @@ export default function Index() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-400">
             <Button
               size="lg"
-              onClick={() => scrollToSection("#contact")}
+               <Link to="/contact">
               className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 shadow-medium hover:shadow-lg transition-all"
             >
               Hire Me
               <ArrowRight className="ml-2 w-5 h-5" />
+               </Link>
             </Button>
             <Button
               size="lg"
