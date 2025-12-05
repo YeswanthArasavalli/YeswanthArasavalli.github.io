@@ -19,6 +19,13 @@
     <meta name="twitter:title" content="Yeswanth Arasavalli | Data Analyst & AI Explorer" />
     <meta name="twitter:description" content="Transforming data into clear insights and smarter decisions." />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+      <script>
+    var redirectTo = sessionStorage.getItem('redirectTo');
+    if (redirectTo) {
+      sessionStorage.removeItem('redirectTo');
+      window.history.replaceState(null, '', redirectTo);
+    }
+  </script>
   </head>
 
   <body>
