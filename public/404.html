@@ -5,12 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yeswanth Arasavalli | Data Analyst & AI Explorer</title>
   <script>
-    // Store the redirect path in sessionStorage
-    sessionStorage.redirect = location.pathname + location.search;
-    // Redirect to the root index.html
-    location.href = "/";
+    var pathArray = window.location.pathname.split('/');
+    var project = pathArray[1];
+    var path = pathArray.slice(1).join('/');
+    
+    if (path) {
+      // Store the intended path and redirect to root
+      sessionStorage.setItem('redirectTo', '/' + path);
+    }
+    
+    // Use window.location.replace to preserve history
+    window.location.replace('/');
   </script>
 </head>
 <body>
+  <p>Redirecting...</p>
 </body>
 </html>
