@@ -13,41 +13,49 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     // 1) Send email via FormSubmit
-    const formsubmitRes = await fetch(
-      `https://formsubmit.co/ajax/${process.env.FORMSUBMIT_EMAIL}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          message,
-        }),
-      }
-    );
+    try {
+      const formsubmitRes = await fetch(
+        `https://formsubmit.co/ajax/${process.env.FORMSUBMIT_EMAIL}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            message,
+          }),
+        }
+      );
 
-    if (!formsubmitRes.ok) {
-      console.error("FormSubmit error", await formsubmitRes.text());
+      if (!formsubmitRes.ok) {
+        console.error("FormSubmit error:", await formsubmitRes.text());
+      }
+    } catch (err) {
+      console.error("FormSubmit request failed:", err);
     }
 
     // 2) Send Telegram notification
-    const telegramRes = await fetch(
-      `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: process.env.TELEGRAM_CHAT_ID,
-          text: `📩 New contact form submission:\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-        }),
-      }
-    );
+    try {
+      const telegramRes = await fetch(
+        `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: process.env.TELEGRAM_CHAT_ID,
+            text: `📩 New contact form submission:\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+          }),
+        }
+      );
 
-    if (!telegramRes.ok) {
-      console.error("Telegram error", await telegramRes.text());
+      if (!telegramRes.ok) {
+        console.error("Telegram error:", await telegramRes.text());
+      }
+    } catch (err) {
+      console.error("Telegram request failed:", err);
     }
 
     return res.status(200).json({ ok: true });
