@@ -3,9 +3,11 @@ import { Mail, MessageCircle, Linkedin, Github, MapPin, Clock } from "lucide-rea
 
 export function Footer() {
   return (
-    <footer className="bg-secondary/50 border-t border-border">
-      <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-foreground text-background py-12">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
+            <div>
           {/* Brand */}
           <div className="space-y-4">
             <span className="text-xl font-bold text-gradient">Yeswanth Arasavalli</span>
