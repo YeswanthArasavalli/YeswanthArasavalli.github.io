@@ -22,10 +22,14 @@ export default function Index() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center space-y-6 animate-slide-up">
             <p className="text-primary font-medium">Data Analyst & AI Explorer</p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-              Transforming data into clear insights and smarter decisions.
+            <h1 className="text-3xl md:text-4xl font-semibold leading-tight text-gray-100">
+              Transforming data into
+              <br />
+              clear insights
+              <br />
+              and smarter decisions.
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="mt-4 max-w-xl text-sm md:text-base text-gray-300">
               I help businesses with data analysis, dashboards, reporting, automation — and I am expanding into AI & data science.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
