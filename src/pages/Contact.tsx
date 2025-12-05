@@ -6,8 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
 
 export default function Contact() {
-  const whatsappNumber = "+916303321322";
+  // WhatsApp expects number without "+" in the URL
+  const whatsappNumberDisplay = "Yeswanth";
+  const whatsappNumber = "+918500251322";
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   return (
@@ -49,16 +52,13 @@ export default function Contact() {
                     name="_subject"
                     value="New portfolio contact"
                   />
-                  <input
-                    type="hidden"
-                    name="_template"
-                    value="table"
-                  />
+                  <input type="hidden" name="_template" value="table" />
                   {/* optional redirect after submit */}
                   <input
                     type="hidden"
                     name="_next"
-            value="https://yeswantharasavalli.me/contact"                  />
+                    value="https://yeswantharasavalli.me/contact"
+                  />
 
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="space-y-2">
@@ -94,7 +94,6 @@ export default function Contact() {
                       />
                     </div>
                   </div>
-
 
                   <div className="space-y-2">
                     <label
@@ -147,7 +146,7 @@ export default function Contact() {
                           Email
                         </p>
                         <a
-                          href="https://formsubmit.co/yeswanthdatalabs@gmail.com"
+                          href="mailto:yeswanthdatalabs@gmail.com"
                           className="font-medium hover:text-primary transition-colors"
                         >
                           yeswanthdatalabs@gmail.com
@@ -169,7 +168,7 @@ export default function Contact() {
                           rel="noopener noreferrer"
                           className="font-medium hover:text-primary transition-colors"
                         >
-                          Chat on WhatsApp
+                          Chat on WhatsApp ({whatsappNumberDisplay})
                         </a>
                       </div>
                     </div>
