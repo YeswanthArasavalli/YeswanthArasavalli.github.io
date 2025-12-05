@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -14,8 +16,6 @@ export default function Contact() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjknoaap";
-
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsSubmitting(true);
@@ -25,24 +25,32 @@ export default function Contact() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    const payload = {
+      _subject: "New portfolio contact",
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    };
+
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
         headers: {
-          Accept: "application/json",
+          "Content-Type": "application/json",
         },
+        body: JSON.stringify(payload),
       });
 
-      if (res.ok) {
+      const data = await res.json().catch(() => null);
+
+      if (res.ok && data?.ok) {
         setIsSuccess(true);
         form.reset();
       } else {
-        const data = await res.json().catch(() => null);
-        const msg =
-          data?.errors?.[0]?.message ||
-          "Something went wrong while sending your message. Please try again.";
-        setError(msg);
+        setError(
+          data?.message ||
+            "Something went wrong while sending your message. Please try again."
+        );
       }
     } catch (err) {
       setError("Network error. Please check your connection and try again.");
@@ -75,16 +83,9 @@ export default function Contact() {
             </section>
 
             <div className="grid gap-10 md:grid-cols-[1.2fr,1fr] items-start">
-              {/* Form (Formspree) */}
+              {/* Form */}
               <section className="rounded-2xl border border-border bg-card/80 p-6 md:p-8 shadow-soft backdrop-blur">
                 <form className="space-y-6" onSubmit={handleSubmit}>
-                  {/* You can still pass a subject to Formspree as a field */}
-                  <input
-                    type="hidden"
-                    name="_subject"
-                    value="New portfolio contact"
-                  />
-
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="space-y-2">
                       <label
