@@ -5,13 +5,6 @@ import { ArrowRight, Sparkles, Download, CheckCircle, BarChart3, Palette, Cog, B
 import { projects } from "@/data/projects";
 import { blogPosts } from "@/data/blog";
 
-const Hero = () => {
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 const services = [
   { icon: BarChart3, title: "End-to-end data analysis", description: "From raw data to actionable insights" },
   { icon: Palette, title: "Dashboard development", description: "Beautiful, interactive visualizations" },
@@ -20,6 +13,13 @@ const services = [
 ];
 
 const tools = ["Python", "SQL", "Power BI", "Tableau", "Excel", "Pandas", "NumPy", "Matplotlib", "Scikit-Learn", "APIs", "GitHub", "Google Colab"];
+
+const scrollToSection = (href: string) => {
+  const element = document.querySelector(href);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 export default function Index() {
   return (
