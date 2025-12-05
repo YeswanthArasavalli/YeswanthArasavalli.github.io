@@ -3,11 +3,12 @@ import { Mail, MessageCircle, Linkedin, Github } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-white py-8">
+    <footer className="bg-foreground text-white py-12">
       <div className="container mx-auto px-4">
         {/* Top row */}
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
+            <h3 className="text-xl font-bold mb-4">Yeswanth Arasavalli</h3>
             <p className="text-sm text-white">
               Data Analyst &amp; AI Explorer
               <br />
