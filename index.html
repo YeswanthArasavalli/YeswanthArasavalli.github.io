@@ -23,8 +23,7 @@
     var redirectTo = sessionStorage.getItem('redirectTo');
     if (redirectTo) {
       sessionStorage.removeItem('redirectTo');
-      window.history.replaceState(null, '', redirectTo);
-    }
+location.href = redirectTo;    }
   </script>
   </head>
 
