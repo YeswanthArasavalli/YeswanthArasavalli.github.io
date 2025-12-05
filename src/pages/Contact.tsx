@@ -96,8 +96,8 @@ export default function Contact() {
                   Get in Touch
                 </h2>
                 <p className="text-muted-foreground">
-                  Whether you have a specific project in mind or just want to
-                  explore how data can help your business, I'd love to hear from you.
+                  Whether you have a specific project in mind or just want to explore
+                  how data can help your business, I'd love to hear from you.
                 </p>
               </div>
 
@@ -165,8 +165,8 @@ export default function Contact() {
                   Prefer WhatsApp?
                 </h3>
                 <p className="text-muted-foreground text-sm mb-4">
-                  For quick questions or to start a casual conversation about
-                  your project, WhatsApp is often the fastest way to reach me.
+                  For quick questions or to start a casual conversation about your
+                  project, WhatsApp is often the fastest way to reach me.
                 </p>
                 <Button asChild variant="default">
                   <a
