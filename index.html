@@ -19,11 +19,13 @@
     <meta name="twitter:title" content="Yeswanth Arasavalli | Data Analyst & AI Explorer" />
     <meta name="twitter:description" content="Transforming data into clear insights and smarter decisions." />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-      <script>
-    var redirectTo = sessionStorage.getItem('redirectTo');
-    if (redirectTo) {
-      sessionStorage.removeItem('redirectTo');
-location.href = redirectTo;    }
+    <script>
+    var redirectTo = sessionStorage.getItem('redirect');
+    if (redirect && redirect !== '/') {
+      sessionStorage.removeItem('redirect');
+      // Store for React Router to handle after app loads
+      window.__initialPath = redirect;
+    }
   </script>
   </head>
 
