@@ -206,7 +206,7 @@ export default function Contact() {
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="your@email.com"
+                    placeholder="yeswanthdatalabs@gmail.com"
                     value={formData.email}
                     onChange={handleChange}
                     required
