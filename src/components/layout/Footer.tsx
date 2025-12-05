@@ -10,7 +10,8 @@ export function Footer() {
           <div className="space-y-4">
             <span className="text-xl font-bold text-gradient">Yeswanth Arasavalli</span>
             <p className="text-sm text-muted-foreground">
-              Data Analyst & AI Explorer helping businesses transform data into actionable insights.
+              Data Analyst & AI Explorer 
+              helping businesses transform data into actionable insights.
             </p>
           </div>
 
