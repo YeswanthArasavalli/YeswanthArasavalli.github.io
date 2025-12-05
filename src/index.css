@@ -12,6 +12,13 @@
     --card: 0 0% 100%;
     --card-foreground: 210 40% 15%;
 
+    .gradient-text {
+    background: linear-gradient(135deg, #00b4d8, #48cae4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    }
+
     --popover: 0 0% 100%;
     --popover-foreground: 210 40% 15%;
 
