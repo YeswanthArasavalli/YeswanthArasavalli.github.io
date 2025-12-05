@@ -37,7 +37,7 @@ export default function Contact() {
               {/* Form (FormSubmit) */}
               <section className="rounded-2xl border border-border bg-card/80 p-6 md:p-8 shadow-soft backdrop-blur">
                 <form
-                  action="mailto:yeswanthdatalabs@gmail.com?subject=Contact%20Form%20Message"
+                  action="https://formsubmit.co/yeswanthdatalabs@gmail.com?subject=Contact%20Form%20Message"
                   method="POST"
                   className="space-y-6"
                   onSubmit={() => setIsSubmitting(true)}
@@ -147,7 +147,7 @@ export default function Contact() {
                           Email
                         </p>
                         <a
-                          href="mailto:yeswanthdatalabs@gmail.com"
+                          href="https://formsubmit.co/yeswanthdatalabs@gmail.com"
                           className="font-medium hover:text-primary transition-colors"
                         >
                           yeswanthdatalabs@gmail.com
