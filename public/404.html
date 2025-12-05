@@ -5,17 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yeswanth Arasavalli | Data Analyst & AI Explorer</title>
   <script>
-    var pathArray = window.location.pathname.split('/');
-    var project = pathArray[1];
-    var path = pathArray.slice(1).join('/');
-    
-    if (path) {
-      // Store the intended path and redirect to root
-      sessionStorage.setItem('redirectTo', '/' + path);
-    }
-    
-    // Use window.location.replace to preserve history
-    window.location.replace('/');
+    (function() {
+      // Get the path that was requested  
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+      
+      // Store full URL for restoration
+      if (path !== '/' && path !== '') {
+        // Use sessionStorage to redirect to the intended path
+        sessionStorage.setItem('redirect', path + search + hash);
+      }
+      
+      // Redirect to home - the React app will handle restoration
+      window.location.replace('/');
+    })();
   </script>
 </head>
 <body>
