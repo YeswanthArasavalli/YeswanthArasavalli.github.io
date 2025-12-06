@@ -41,7 +41,7 @@ export const projects: Project[] = [
     title: "Retail Product Image Recognition System",
     summary: "A production-ready deep learning system that automatically identifies retail products from images using PyTorch and EfficientNet-B0",
     description: "Built a computer vision-based SKU recognition system capable of identifying retail product categories from shelf and catalog images. The model was trained using transfer learning with EfficientNet-B0 and deployed as an interactive Streamlit web application for real-time predictions",
-    role: "Machine Learning Engineer — Led the full lifecycle: dataset cleaning, model development, optimization, and UI deployment",
+    role: "Machine Learning Engineer — Led the full lifecycle: Dataset Cleaning, Model Development, Optimization, and UI deployment",
     techStack: ["PyTorch", "EfficientNet-B0", "Streamlit", "Python", "PIL", "NumPy"],
     approach: [
       "Collected and preprocessed 100,000+ retail product images belonging to multiple SKU categories",
@@ -59,6 +59,32 @@ export const projects: Project[] = [
     ],
     result: "Automated SKU identification from product photos, reducing manual tagging effort and enabling faster retail analytics workflows.",
     codeUrl: "https://github.com/YeswanthArasavalli/retail-product-image-recognition",
+    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
+  },
+  {
+    slug: "amazon-food-reviews-sentiment-analysis",
+    title: "Amazon Food Reviews Sentiment Analysis",
+    summary: "A production-ready NLP system that classifies customer sentiment from Amazon food reviews using DistilBERT and Gradio deployment",
+    description: "Built an end-to-end sentiment analysis system using Transformer-based NLP to classify customer feedback from the Amazon Fine Food Reviews dataset (568K samples). <br />The system includes: <br />Text preprocessing & label engineering <span> Baseline machine learning model <span> Fine-tuned state-of-the-art transformer model (DistilBERT) <span> Interactive deployment using Gradio + Hugging Face Spaces",
+    role: "Machine Learning Engineer (NLP) — Led the complete lifecycle: Dataset Processing, Model Experimentation (baseline → transformer), Hyperparameter tuning, Deployment and UI building, Documentation and model evaluation reporting",
+    techStack: ["PyTorch", "DistilBERT", "Gradio", "Python", "Transformers(Hugging Face)", "TF-IDF", "Logistic Regression"],
+    approach: [
+      "Loaded and cleaned 568K+ customer reviews from Kaggle’s Amazon Fine Food dataset",
+      "Preprocessed data: lower-casing, text normalization, sentiment label mapping",
+      "Built classical baseline model using TF-IDF + Logistic Regression",
+      "Fine-tuned DistilBERT using transfer learning and GPU optimization",
+      "Evaluated performance using accuracy, F1-score, confusion matrix, ROC curve",
+      "Deployed final model using a Gradio-powered UI for real-time predictions"
+    ],
+    impact: [
+      "Automated sentiment classification from customer feedback",
+      "Achieved 94% prediction accuracy using fine-tuned transformer model",
+      "Enabled scalable analysis for food brands, review platforms, and customer intelligence systems",
+      "Reduced manual review analysis effort significantly",
+      "Demonstrated end-to-end NLP development and deployment workflow"
+    ],
+    result: "Automated sentiment detection from food reviews, reducing manual analysis effort and enabling faster customer insight workflows.",
+    codeUrl: "https://github.com/YeswanthArasavalli/amazon-food-review-sentiment-analysis",
     images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
   },
   {
