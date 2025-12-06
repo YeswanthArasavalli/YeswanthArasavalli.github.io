@@ -86,17 +86,30 @@ export default function Contact() {
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-foreground">
+                      <label
+                        htmlFor="name"
+                        className="text-sm font-medium text-foreground"
+                      >
                         Name
                       </label>
-                      <Input name="name" placeholder="Your name" required maxLength={100} />
+                      <Input
+                        id="name"
+                        name="name"
+                        placeholder="Your name"
+                        required
+                        maxLength={100}
+                      />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-foreground">
+                      <label
+                        htmlFor="email"
+                        className="text-sm font-medium text-foreground"
+                      >
                         Email
                       </label>
                       <Input
+                        id="email"
                         name="email"
                         type="email"
                         placeholder="your@email.com"
@@ -107,10 +120,14 @@ export default function Contact() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground">
+                    <label
+                      htmlFor="message"
+                      className="text-sm font-medium text-foreground"
+                    >
                       Message
                     </label>
                     <Textarea
+                      id="message"
                       name="message"
                       placeholder="Tell me about your project, timeline, or questions..."
                       rows={6}
@@ -119,7 +136,13 @@ export default function Contact() {
                     />
                   </div>
 
-                  <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
+                  <Button
+                    type="submit"
+                    variant="hero"
+                    size="lg"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
                     {isSubmitting ? "Sending..." : "Send Message"}
                     <Send className="ml-2 h-5 w-5" />
                   </Button>
@@ -141,44 +164,71 @@ export default function Contact() {
                 </form>
               </section>
 
-              {/* Contact Info */}
+              {/* Contact info */}
               <section className="space-y-6">
                 <div className="rounded-2xl border border-border bg-card/60 p-6">
-                  <h2 className="mb-4 text-sm font-semibold text-muted-foreground uppercase tracking-[0.18em]">
+                  <h2 className="mb-4 text-sm font-semibold tracking-[0.18em] text-muted-foreground uppercase">
                     Contact details
                   </h2>
-
                   <div className="space-y-4 text-sm">
                     <div className="flex items-start gap-3">
-                      <Mail className="h-4 w-4 text-primary" />
-                      <a
-                        href="mailto:yeswanthdatalabs@gmail.com"
-                        className="font-medium hover:text-primary transition-colors"
-                      >
-                        yeswanthdatalabs@gmail.com
-                      </a>
+                      <div className="mt-1 rounded-lg bg-primary/10 p-2">
+                        <Mail className="h-4 w-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                          Email
+                        </p>
+                        <a
+                          href="mailto:yeswanthdatalabs@gmail.com"
+                          className="font-medium hover:text-primary transition-colors"
+                        >
+                          yeswanthdatalabs@gmail.com
+                        </a>
+                      </div>
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <MessageCircle className="h-4 w-4 text-primary" />
-                      <a
-                        href={whatsappUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-medium hover:text-primary transition-colors"
-                      >
-                        Chat on WhatsApp ({whatsappNumberDisplay})
-                      </a>
+                      <div className="mt-1 rounded-lg bg-primary/10 p-2">
+                        <MessageCircle className="h-4 w-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                          WhatsApp
+                        </p>
+                        <a
+                          href={whatsappUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-medium hover:text-primary transition-colors"
+                        >
+                          Chat on WhatsApp ({whatsappNumberDisplay})
+                        </a>
+                      </div>
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <MapPin className="h-4 w-4 text-primary" />
-                      <p className="font-medium">India (IST)</p>
+                      <div className="mt-1 rounded-lg bg-primary/10 p-2">
+                        <MapPin className="h-4 w-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                          Location
+                        </p>
+                        <p className="font-medium">India (IST)</p>
+                      </div>
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <Clock className="h-4 w-4 text-primary" />
-                      <p className="font-medium">Within 24 hours</p>
+                      <div className="mt-1 rounded-lg bg-primary/10 p-2">
+                        <Clock className="h-4 w-4 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                          Response time
+                        </p>
+                        <p className="font-medium">Within 24 hours</p>
+                      </div>
                     </div>
                   </div>
                 </div>
