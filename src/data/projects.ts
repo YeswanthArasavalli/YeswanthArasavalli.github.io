@@ -39,27 +39,27 @@ export const projects: Project[] = [
   {
     slug: "retail-product-image-recognition",
     title: "Retail Product Image Recognition System",
-    summary: "Deep learning-based computer vision system using PyTorch and EfficientNet-B0 to classify retail product images.",
-    description: "Developed a production-ready image classification system that automatically identifies retail products from photos. The system uses transfer learning with EfficientNet-B0 architecture and is deployed as a Streamlit web application for real-time predictions.",
-    role: "Machine Learning Engineer - Designed model architecture, trained and fine-tuned the model, and built the deployment interface.",
+    summary: "A production-ready deep learning system that automatically identifies retail products from images using PyTorch and EfficientNet-B0.,
+    description: "Built a computer vision-based SKU recognition system capable of identifying retail product categories from shelf and catalog images. The model was trained using transfer learning with EfficientNet-B0 and deployed as an interactive Streamlit web application for real-time predictions.",
+    role: "Machine Learning Engineer — Led the full lifecycle: dataset cleaning, model development, optimization, and UI deployment.",
     techStack: ["PyTorch", "EfficientNet-B0", "Streamlit", "Python", "PIL", "NumPy"],
     approach: [
-      "Collected and preprocessed 10,000+ product images across multiple SKU categories",
-      "Implemented data augmentation techniques to improve model generalization",
-      "Used transfer learning with pre-trained EfficientNet-B0 weights from ImageNet",
-      "Fine-tuned the model with custom classification head for retail categories",
-      "Built interactive Streamlit interface for easy image upload and prediction",
-      "Optimized model inference for sub-second response times"
+      "Collected and preprocessed 100,000+ retail product images belonging to multiple SKU categories",
+      "Applied data augmentation (rotation, lighting variation, contrast shift) to improve robustness",
+      "Used transfer learning with EfficientNet-B0 pretrained on ImageNet",
+      "Fine-tuned a custom classifier head optimized for retail product classes",
+      "Implemented real-time inference pipeline with top-5 prediction confidence scores",
+      "Deployed an interactive web interface with image upload and instant prediction"
     ],
     impact: [
-      "Automated SKU identification from product photos",
-      "Reduced manual tagging effort by 80%",
-      "Enabled faster retail analytics workflows",
-      "Achieved 94% classification accuracy on test dataset"
+      "Automated SKU recognition from product photos with high accuracy",
+      "Achieved 84.9% validation accuracy and 94% top-5 prediction reliability",
+      "Reduced manual tagging workload by ~80%",
+      "Enabled scalable retail analytics pipelines and faster product categorization"
     ],
     result: "Automated SKU identification from product photos, reducing manual tagging effort and enabling faster retail analytics workflows.",
     codeUrl: "https://github.com/YeswanthArasavalli/retail-product-image-recognition",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
+    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
   },
   {
     slug: "customer-segmentation-analysis",
