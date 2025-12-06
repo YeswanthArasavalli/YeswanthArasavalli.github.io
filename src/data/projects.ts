@@ -59,7 +59,7 @@ export const projects: Project[] = [
     ],
     result: "Automated SKU identification from product photos, reducing manual tagging effort and enabling faster retail analytics workflows.",
     codeUrl: "https://github.com/YeswanthArasavalli/retail-product-image-recognition",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
+    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
   },
   {
     slug: "customer-segmentation-analysis",
