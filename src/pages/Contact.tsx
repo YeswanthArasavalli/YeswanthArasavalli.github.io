@@ -7,12 +7,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
 
-const FORMSUBMIT_ENDPOINT =
-  "https://formsubmit.co/ajax/yeswanthdatalabs@gmail.com";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjknoaap";
 
 export default function Contact() {
   const whatsappNumberDisplay = "Yeswanth";
-  // wa.me MUST NOT include '+'
+  // wa.me number should NOT have +
   const whatsappNumber = "918500251322";
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 
@@ -29,23 +28,16 @@ export default function Contact() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const payload = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-      _subject: "New portfolio contact",
-      _captcha: "false",
-      _template: "table",
-    };
+    // Optional: add subject for Formspree
+    formData.append("_subject", "New portfolio contact");
 
     try {
-      const res = await fetch(FORMSUBMIT_ENDPOINT, {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(payload),
+        body: formData,
       });
 
       if (res.ok) {
@@ -54,11 +46,11 @@ export default function Contact() {
       } else {
         const data = await res.json().catch(() => null);
         const msg =
-          (data && (data.message || data.error)) ||
+          data?.errors?.[0]?.message ||
           "Something went wrong while sending your message. Please try again.";
         setError(msg);
       }
-    } catch {
+    } catch (err) {
       setError("Network error. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
@@ -94,30 +86,17 @@ export default function Contact() {
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="space-y-2">
-                      <label
-                        htmlFor="name"
-                        className="text-sm font-medium text-foreground"
-                      >
+                      <label className="text-sm font-medium text-foreground">
                         Name
                       </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        placeholder="Your name"
-                        required
-                        maxLength={100}
-                      />
+                      <Input name="name" placeholder="Your name" required maxLength={100} />
                     </div>
 
                     <div className="space-y-2">
-                      <label
-                        htmlFor="email"
-                        className="text-sm font-medium text-foreground"
-                      >
+                      <label className="text-sm font-medium text-foreground">
                         Email
                       </label>
                       <Input
-                        id="email"
                         name="email"
                         type="email"
                         placeholder="your@email.com"
@@ -128,14 +107,10 @@ export default function Contact() {
                   </div>
 
                   <div className="space-y-2">
-                    <label
-                      htmlFor="message"
-                      className="text-sm font-medium text-foreground"
-                    >
+                    <label className="text-sm font-medium text-foreground">
                       Message
                     </label>
                     <Textarea
-                      id="message"
                       name="message"
                       placeholder="Tell me about your project, timeline, or questions..."
                       rows={6}
@@ -144,13 +119,7 @@ export default function Contact() {
                     />
                   </div>
 
-                  <Button
-                    type="submit"
-                    variant="hero"
-                    size="lg"
-                    className="w-full"
-                    disabled={isSubmitting}
-                  >
+                  <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
                     {isSubmitting ? "Sending..." : "Send Message"}
                     <Send className="ml-2 h-5 w-5" />
                   </Button>
@@ -172,12 +141,13 @@ export default function Contact() {
                 </form>
               </section>
 
-              {/* Contact info */}
+              {/* Contact Info */}
               <section className="space-y-6">
                 <div className="rounded-2xl border border-border bg-card/60 p-6">
-                  <h2 className="mb-4 text-sm font-semibold tracking-[0.18em] text-muted-foreground uppercase">
+                  <h2 className="mb-4 text-sm font-semibold text-muted-foreground uppercase tracking-[0.18em]">
                     Contact details
                   </h2>
+
                   <div className="space-y-4 text-sm">
                     <div className="flex items-start gap-3">
                       <Mail className="h-4 w-4 text-primary" />
