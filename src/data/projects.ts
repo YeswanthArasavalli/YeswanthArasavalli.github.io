@@ -39,9 +39,9 @@ export const projects: Project[] = [
   {
     slug: "retail-product-image-recognition",
     title: "Retail Product Image Recognition System",
-    summary: "A production-ready deep learning system that automatically identifies retail products from images using PyTorch and EfficientNet-B0.,
-    description: "Built a computer vision-based SKU recognition system capable of identifying retail product categories from shelf and catalog images. The model was trained using transfer learning with EfficientNet-B0 and deployed as an interactive Streamlit web application for real-time predictions.",
-    role: "Machine Learning Engineer — Led the full lifecycle: dataset cleaning, model development, optimization, and UI deployment.",
+    summary: "A production-ready deep learning system that automatically identifies retail products from images using PyTorch and EfficientNet-B0",
+    description: "Built a computer vision-based SKU recognition system capable of identifying retail product categories from shelf and catalog images. The model was trained using transfer learning with EfficientNet-B0 and deployed as an interactive Streamlit web application for real-time predictions",
+    role: "Machine Learning Engineer — Led the full lifecycle: dataset cleaning, model development, optimization, and UI deployment",
     techStack: ["PyTorch", "EfficientNet-B0", "Streamlit", "Python", "PIL", "NumPy"],
     approach: [
       "Collected and preprocessed 100,000+ retail product images belonging to multiple SKU categories",
@@ -59,7 +59,7 @@ export const projects: Project[] = [
     ],
     result: "Automated SKU identification from product photos, reducing manual tagging effort and enabling faster retail analytics workflows.",
     codeUrl: "https://github.com/YeswanthArasavalli/retail-product-image-recognition",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
+    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
   },
   {
     slug: "customer-segmentation-analysis",
