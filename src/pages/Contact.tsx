@@ -7,11 +7,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
 
-const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/yeswanthdatalabs@gmail.com";
+const FORMSUBMIT_ENDPOINT =
+  "https://formsubmit.co/ajax/yeswanthdatalabs@gmail.com";
 
 export default function Contact() {
   const whatsappNumberDisplay = "Yeswanth";
-  const whatsappNumber = "918500251322"; // no +
+  // wa.me MUST NOT include '+'
+  const whatsappNumber = "918500251322";
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,28 +29,40 @@ export default function Contact() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // FormSubmit config
-    formData.append("_subject", "New message from Portfolio Contact");
-    formData.append("_captcha", "false");
-    formData.append("_template", "table");
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+      _subject: "New portfolio contact",
+      _captcha: "false",
+      _template: "table",
+    };
 
     try {
       const res = await fetch(FORMSUBMIT_ENDPOINT, {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
       });
 
       if (res.ok) {
         setIsSuccess(true);
         form.reset();
       } else {
-        setError("Something went wrong, please try again.");
+        const data = await res.json().catch(() => null);
+        const msg =
+          (data && (data.message || data.error)) ||
+          "Something went wrong while sending your message. Please try again.";
+        setError(msg);
       }
-    } catch (err) {
-      setError("Network error. Please try again.");
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setIsSubmitting(false);
   }
 
   return (
@@ -56,6 +70,7 @@ export default function Contact() {
       <div className="min-h-[calc(100vh-200px)] bg-gradient-to-b from-background via-background/80 to-muted/30">
         <main className="container mx-auto px-4 py-16 md:py-24">
           <div className="max-w-4xl mx-auto">
+            {/* Header */}
             <section className="mb-12 text-center space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-4 py-1 text-xs font-medium text-muted-foreground mb-4">
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10">
@@ -74,26 +89,49 @@ export default function Contact() {
             </section>
 
             <div className="grid gap-10 md:grid-cols-[1.2fr,1fr] items-start">
+              {/* Form */}
               <section className="rounded-2xl border border-border bg-card/80 p-6 md:p-8 shadow-soft backdrop-blur">
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid gap-4 md:grid-cols-2">
                     <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium text-foreground">
+                      <label
+                        htmlFor="name"
+                        className="text-sm font-medium text-foreground"
+                      >
                         Name
                       </label>
-                      <Input id="name" name="name" placeholder="Your name" required maxLength={100} />
+                      <Input
+                        id="name"
+                        name="name"
+                        placeholder="Your name"
+                        required
+                        maxLength={100}
+                      />
                     </div>
 
                     <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium text-foreground">
+                      <label
+                        htmlFor="email"
+                        className="text-sm font-medium text-foreground"
+                      >
                         Email
                       </label>
-                      <Input id="email" name="email" type="email" placeholder="your@email.com" required maxLength={255} />
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="your@email.com"
+                        required
+                        maxLength={255}
+                      />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm font-medium text-foreground">
+                    <label
+                      htmlFor="message"
+                      className="text-sm font-medium text-foreground"
+                    >
                       Message
                     </label>
                     <Textarea
@@ -106,24 +144,35 @@ export default function Contact() {
                     />
                   </div>
 
-                  <Button type="submit" variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
+                  <Button
+                    type="submit"
+                    variant="hero"
+                    size="lg"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
                     {isSubmitting ? "Sending..." : "Send Message"}
                     <Send className="ml-2 h-5 w-5" />
                   </Button>
 
                   {isSuccess && (
-                    <p className="text-xs text-emerald-500 text-center">Thanks! Your message has been sent.</p>
+                    <p className="text-xs text-emerald-500 text-center">
+                      Thanks for reaching out! Your message has been sent.
+                    </p>
                   )}
 
-                  {error && <p className="text-xs text-red-500 text-center">{error}</p>}
+                  {error && (
+                    <p className="text-xs text-red-500 text-center">{error}</p>
+                  )}
 
                   <p className="text-xs text-muted-foreground text-center">
-                    By submitting, your message will be securely delivered to my inbox.
+                    By submitting this form, your message will be securely
+                    delivered to my inbox.
                   </p>
                 </form>
               </section>
 
-              {/* Sidebar contact info remains unchanged */}
+              {/* Contact info */}
               <section className="space-y-6">
                 <div className="rounded-2xl border border-border bg-card/60 p-6">
                   <h2 className="mb-4 text-sm font-semibold tracking-[0.18em] text-muted-foreground uppercase">
@@ -131,47 +180,35 @@ export default function Contact() {
                   </h2>
                   <div className="space-y-4 text-sm">
                     <div className="flex items-start gap-3">
-                      <div className="mt-1 rounded-lg bg-primary/10 p-2">
-                        <Mail className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Email</p>
-                        <a href="mailto:yeswanthdatalabs@gmail.com" className="font-medium hover:text-primary transition-colors">
-                          yeswanthdatalabs@gmail.com
-                        </a>
-                      </div>
+                      <Mail className="h-4 w-4 text-primary" />
+                      <a
+                        href="mailto:yeswanthdatalabs@gmail.com"
+                        className="font-medium hover:text-primary transition-colors"
+                      >
+                        yeswanthdatalabs@gmail.com
+                      </a>
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="mt-1 rounded-lg bg-primary/10 p-2">
-                        <MessageCircle className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">WhatsApp</p>
-                        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="font-medium hover:text-primary transition-colors">
-                          Chat on WhatsApp ({whatsappNumberDisplay})
-                        </a>
-                      </div>
+                      <MessageCircle className="h-4 w-4 text-primary" />
+                      <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-medium hover:text-primary transition-colors"
+                      >
+                        Chat on WhatsApp ({whatsappNumberDisplay})
+                      </a>
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="mt-1 rounded-lg bg-primary/10 p-2">
-                        <MapPin className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Location</p>
-                        <p className="font-medium">India (IST)</p>
-                      </div>
+                      <MapPin className="h-4 w-4 text-primary" />
+                      <p className="font-medium">India (IST)</p>
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="mt-1 rounded-lg bg-primary/10 p-2">
-                        <Clock className="h-4 w-4 text-primary" />
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Response time</p>
-                        <p className="font-medium">Within 24 hours</p>
-                      </div>
+                      <Clock className="h-4 w-4 text-primary" />
+                      <p className="font-medium">Within 24 hours</p>
                     </div>
                   </div>
                 </div>
