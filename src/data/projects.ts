@@ -85,7 +85,7 @@ export const projects: Project[] = [
     ],
     result: "Automated sentiment detection from food reviews, reducing manual analysis effort and enabling faster customer insight workflows.",
     codeUrl: "https://github.com/YeswanthArasavalli/amazon-food-review-sentiment-analysis",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
+    images: ["/projects/amazon_food/word.png", "/projects/amazon_food/roc.png", "/projects/amazon_food/confusion.png", "/projects/amazon_food/accuracy.png"]
   },
   {
     slug: "customer-segmentation-analysis",
