@@ -108,21 +108,23 @@ export default function ProjectDetail() {
           <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Project Visuals</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              {project.images.map((_, index) => (
+              {project.images.map((image, index) => (
                 <div
                   key={index}
-                  className="aspect-video bg-card rounded-lg border border-border flex items-center justify-center"
+                  className="aspect-video bg-card rounded-lg border border-border overflow-hidden"
                 >
-                  <div className="text-center">
-                    <BarChart3 className="h-12 w-12 text-primary/30 mx-auto mb-2" />
-                    <p className="text-sm text-muted-foreground">Visual {index + 1}</p>
-                  </div>
+                  <img 
+                    src={image} 
+                    alt={`Project visual ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               ))}
             </div>
           </div>
         </div>
       </section>
+
 
       {/* Impact & Results */}
       <section className="py-16">
