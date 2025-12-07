@@ -63,7 +63,7 @@ export const projects: Project[] = [
     slug: "amazon-food-reviews-sentiment-analysis",
     title: "Amazon Food Reviews Sentiment Analysis",
     summary: "A production-ready NLP system that classifies customer sentiment from Amazon food reviews using DistilBERT and Gradio deployment",
-    description: "Built an end-to-end sentiment analysis system using Transformer-based NLP to classify customer feedback from the Amazon Fine Food Reviews dataset (568K samples). <br />The system includes: <br />Text preprocessing & label engineering <span> Baseline machine learning model <span> Fine-tuned state-of-the-art transformer model (DistilBERT) <span> Interactive deployment using Gradio + Hugging Face Spaces",
+    description: "Built an end-to-end sentiment analysis system using Transformer-based NLP to classify customer feedback from the Amazon Fine Food Reviews dataset (568K samples). The system includes: Text preprocessing & label engineering, Baseline machine learning model, Fine-tuned state-of-the-art transformer model (DistilBERT), and Interactive deployment using Gradio + Hugging Face Spaces",
     role: "Machine Learning Engineer (NLP) — Led the complete lifecycle: Dataset Processing, Model Experimentation (baseline → transformer), Hyperparameter tuning, Deployment and UI building, Documentation and model evaluation reporting",
     techStack: ["PyTorch", "DistilBERT", "Gradio", "Python", "Transformers(Hugging Face)", "TF-IDF", "Logistic Regression"],
     approach: [
