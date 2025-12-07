@@ -59,7 +59,7 @@ export const projects: Project[] = [
     ],
     result: "Automated SKU identification from product photos, reducing manual tagging effort and enabling faster retail analytics workflows.",
     codeUrl: "https://github.com/YeswanthArasavalli/retail-product-image-recognition",
-    images: ["/projects/retail_image/ui.png", "/placeholder.svg", "/placeholder.svg", "/projects/retail_image/img2.png"]
+    images: ["/r_thumb.png", "/projects/retail_image/ui.png", "/placeholder.svg", "/placeholder.svg", "/projects/retail_image/img2.png"]
   },
   {
     slug: "amazon-food-reviews-sentiment-analysis",
@@ -85,7 +85,7 @@ export const projects: Project[] = [
     ],
     result: "Automated sentiment detection from food reviews, reducing manual analysis effort and enabling faster customer insight workflows.",
     codeUrl: "https://github.com/YeswanthArasavalli/amazon-food-review-sentiment-analysis",
-    images: ["/projects/amazon_food/word.png", "/projects/amazon_food/roc.png", "/projects/amazon_food/confusion.png", "/projects/amazon_food/accuracy.png"]
+    images: ["/a_thumb.png", "/projects/amazon_food/word.png", "/projects/amazon_food/roc.png", "/projects/amazon_food/confusion.png", "/projects/amazon_food/accuracy.png"]
   },
   {
     slug: "customer-segmentation-analysis",
