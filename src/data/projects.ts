@@ -45,9 +45,7 @@ export const projects: Project[] = [
     techStack: ["PyTorch", "EfficientNet-B0", "Streamlit", "Python", "PIL", "NumPy"],
     approach: [
       "Collected and preprocessed 100,000+ retail product images belonging to multiple SKU categories",
-      "Applied data augmentation (rotation, lighting variation, contrast shift) to improve robustness",
-      "Used transfer learning with EfficientNet-B0 pretrained on ImageNet",
-      "Fine-tuned a custom classifier head optimized for retail product classes",
+ <span>      "Fine-tuned a custom classifier head optimized for retail product classes",
       "Implemented real-time inference pipeline with top-5 prediction confidence scores",
       "Deployed an interactive web interface with image upload and instant prediction"
     ],
@@ -69,7 +67,7 @@ export const projects: Project[] = [
     role: "Machine Learning Engineer (NLP) — Led the complete lifecycle: Dataset Processing, Model Experimentation (baseline → transformer), Hyperparameter tuning, Deployment and UI building, Documentation and model evaluation reporting",
     techStack: ["PyTorch", "DistilBERT", "Gradio", "Python", "Transformers(Hugging Face)", "TF-IDF", "Logistic Regression"],
     approach: [
-      "Loaded and cleaned 568K+ customer reviews from Kaggle’s Amazon Fine Food dataset",
+      "Loaded and cleaned 568K+ customer reviews from Kaggle’s Amazon Fine Food dataset",<br />
       "Preprocessed data: lower-casing, text normalization, sentiment label mapping",
       "Built classical baseline model using TF-IDF + Logistic Regression",
       "Fine-tuned DistilBERT using transfer learning and GPU optimization",
