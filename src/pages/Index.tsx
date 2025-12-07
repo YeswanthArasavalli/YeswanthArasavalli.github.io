@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+140
+  import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import {
@@ -137,10 +138,7 @@ export default function Index() {
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
-            {projects
-              .filter((p) => ["retail-product-image-recognition", "amazon-food-reviews-sentiment-analysis", "customer-segmentation-analysis"].includes(p.slug))
-              .map((project) => (=> (
-              <div
+            {projects.filter((p) => ["retail-product-image-recognition", "amazon-food-reviews-sentiment-analysis", "customer-segmentation-analysis"].includes(p.slug)).map((project) => (  <div
                 key={project.slug}
                 className="bg-card rounded-lg border border-border overflow-hidden hover:shadow-lg transition-all group"
               >
