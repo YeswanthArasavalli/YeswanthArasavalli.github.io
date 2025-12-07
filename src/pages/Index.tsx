@@ -143,11 +143,10 @@ export default function Index() {
                 className="bg-card rounded-lg border border-border overflow-hidden hover:shadow-lg transition-all group"
               >
                 <div className="aspect-video bg-accent/50 relative">
-                                    <Image
+                                    <img
                     src={project.images[0]}
                     alt={project.title}
-                    fill
-                    className="object-cover"
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <BarChart3 className="h-16 w-16 text-primary/30" />
