@@ -184,6 +184,11 @@ export default function Index() {
             ))}
           </div>
         </div>
+                  <div className="mt-12 text-center">
+            <Link to="/projects">
+              <Button size="lg">View All Projects</Button>
+            </Link>
+          </div>
       </section>
 
       {/* Blog Section */}
