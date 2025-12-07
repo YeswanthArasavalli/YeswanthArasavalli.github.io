@@ -139,7 +139,7 @@ export default function Index() {
           
           <div className="grid md:grid-cols-2 gap-8">
             {projects.filter((p) => ["retail-product-image-recognition", "amazon-food-reviews-sentiment-analysis", "customer-segmentation-analysis"].includes(p.slug)).map((project) => (  <div
-                {projects.slice(1, 4).map((project) => (
+                key={project.slug}
                 className="bg-card rounded-lg border border-border overflow-hidden hover:shadow-lg transition-all group"
               >
                 <div className="aspect-video bg-accent/50 relative">
