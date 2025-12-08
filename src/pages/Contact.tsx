@@ -180,10 +180,10 @@ export default function Contact() {
                           Email
                         </p>
                         <a
-                          href="mailto:yeswanthdatalabs@gmail.com"
+                          href="mailto:yeswantharasavalli@gmail.com"
                           className="font-medium hover:text-primary transition-colors"
                         >
-                          yeswanthdatalabs@gmail.com
+                          yeswantharasavalli@gmail.com
                         </a>
                       </div>
                     </div>
