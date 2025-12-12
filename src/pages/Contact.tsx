@@ -10,7 +10,7 @@ import { Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjknoaap";
 
 export default function Contact() {
-  //const whatsappNumberDisplay = "Yeswanth";
+  const whatsappNumberDisplay = "Yeswanth";
   // wa.me number should NOT have +
   const whatsappNumber = "918500251322";
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
