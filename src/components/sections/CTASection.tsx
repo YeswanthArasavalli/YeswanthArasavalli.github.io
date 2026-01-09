@@ -25,7 +25,7 @@ export function CTASection({
               </Link>
             </Button>
             <Button asChild variant="hero-outline" size="lg">
-              <a href="https://wa.me/+918500251322" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/+916303321322" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Chat on WhatsApp
               </a>
