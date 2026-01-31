@@ -33,9 +33,9 @@ export const projects: Project[] = [
     ],
     impact: [
       "Consolidated multi-year sales data into a single Power BI dashboard",
-      "Tracked regional, product, and time-based KPIs using DAX",
-      "Reduced reliance on manual Excel-based reporting",
-      "Enabled faster self-serve access to sales performance insights",
+      "Tracked regional, product, and time-based KPIs using DAX measures",
+      "Reduced reliance on manual Excel-based reporting workflows",
+      "Enabled faster self-serve access to sales performance insights for stakeholders",
     ],
     result:
       "Improved visibility into sales performance and reduced reliance on manual reporting.",
@@ -60,9 +60,9 @@ export const projects: Project[] = [
     ],
     impact: [
       "Trained on ~200 retail SKU categories using transfer learning with EfficientNet-B0",
-      "Achieved ~84.9% validation accuracy and ~94% top-5 accuracy",
-      "Enabled real-time image inference via Streamlit UI (<1s per image on CPU)",
-      "Demonstrated feasibility of automated SKU classification for retail analytics workflows",
+      "Achieved ~84.9% validation accuracy and ~94% top-5 accuracy on held-out data",
+      "Supports real-time image inference via Streamlit UI (typically under 1 second per image on CPU)",
+      "Demonstrates feasibility of automated SKU classification for retail analytics workflows",
     ],
     result:
       "Automated SKU identification from product images, reducing manual tagging effort and enabling faster analytics workflows.",
@@ -105,8 +105,8 @@ export const projects: Project[] = [
     ],
     impact: [
       "Trained on 568,000+ Amazon food reviews from a public Kaggle dataset",
-      "Fine-tuned DistilBERT achieving ~92–94% validation accuracy",
-      "Maintained average inference latency under 300ms per review",
+      "Fine-tuned DistilBERT achieving ~92–94% validation accuracy on sentiment classification",
+      "Average inference latency under 300ms per review during demo testing",
       "Deployed an interactive sentiment analysis demo using Gradio and Hugging Face Spaces",
     ],
     result:
