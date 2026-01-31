@@ -6,9 +6,9 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
   { href: "/services", label: "Services" },
-    { href: "/projects", label: "Projects" },
+  { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
@@ -20,8 +20,11 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
       <div className="container flex h-16 items-center justify-between">
-<Link to="/" className="flex items-center gap-2">
-     <span className="text-xl font-bold text-gradient">Yeswanth Arasavalli</span>
+        {/* Brand */}
+        <Link to="/" className="flex items-center gap-2">
+          <span className="text-xl font-bold gradient-text">
+            Yeswanth Arasavalli
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -40,8 +43,9 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <Button asChild variant="default" size="sm">
-            <Link to="/contact">Hire Me</Link>
+
+          <Button asChild size="sm">
+            <Link to="/contact">Work With Me</Link>
           </Button>
         </nav>
 
@@ -78,9 +82,10 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Button asChild variant="default" size="sm" className="w-fit">
+
+            <Button asChild size="sm" className="w-fit">
               <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                Hire Me
+                Work With Me
               </Link>
             </Button>
           </nav>
