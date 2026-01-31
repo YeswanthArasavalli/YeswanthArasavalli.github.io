@@ -16,125 +16,167 @@ export const projects: Project[] = [
   {
     slug: "sales-performance-dashboard",
     title: "Sales Performance Dashboard",
-    summary: "Comprehensive Power BI dashboard analyzing 2 years of sales data across multiple regions and product categories.",
-    description: "Built an interactive Power BI dashboard that consolidates sales data from multiple sources, providing real-time insights into revenue trends, regional performance, and product category analysis. The dashboard serves 50+ stakeholders and has become the primary tool for executive decision-making.",
-    role: "Lead Data Analyst - Responsible for data modeling, DAX calculations, visualization design, and stakeholder training.",
+    summary:
+      "Interactive Power BI dashboard analyzing multi-year sales performance across regions and product categories.",
+    description:
+      "Built an interactive Power BI dashboard consolidating sales data from multiple sources to track revenue trends, regional performance, and product-level metrics. The dashboard was designed to support management and sales teams with faster, self-serve access to key KPIs.",
+    role:
+      "Data Analyst — Designed the data model, built DAX measures, created dashboards, and supported stakeholder adoption.",
     techStack: ["Power BI", "SQL", "Excel", "DAX"],
     approach: [
-      "Gathered requirements from sales managers and executives to understand key metrics and KPIs",
-      "Designed a star schema data model connecting sales, products, regions, and time dimensions",
-      "Created complex DAX measures for YoY comparisons, running totals, and dynamic filtering",
-      "Implemented row-level security to ensure data access control across regions",
-      "Set up automated data refresh schedules to maintain real-time accuracy"
+      "Worked with sales and management stakeholders to define KPIs and reporting requirements",
+      "Designed a star-schema data model connecting sales, product, region, and time dimensions",
+      "Built DAX measures for YoY growth, trends, and performance comparisons",
+      "Designed interactive dashboards with filters for region, product, and time",
+      "Set up scheduled data refresh to keep reports up to date",
     ],
     impact: [
-      "Reduced manual reporting time by 75%",
-      "Improved data visibility for 50+ stakeholders",
-      "Enabled faster decision-making with real-time KPIs",
-      "Identified $200K+ in revenue opportunities through trend analysis"
+      "Reduced manual reporting effort significantly",
+      "Improved visibility of sales performance for business stakeholders",
+      "Enabled quicker identification of regional and product-level trends",
+      "Supported data-driven sales and planning discussions",
     ],
-    result: "Reduced reporting time by 75% and improved data visibility for 50+ stakeholders.",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
+    result:
+      "Improved visibility into sales performance and reduced reliance on manual reporting.",
+    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
   },
+
   {
     slug: "retail-product-image-recognition",
     title: "Retail Product Image Recognition System",
-    summary: "A production-ready deep learning system that automatically identifies retail products from images using PyTorch and EfficientNet-B0",
-    description: "Built a computer vision-based SKU recognition system capable of identifying retail product categories from shelf and catalog images. The model was trained using transfer learning with EfficientNet-B0 and deployed as an interactive Streamlit web application for real-time predictions",
-    role: "Machine Learning Engineer — Led the full lifecycle: Dataset Cleaning, Model Development, Optimization, and UI deployment",
-    techStack: ["PyTorch", "EfficientNet-B0", "Streamlit", "Python", "PIL", "NumPy"],
+    summary:
+      "End-to-end computer vision system for identifying retail products from images using EfficientNet and PyTorch.",
+    description:
+      "Built a computer vision–based SKU recognition system capable of classifying retail product images. The model was trained using transfer learning with EfficientNet-B0 and deployed as an interactive Streamlit application to demonstrate real-time predictions.",
+    role:
+      "Machine Learning Engineer — Handled data preprocessing, model training, evaluation, and demo deployment.",
+    techStack: ["PyTorch", "EfficientNet-B0", "Streamlit", "Python", "NumPy"],
     approach: [
-      "Collected and preprocessed 100,000+ retail product images belonging to multiple SKU categories",
-      "Fine-tuned a custom classifier head optimized for retail product classes",
-      "Implemented real-time inference pipeline with top-5 prediction confidence scores",
-      "Deployed an interactive web interface with image upload and instant prediction"
+      "Preprocessed and organized retail product image datasets across multiple SKU categories",
+      "Fine-tuned EfficientNet-B0 using transfer learning for image classification",
+      "Evaluated model performance using accuracy and top-5 prediction metrics",
+      "Built a Streamlit-based interface for uploading images and viewing predictions",
     ],
     impact: [
-      "Automated SKU recognition from product photos with high accuracy",
-      "Achieved 84.9% validation accuracy and 94% top-5 prediction reliability",
-      "Reduced manual tagging workload by ~80%",
-      "Enabled scalable retail analytics pipelines and faster product categorization"
+      "Automated product identification from retail images",
+      "Achieved ~85% validation accuracy with strong top-5 reliability",
+      "Reduced manual tagging effort in product classification workflows",
+      "Demonstrated feasibility of computer vision for retail analytics use cases",
     ],
-    result: "Automated SKU identification from product photos, reducing manual tagging effort and enabling faster retail analytics workflows.",
-    codeUrl: "https://github.com/YeswanthArasavalli/retail-product-image-recognition",
-    images: ["/projects/retail_image/r_thumb.png", "/projects/retail_image/data.png", "/projects/retail_image/confuion_matrix.png", "/projects/retail_image/Figure_1.png", "/projects/retail_image/img2.png"]
+    result:
+      "Automated SKU identification from product images, reducing manual tagging effort and enabling faster analytics workflows.",
+    codeUrl:
+      "https://github.com/YeswanthArasavalli/retail-product-image-recognition",
+    images: [
+      "/projects/retail_image/r_thumb.png",
+      "/projects/retail_image/data.png",
+      "/projects/retail_image/confuion_matrix.png",
+      "/projects/retail_image/Figure_1.png",
+      "/projects/retail_image/img2.png",
+    ],
   },
+
   {
     slug: "amazon-food-reviews-sentiment-analysis",
     title: "Amazon Food Reviews Sentiment Analysis",
-    summary: "A production-ready NLP system that classifies customer sentiment from Amazon food reviews using DistilBERT and Gradio deployment",
-    description: "Built an end-to-end sentiment analysis system using Transformer-based NLP to classify customer feedback from the Amazon Fine Food Reviews dataset (568K samples). The system includes: Text preprocessing & label engineering, Baseline machine learning model, Fine-tuned state-of-the-art transformer model (DistilBERT), and Interactive deployment using Gradio + Hugging Face Spaces",
-    role: "Machine Learning Engineer (NLP) — Led the complete lifecycle: Dataset Processing, Model Experimentation (baseline → transformer), Hyperparameter tuning, Deployment and UI building, Documentation and model evaluation reporting",
-    techStack: ["PyTorch", "DistilBERT", "Gradio", "Python", "Transformers(Hugging Face)", "TF-IDF", "Logistic Regression"],
+    summary:
+      "End-to-end NLP system for classifying customer sentiment from Amazon food reviews using DistilBERT.",
+    description:
+      "Developed a sentiment analysis pipeline using the Amazon Fine Food Reviews dataset (568K+ reviews). The project includes data preprocessing, baseline machine learning models, fine-tuned transformer models, and an interactive demo using Gradio.",
+    role:
+      "Machine Learning Engineer (NLP) — Managed data processing, model experimentation, evaluation, and deployment.",
+    techStack: [
+      "PyTorch",
+      "DistilBERT",
+      "Gradio",
+      "Python",
+      "Hugging Face Transformers",
+      "TF-IDF",
+      "Logistic Regression",
+    ],
     approach: [
-      "Loaded and cleaned 568K+ customer reviews from Kaggle’s Amazon Fine Food dataset",
-      "Preprocessed data: lower-casing, text normalization, sentiment label mapping",
-      "Built classical baseline model using TF-IDF + Logistic Regression",
-      "Fine-tuned DistilBERT using transfer learning and GPU optimization",
-      "Evaluated performance using accuracy, F1-score, confusion matrix, ROC curve",
-      "Deployed final model using a Gradio-powered UI for real-time predictions"
+      "Cleaned and preprocessed large-scale text data from customer reviews",
+      "Built a baseline sentiment classifier using TF-IDF and Logistic Regression",
+      "Fine-tuned DistilBERT using transfer learning and GPU acceleration",
+      "Evaluated models using accuracy, F1-score, and confusion matrix",
+      "Deployed an interactive Gradio demo for real-time sentiment predictions",
     ],
     impact: [
-      "Automated sentiment classification from customer feedback",
-      "Achieved 94% prediction accuracy using fine-tuned transformer model",
-      "Enabled scalable analysis for food brands, review platforms, and customer intelligence systems",
-      "Reduced manual review analysis effort significantly",
-      "Demonstrated end-to-end NLP development and deployment workflow"
+      "Automated sentiment classification from large volumes of customer feedback",
+      "Achieved high prediction accuracy with transformer-based models",
+      "Enabled scalable analysis of customer reviews for insight generation",
+      "Demonstrated full NLP workflow from data to deployment",
     ],
-    result: "Automated sentiment detection from food reviews, reducing manual analysis effort and enabling faster customer insight workflows.",
-    codeUrl: "https://github.com/YeswanthArasavalli/amazon-food-review-sentiment-analysis",
-    images: ["/projects/amazon_food/a_thumb.png", "/projects/amazon_food/word.png", "/projects/amazon_food/roc.png", "/projects/amazon_food/confusion.png", "/projects/amazon_food/accuracy.png"]
+    result:
+      "Automated sentiment detection from food reviews, reducing manual analysis effort and enabling faster customer insights.",
+    codeUrl:
+      "https://github.com/YeswanthArasavalli/amazon-food-review-sentiment-analysis",
+    images: [
+      "/projects/amazon_food/a_thumb.png",
+      "/projects/amazon_food/word.png",
+      "/projects/amazon_food/roc.png",
+      "/projects/amazon_food/confusion.png",
+      "/projects/amazon_food/accuracy.png",
+    ],
   },
+
   {
     slug: "customer-segmentation-analysis",
     title: "Customer Segmentation Analysis",
-    summary: "Advanced Python-based clustering analysis using K-means and RFM methodology to identify distinct customer segments.",
-    description: "Performed comprehensive customer segmentation analysis for an e-commerce company using RFM (Recency, Frequency, Monetary) framework combined with K-means clustering. The analysis revealed 5 distinct customer personas that enabled precision-targeted marketing campaigns.",
-    role: "Data Analyst - Conducted exploratory analysis, built segmentation model, and created actionable recommendations.",
-    techStack: ["Python", "Pandas", "Scikit-Learn", "Matplotlib", "Seaborn", "Jupyter Notebook"],
+    summary:
+      "Python-based customer segmentation using RFM analysis and K-means clustering.",
+    description:
+      "Performed customer segmentation analysis using transaction data and RFM metrics to identify distinct customer groups. The segmentation helped illustrate how targeted strategies can be designed for different customer behaviors.",
+    role:
+      "Data Analyst — Conducted exploratory analysis, built clustering models, and translated findings into recommendations.",
+    techStack: ["Python", "Pandas", "Scikit-Learn", "Matplotlib", "Jupyter"],
     approach: [
-      "Extracted and cleaned 2 years of transaction data from multiple sources",
-      "Calculated RFM metrics for each customer based on purchase history",
-      "Used elbow method and silhouette scores to determine optimal cluster count",
-      "Applied K-means clustering to segment customers into distinct groups",
-      "Profiled each segment with demographic and behavioral characteristics",
-      "Created visualization dashboards to communicate findings to marketing team"
+      "Cleaned and prepared historical transaction data",
+      "Computed RFM metrics for each customer",
+      "Used elbow method and silhouette scores to select optimal cluster count",
+      "Applied K-means clustering to segment customers",
+      "Analyzed and profiled customer groups based on behavior",
     ],
     impact: [
-      "Enabled 40% improvement in marketing ROI",
-      "Identified high-value customers for loyalty programs",
-      "Discovered at-risk customers for retention campaigns",
-      "Reduced marketing spend waste by 25%"
+      "Enabled clearer understanding of different customer segments",
+      "Supported more targeted marketing and retention strategies",
+      "Helped identify high-value and at-risk customer groups",
+      "Reduced wasted marketing effort through better segmentation",
     ],
-    result: "Enabled 40% improvement in marketing ROI through precision-targeted campaigns.",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
+    result:
+      "Improved understanding of customer behavior and supported more targeted marketing strategies.",
+    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
   },
+
   {
     slug: "automated-reporting-system",
     title: "Automated Reporting System",
-    summary: "End-to-end Python automation pipeline that generates and distributes weekly reports with zero manual intervention.",
-    description: "Built a fully automated reporting system that extracts data from multiple sources, performs analysis, generates visualizations, and emails comprehensive reports to stakeholders every Monday morning. The system runs on a scheduled basis with error handling and logging.",
-    role: "Automation Developer - Designed architecture, wrote Python scripts, and implemented email distribution.",
-    techStack: ["Python", "Pandas", "Matplotlib", "SMTP", "Schedule", "Logging"],
+    summary:
+      "Python-based automation pipeline for generating and distributing recurring analytical reports.",
+    description:
+      "Built an automated reporting pipeline that extracts data, performs analysis, generates visualizations, and distributes reports to stakeholders on a scheduled basis with minimal manual intervention.",
+    role:
+      "Automation Developer — Designed the pipeline, implemented automation logic, and handled scheduling and monitoring.",
+    techStack: ["Python", "Pandas", "Matplotlib", "SMTP", "Scheduling"],
     approach: [
-      "Mapped out data sources and required report components with stakeholders",
-      "Built modular Python scripts for data extraction, transformation, and loading",
-      "Created dynamic visualization templates using Matplotlib and Seaborn",
-      "Implemented HTML email templates with embedded charts and tables",
-      "Set up scheduled task execution with comprehensive error handling",
-      "Added logging and alerting for monitoring pipeline health"
+      "Identified recurring reporting requirements with stakeholders",
+      "Built modular Python scripts for data extraction and processing",
+      "Generated charts and tables programmatically",
+      "Automated report distribution via email",
+      "Implemented logging and basic error handling",
     ],
     impact: [
-      "Saved 10+ hours per week in manual reporting",
-      "Eliminated human errors in report generation",
-      "Ensured consistent delivery every Monday at 8 AM",
-      "Freed up analyst time for higher-value tasks"
+      "Saved multiple hours per week of manual reporting work",
+      "Improved consistency and reliability of recurring reports",
+      "Reduced human errors in data preparation and delivery",
+      "Freed analyst time for higher-value analysis tasks",
     ],
-    result: "Saved 10+ hours per week in manual reporting and eliminated human errors.",
-    images: ["/placeholder.svg", "/placeholder.svg"]
-  }
+    result:
+      "Reduced manual reporting effort and improved consistency of scheduled reports.",
+    images: ["/placeholder.svg", "/placeholder.svg"],
+  },
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find(p => p.slug === slug);
+  return projects.find((p) => p.slug === slug);
 }
