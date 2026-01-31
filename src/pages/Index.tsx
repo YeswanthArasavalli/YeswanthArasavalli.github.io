@@ -1,5 +1,4 @@
-140
-  import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,13 +19,27 @@ import { projects } from "@/data/projects";
 import { blogPosts } from "@/data/blog";
 
 const services = [
-  { icon: BarChart3, title: "End-to-end data analysis", description: "From raw data to actionable insights" },
-  { icon: Palette, title: "Dashboard development", description: "Beautiful, interactive visualizations" },
-  { icon: Cog, title: "Automation using Python & APIs", description: "Streamline repetitive tasks" },
-  { icon: Brain, title: "Beginner-level ML experimentation", description: "Exploring predictive analytics" },
+  {
+    icon: BarChart3,
+    title: "End-to-end data analysis",
+    description: "From raw datasets to decision-ready insights",
+  },
+  {
+    icon: Palette,
+    title: "Dashboard development",
+    description: "Stakeholder-ready dashboards in Power BI and Tableau",
+  },
+  {
+    icon: Cog,
+    title: "Automation using Python & APIs",
+    description: "Reduce manual reporting and repetitive analysis",
+  },
+  {
+    icon: Brain,
+    title: "Applied machine learning",
+    description: "Prototyping models for prediction and forecasting",
+  },
 ];
-
-const tools = ["Python", "SQL", "Power BI", "Tableau", "Excel", "Pandas", "NumPy", "Matplotlib", "Scikit-Learn", "APIs", "GitHub", "Google Colab"];
 
 const scrollToSection = (href: string) => {
   const element = document.querySelector(href);
@@ -39,59 +52,87 @@ export default function Index() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center gradient-bg pt-16">
-      <div className="container mx-auto px-4 py-20">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 animate-fade-in">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Data Analyst & AI Explorer</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up">
-            Transforming data into{" "}
-            <span className="gradient-text">clear insights</span> and smarter decisions
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
-            I help businesses with data analysis, dashboards, reporting, automation — and I am expanding into AI & data science
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-400">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 shadow-medium hover:shadow-lg transition-all"
-    asChild
-  >
-              <Link to="/contact">
-              Hire Me
-              <ArrowRight className="ml-2 w-5 h-5" />
-               </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={() => scrollToSection("#projects")}
-              className="text-lg px-8 py-6 border-2 hover:border-primary hover:text-primary transition-all"
-            >
-              View My Work
-            </Button>
+      <section
+        id="home"
+        className="min-h-screen flex items-center gradient-bg pt-16"
+      >
+        <div className="container mx-auto px-4 py-20">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 animate-fade-in">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary">
+                Data Analytics • Dashboards • Applied ML
+              </span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up">
+              I build analytics, dashboards, and ML prototypes{" "}
+              <span className="gradient-text">that teams actually use.</span>
+            </h1>
+
+            <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
+              Internships and freelance experience turning raw data into
+              decision-ready insights.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-400">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 shadow-medium hover:shadow-lg transition-all"
+                asChild
+              >
+                <Link to="/projects">
+                  View Projects
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
+
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="text-lg px-8 py-6 border-2 hover:border-primary hover:text-primary transition-all"
+              >
+                <Link to="/contact">Work With Me</Link>
+              </Button>
+            </div>
+
+            <p className="mt-6 text-sm text-muted-foreground">
+              Open to full-time roles and freelance analytics / ML projects
+            </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-      {/* About Section */}
+      {/* What I Do Section */}
       <section className="py-20" id="about">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-foreground">Data Analyst from India exploring Machine Learning & AI</h2>
+              <h2 className="text-3xl font-bold text-foreground">
+                What I Work On
+              </h2>
+
               <p className="text-muted-foreground">
-                I'm passionate about turning complex data into stories that drive business decisions. With expertise in Python, SQL, Power BI, and Tableau, I help businesses unlock the value hidden in their data.
+                I help startups and teams turn raw, messy data into clear
+                insights, dashboards, and deployable machine learning solutions
+                that support real business and operational decisions.
               </p>
-              <p className="text-muted-foreground">
-                Currently expanding my skills into Machine Learning, AI, and working with LLM APIs to deliver cutting-edge data solutions.
-              </p>
+
+              <ul className="space-y-3 text-muted-foreground">
+                <li>• Analyzing product, customer, and operational data</li>
+                <li>
+                  • Building dashboards and reports for non-technical
+                  stakeholders
+                </li>
+                <li>
+                  • Automating repetitive analysis and reporting workflows
+                </li>
+                <li>
+                  • Prototyping ML solutions for real-world use cases
+                </li>
+              </ul>
+
               <Button asChild variant="outline">
                 <Link to="/about">
                   <Download className="mr-2 h-4 w-4" />
@@ -99,6 +140,7 @@ export default function Index() {
                 </Link>
               </Button>
             </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {services.map((service, index) => (
                 <div
@@ -106,23 +148,13 @@ export default function Index() {
                   className="p-5 bg-card rounded-lg border border-border hover:border-primary/30 hover:shadow-md transition-all"
                 >
                   <service.icon className="h-8 w-8 text-primary mb-3" />
-                  <h3 className="font-semibold text-foreground mb-1">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground">{service.description}</p>
+                  <h3 className="font-semibold text-foreground mb-1">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {service.description}
+                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="mt-12 text-center">
-            <p className="text-sm text-muted-foreground mb-4">Tools & Technologies:</p>
-            <div className="flex flex-wrap justify-center gap-2">
-              {tools.map((tool) => (
-                <span
-                  key={tool}
-                  className="px-3 py-1 bg-accent text-accent-foreground rounded-full text-sm"
-                >
-                  {tool}
-                </span>
               ))}
             </div>
           </div>
@@ -133,79 +165,100 @@ export default function Index() {
       <section className="py-20 bg-secondary/30" id="projects">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Featured Projects</h2>
-            <p className="text-muted-foreground">Real-world data solutions that delivered measurable results</p>
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              Featured Projects
+            </h2>
+            <p className="text-muted-foreground">
+              Real-world data problems solved with measurable outcomes
+            </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
-            {projects.filter((p) => ["retail-product-image-recognition", "amazon-food-reviews-sentiment-analysis", "customer-segmentation-analysis"].includes(p.slug)).map((project) => (  <div
-                key={project.slug}
-                className="bg-card rounded-lg border border-border overflow-hidden hover:shadow-lg transition-all group"
-              >
-                <div className="aspect-video bg-accent/50 relative">
-                                    <img
-                    src={project.images[0]}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <BarChart3 className="h-16 w-16 text-primary/30" />
+            {projects
+              .filter((p) =>
+                [
+                  "retail-product-image-recognition",
+                  "amazon-food-reviews-sentiment-analysis",
+                  "customer-segmentation-analysis",
+                ].includes(p.slug)
+              )
+              .map((project) => (
+                <div
+                  key={project.slug}
+                  className="bg-card rounded-lg border border-border overflow-hidden hover:shadow-lg transition-all group"
+                >
+                  <div className="aspect-video bg-accent/50 relative">
+                    <img
+                      src={project.images[0]}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                </div>
-                <div className="p-6 space-y-4">
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm">{project.summary}</p>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                    <p className="text-sm text-foreground">{project.result}</p>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.slice(0, 4).map((tech) => (
-                      <span key={tech} className="text-xs px-2 py-1 bg-accent rounded-md text-accent-foreground">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex gap-3 pt-2">
-                    <Button asChild variant="default" size="sm">
-                      <Link to={`/projects/${project.slug}`}>
-                        View Project
-                        <ExternalLink className="ml-1 h-4 w-4" />
-                      </Link>
-                    </Button>
-                    {project.codeUrl && (
-                      <Button asChild variant="outline" size="sm">
-                        <a href={project.codeUrl} target="_blank" rel="noopener noreferrer">
-                          <Github className="mr-1 h-4 w-4" />
-                          View Code
-                        </a>
+
+                  <div className="p-6 space-y-4">
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-muted-foreground text-sm">
+                      {project.summary}
+                    </p>
+
+                    <div className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                      <p className="text-sm text-foreground">
+                        {project.result}
+                      </p>
+                    </div>
+
+                    <div className="flex gap-3 pt-2">
+                      <Button asChild size="sm">
+                        <Link to={`/projects/${project.slug}`}>
+                          View Case Study
+                          <ExternalLink className="ml-1 h-4 w-4" />
+                        </Link>
                       </Button>
-                    )}
+
+                      {project.codeUrl && (
+                        <Button asChild variant="outline" size="sm">
+                          <a
+                            href={project.codeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Github className="mr-1 h-4 w-4" />
+                            GitHub
+                          </a>
+                        </Button>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
-        </div>
-                  <div className="mt-12 text-center">
+
+          <div className="mt-12 text-center">
             <Link to="/projects">
               <Button size="lg">View All Projects</Button>
             </Link>
           </div>
+        </div>
       </section>
 
-      {/* Blog Section */}
+      {/* Blog Section (Optional credibility, not primary) */}
       <section className="py-20" id="blog">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Latest Insights</h2>
-            <p className="text-muted-foreground">Sharing knowledge about data analysis, visualization, and emerging technologies</p>
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              Writing & Insights
+            </h2>
+            <p className="text-muted-foreground">
+              Notes on data analysis, dashboards, and applied machine learning
+            </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
+            {blogPosts.slice(0, 3).map((post) => (
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
@@ -221,22 +274,21 @@ export default function Index() {
                     {post.readTime}
                   </span>
                 </div>
+
                 <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors mb-3">
                   {post.title}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-4">{post.excerpt}</p>
+
+                <p className="text-sm text-muted-foreground mb-4">
+                  {post.excerpt}
+                </p>
+
                 <span className="text-primary text-sm font-medium inline-flex items-center">
                   Read More
-                  <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-1 h-4 w-4" />
                 </span>
               </Link>
             ))}
-          </div>
-          
-          <div className="text-center mt-8">
-            <Button asChild variant="outline">
-              <Link to="/blog">View All Articles</Link>
-            </Button>
           </div>
         </div>
       </section>
@@ -245,18 +297,19 @@ export default function Index() {
       <section className="py-20 bg-gradient-subtle">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Let's Work Together</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Let’s Work Together
+            </h2>
             <p className="text-lg text-muted-foreground">
-              Tell me what you need — I'll reply with ideas and a proposal.
+              If you have a data problem that needs clarity, I’d love to help.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button asChild variant="hero" size="lg">
-                <Link to="/contact">
-                  Get in Touch
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
+
+            <Button asChild size="lg">
+              <Link to="/contact">
+                Get in Touch
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
