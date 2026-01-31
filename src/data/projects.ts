@@ -18,7 +18,7 @@ export const projects: Project[] = [
     slug: "sales-performance-dashboard",
     title: "Sales Performance Dashboard",
     summary:
-      "Interactive Power BI dashboard analyzing multi-year sales performance across regions and product categories.",
+      "Interactive Power BI dashboard for analyzing multi-year sales performance across regions and product categories.",
     description:
       "Built an interactive Power BI dashboard consolidating sales data from multiple sources to track revenue trends, regional performance, and product-level metrics. The dashboard was designed to support management and sales teams with faster, self-serve access to key KPIs.",
     role:
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     impact: [
       "Trained on ~200 retail SKU categories using transfer learning with EfficientNet-B0",
       "Achieved ~84.9% validation accuracy and ~94% top-5 accuracy",
-      "Supports real-time image inference via Streamlit UI (<1s per image on CPU)",
+      "Enabled real-time image inference via Streamlit UI (<1s per image on CPU)",
       "Demonstrated feasibility of automated SKU classification for retail analytics workflows",
     ],
     result:
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     slug: "amazon-food-reviews-sentiment-analysis",
     title: "Amazon Food Reviews Sentiment Analysis",
     summary:
-      "End-to-end NLP pipeline for sentiment classification on 568K+ Amazon food reviews using fine-tuned DistilBERT and Gradio deployment.",
+      "End-to-end NLP pipeline for sentiment classification on 568K+ Amazon food reviews using fine-tuned DistilBERT.",
     description:
       "Developed a sentiment analysis pipeline using the Amazon Fine Food Reviews dataset (568K+ reviews). The project includes data preprocessing, baseline machine learning models, fine-tuned transformer models, and an interactive demo using Gradio.",
     role:
@@ -106,14 +106,15 @@ export const projects: Project[] = [
     impact: [
       "Trained on 568,000+ Amazon food reviews from a public Kaggle dataset",
       "Fine-tuned DistilBERT achieving ~92–94% validation accuracy",
-      "Average inference latency under 300ms per review",
-      "Deployed interactive sentiment analysis demo using Gradio and Hugging Face Spaces",
+      "Maintained average inference latency under 300ms per review",
+      "Deployed an interactive sentiment analysis demo using Gradio and Hugging Face Spaces",
     ],
     result:
       "Automated sentiment detection from food reviews, reducing manual analysis effort and enabling faster customer insights.",
     codeUrl:
       "https://github.com/YeswanthArasavalli/amazon-food-review-sentiment-analysis",
-    demoUrl: "https://huggingface.co/spaces/YeswanthArasavalli/Amazon_Food_Review_Analysis",
+    demoUrl:
+      "https://huggingface.co/spaces/YeswanthArasavalli/Amazon_Food_Review_Analysis",
     images: [
       "/projects/amazon_food/a_thumb.png",
       "/projects/amazon_food/word.png",
@@ -129,7 +130,7 @@ export const projects: Project[] = [
     summary:
       "Python-based customer segmentation using RFM analysis and K-means clustering.",
     description:
-      "Performed customer segmentation analysis using transaction data and RFM metrics to identify distinct customer groups. The segmentation helped illustrate how targeted strategies can be designed for different customer behaviors.",
+      "Performed customer segmentation analysis using transaction data and RFM metrics to identify distinct customer groups. The segmentation illustrates how different customer behaviors can be analyzed for targeted strategies.",
     role:
       "Data Analyst — Conducted exploratory analysis, built clustering models, and translated findings into recommendations.",
     techStack: ["Python", "Pandas", "Scikit-Learn", "Matplotlib", "Jupyter"],
