@@ -41,46 +41,35 @@ const services = [
   },
 ];
 
-const scrollToSection = (href: string) => {
-  const element = document.querySelector(href);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
-  }
-};
-
 export default function Index() {
   return (
     <Layout>
-      {/* Hero Section */}
+      {/* Hero */}
       <section
         id="home"
         className="min-h-screen flex items-center gradient-bg pt-16"
       >
         <div className="container mx-auto px-4 py-20">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">
                 Data Analytics • Dashboards • Applied ML
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               I build analytics, dashboards, and ML prototypes{" "}
               <span className="gradient-text">that teams actually use.</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
-              Internships and freelance experience turning raw data into
+            <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto">
+              Internship and freelance experience turning raw data into
               decision-ready insights.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-400">
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 shadow-medium hover:shadow-lg transition-all"
-                asChild
-              >
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="px-8 py-6 text-lg">
                 <Link to="/projects">
                   View Projects
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -88,10 +77,10 @@ export default function Index() {
               </Button>
 
               <Button
+                asChild
                 size="lg"
                 variant="outline"
-                asChild
-                className="text-lg px-8 py-6 border-2 hover:border-primary hover:text-primary transition-all"
+                className="px-8 py-6 text-lg"
               >
                 <Link to="/contact">Work With Me</Link>
               </Button>
@@ -108,81 +97,52 @@ export default function Index() {
       <section className="py-20 bg-secondary/30">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
               By the Numbers
             </h2>
-            <p className="text-muted-foreground text-lg">
-              A snapshot of the scale and impact of my work across analytics and applied machine learning.
+            <p className="text-lg text-muted-foreground">
+              A snapshot of scale and outcomes across analytics and applied ML work.
             </p>
           </div>
-      
+
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <div className="bg-card rounded-xl border border-border p-6 text-center">
-              <p className="text-4xl font-bold text-primary mb-2">5+</p>
-              <p className="text-sm text-muted-foreground">
-                End-to-end projects delivered
-              </p>
-            </div>
-      
-            <div className="bg-card rounded-xl border border-border p-6 text-center">
-              <p className="text-4xl font-bold text-primary mb-2">568K+</p>
-              <p className="text-sm text-muted-foreground">
-                Records analyzed & processed
-              </p>
-            </div>
-      
-            <div className="bg-card rounded-xl border border-border p-6 text-center">
-              <p className="text-4xl font-bold text-primary mb-2">200+</p>
-              <p className="text-sm text-muted-foreground">
-                Retail SKU categories modeled
-              </p>
-            </div>
-      
-            <div className="bg-card rounded-xl border border-border p-6 text-center">
-              <p className="text-4xl font-bold text-primary mb-2">94%</p>
-              <p className="text-sm text-muted-foreground">
-                Top-5 model accuracy achieved
-              </p>
-            </div>
-      
-            <div className="bg-card rounded-xl border border-border p-6 text-center">
-              <p className="text-4xl font-bold text-primary mb-2">6–10</p>
-              <p className="text-sm text-muted-foreground">
-                Hours saved per week via automation
-              </p>
-            </div>
+            {[
+              ["5+", "End-to-end projects built"],
+              ["568K+", "Records processed & analyzed"],
+              ["200+", "Retail SKU categories modeled"],
+              ["94%", "Top-5 model accuracy achieved"],
+              ["6–10", "Hours saved per week via automation"],
+            ].map(([value, label]) => (
+              <div
+                key={label}
+                className="bg-card rounded-xl border border-border p-6 text-center"
+              >
+                <p className="text-4xl font-bold text-primary mb-2">{value}</p>
+                <p className="text-sm text-muted-foreground">{label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-
-      {/* What I Do Section */}
+      {/* What I Work On */}
       <section className="py-20" id="about">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-foreground">
-                What I Work On
-              </h2>
+              <h2 className="text-3xl font-bold">What I Work On</h2>
 
               <p className="text-muted-foreground">
-                I help startups and teams turn raw, messy data into clear
-                insights, dashboards, and deployable machine learning solutions
-                that support real business and operational decisions.
+                I help startups and teams turn messy data into clear insights,
+                dashboards, and deployable machine learning solutions that support
+                real business and operational decisions.
               </p>
 
               <ul className="space-y-3 text-muted-foreground">
-                <li>• Analyzing product, customer, and operational data</li>
-                <li>
-                  • Building dashboards and reports for non-technical
-                  stakeholders
-                </li>
-                <li>
-                  • Automating repetitive analysis and reporting workflows
-                </li>
-                <li>
-                  • Prototyping ML solutions for real-world use cases
-                </li>
+                <li>• Product, customer, and operational analysis</li>
+                <li>• Dashboards for non-technical stakeholders</li>
+                <li>• Automation of repetitive analysis and reporting</li>
+                <li>• Applied ML prototypes for real use cases</li>
               </ul>
 
               <Button asChild variant="outline">
@@ -197,12 +157,10 @@ export default function Index() {
               {services.map((service, index) => (
                 <div
                   key={index}
-                  className="p-5 bg-card rounded-lg border border-border hover:border-primary/30 hover:shadow-md transition-all"
+                  className="p-5 bg-card rounded-lg border border-border"
                 >
                   <service.icon className="h-8 w-8 text-primary mb-3" />
-                  <h3 className="font-semibold text-foreground mb-1">
-                    {service.title}
-                  </h3>
+                  <h3 className="font-semibold mb-1">{service.title}</h3>
                   <p className="text-sm text-muted-foreground">
                     {service.description}
                   </p>
@@ -213,13 +171,11 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Featured Projects */}
       <section className="py-20 bg-secondary/30" id="projects">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Featured Projects
-            </h2>
+            <h2 className="text-3xl font-bold mb-4">Featured Projects</h2>
             <p className="text-muted-foreground">
               Real-world data problems solved with measurable outcomes
             </p>
@@ -237,42 +193,49 @@ export default function Index() {
               .map((project) => (
                 <div
                   key={project.slug}
-                  className="bg-card rounded-lg border border-border overflow-hidden hover:shadow-lg transition-all group"
+                  className="bg-card rounded-lg border border-border overflow-hidden"
                 >
-                  <div className="aspect-video bg-accent/50 relative">
-                    <img
-                      src={project.images[0]}
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                  <img
+                    src={project.images[0]}
+                    alt={project.title}
+                    className="w-full h-56 object-cover"
+                  />
 
                   <div className="p-6 space-y-4">
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
+                    <h3 className="text-xl font-bold">{project.title}</h3>
 
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-sm text-muted-foreground">
                       {project.summary}
                     </p>
 
                     <div className="flex items-start gap-2">
-                      <CheckCircle className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                      <p className="text-sm text-foreground">
-                        {project.result}
-                      </p>
+                      <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
+                      <p className="text-sm">{project.result}</p>
                     </div>
 
-                    <div className="flex gap-3 pt-2">
+                    <div className="flex flex-wrap gap-3 pt-2">
                       <Button asChild size="sm">
                         <Link to={`/projects/${project.slug}`}>
-                          View Case Study
+                          Case Study
                           <ExternalLink className="ml-1 h-4 w-4" />
                         </Link>
                       </Button>
 
+                      {project.demoUrl && (
+                        <Button asChild size="sm" variant="outline">
+                          <a
+                            href={project.demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <ExternalLink className="mr-1 h-4 w-4" />
+                            Live Demo
+                          </a>
+                        </Button>
+                      )}
+
                       {project.codeUrl && (
-                        <Button asChild variant="outline" size="sm">
+                        <Button asChild size="sm" variant="outline">
                           <a
                             href={project.codeUrl}
                             target="_blank"
@@ -297,15 +260,13 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Blog Section (Optional credibility, not primary) */}
+      {/* Writing */}
       <section className="py-20" id="blog">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Writing & Insights
-            </h2>
+            <h2 className="text-3xl font-bold mb-4">Writing & Insights</h2>
             <p className="text-muted-foreground">
-              Notes on data analysis, dashboards, and applied machine learning
+              Notes on analytics, dashboards, and applied machine learning
             </p>
           </div>
 
@@ -314,9 +275,9 @@ export default function Index() {
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                className="bg-card rounded-lg border border-border p-6 hover:shadow-lg hover:border-primary/30 transition-all group"
+                className="bg-card border border-border rounded-lg p-6"
               >
-                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                <div className="flex gap-4 text-sm text-muted-foreground mb-4">
                   <span className="flex items-center gap-1">
                     <Calendar className="h-4 w-4" />
                     {post.date}
@@ -327,16 +288,13 @@ export default function Index() {
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors mb-3">
-                  {post.title}
-                </h3>
-
+                <h3 className="font-bold mb-3">{post.title}</h3>
                 <p className="text-sm text-muted-foreground mb-4">
                   {post.excerpt}
                 </p>
 
-                <span className="text-primary text-sm font-medium inline-flex items-center">
-                  Read More
+                <span className="text-primary text-sm inline-flex items-center">
+                  Read Article
                   <ArrowRight className="ml-1 h-4 w-4" />
                 </span>
               </Link>
@@ -345,15 +303,15 @@ export default function Index() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA */}
       <section className="py-20 bg-gradient-subtle">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold">
               Let’s Work Together
             </h2>
             <p className="text-lg text-muted-foreground">
-              If you have a data problem that needs clarity, I’d love to help.
+              If you’re hiring or exploring a data project, feel free to reach out.
             </p>
 
             <Button asChild size="lg">
