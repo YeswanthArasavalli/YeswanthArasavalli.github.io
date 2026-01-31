@@ -31,10 +31,10 @@ export const projects: Project[] = [
       "Set up scheduled data refresh to keep reports up to date",
     ],
     impact: [
-      "Reduced manual reporting effort significantly",
-      "Improved visibility of sales performance for business stakeholders",
-      "Enabled quicker identification of regional and product-level trends",
-      "Supported data-driven sales and planning discussions",
+      "Consolidated multi-year sales data into a single Power BI dashboard",
+      "Tracked regional, product, and time-based KPIs using DAX",
+      "Reduced reliance on manual Excel-based reporting",
+      "Enabled faster self-serve access to sales performance insights",
     ],
     result:
       "Improved visibility into sales performance and reduced reliance on manual reporting.",
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     slug: "retail-product-image-recognition",
     title: "Retail Product Image Recognition System",
     summary:
-      "End-to-end computer vision system for identifying retail products from images using EfficientNet and PyTorch.",
+      "End-to-end computer vision system for identifying retail products from images, trained on ~200 SKU categories and deployed as a real-time Streamlit demo.",
     description:
       "Built a computer vision–based SKU recognition system capable of classifying retail product images. The model was trained using transfer learning with EfficientNet-B0 and deployed as an interactive Streamlit application to demonstrate real-time predictions.",
     role:
@@ -58,10 +58,10 @@ export const projects: Project[] = [
       "Built a Streamlit-based interface for uploading images and viewing predictions",
     ],
     impact: [
-      "Automated product identification from retail images",
-      "Achieved ~85% validation accuracy with strong top-5 reliability",
-      "Reduced manual tagging effort in product classification workflows",
-      "Demonstrated feasibility of computer vision for retail analytics use cases",
+      "Trained on ~200 retail SKU categories using transfer learning with EfficientNet-B0",
+      "Achieved ~84.9% validation accuracy and ~94% top-5 accuracy",
+      "Supports real-time image inference via Streamlit UI (<1s per image on CPU)",
+      "Demonstrated feasibility of automated SKU classification for retail analytics workflows",
     ],
     result:
       "Automated SKU identification from product images, reducing manual tagging effort and enabling faster analytics workflows.",
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     slug: "amazon-food-reviews-sentiment-analysis",
     title: "Amazon Food Reviews Sentiment Analysis",
     summary:
-      "End-to-end NLP system for classifying customer sentiment from Amazon food reviews using DistilBERT.",
+      "End-to-end NLP pipeline for sentiment classification on 568K+ Amazon food reviews using fine-tuned DistilBERT and Gradio deployment.",
     description:
       "Developed a sentiment analysis pipeline using the Amazon Fine Food Reviews dataset (568K+ reviews). The project includes data preprocessing, baseline machine learning models, fine-tuned transformer models, and an interactive demo using Gradio.",
     role:
@@ -102,10 +102,10 @@ export const projects: Project[] = [
       "Deployed an interactive Gradio demo for real-time sentiment predictions",
     ],
     impact: [
-      "Automated sentiment classification from large volumes of customer feedback",
-      "Achieved high prediction accuracy with transformer-based models",
-      "Enabled scalable analysis of customer reviews for insight generation",
-      "Demonstrated full NLP workflow from data to deployment",
+      "Trained on 568,000+ Amazon food reviews from a public Kaggle dataset",
+      "Fine-tuned DistilBERT achieving ~92–94% validation accuracy",
+      "Average inference latency under 300ms per review",
+      "Deployed interactive sentiment analysis demo using Gradio and Hugging Face Spaces",
     ],
     result:
       "Automated sentiment detection from food reviews, reducing manual analysis effort and enabling faster customer insights.",
@@ -138,10 +138,10 @@ export const projects: Project[] = [
       "Analyzed and profiled customer groups based on behavior",
     ],
     impact: [
-      "Enabled clearer understanding of different customer segments",
-      "Supported more targeted marketing and retention strategies",
-      "Helped identify high-value and at-risk customer groups",
-      "Reduced wasted marketing effort through better segmentation",
+      "Analyzed multi-year transaction data using RFM metrics",
+      "Segmented customers into 4–5 distinct behavioral clusters using K-Means",
+      "Evaluated cluster quality using elbow method and silhouette score",
+      "Enabled data-driven customer grouping for targeting and retention analysis",
     ],
     result:
       "Improved understanding of customer behavior and supported more targeted marketing strategies.",
@@ -166,10 +166,10 @@ export const projects: Project[] = [
       "Implemented logging and basic error handling",
     ],
     impact: [
-      "Saved multiple hours per week of manual reporting work",
-      "Improved consistency and reliability of recurring reports",
-      "Reduced human errors in data preparation and delivery",
-      "Freed analyst time for higher-value analysis tasks",
+      "Automated recurring analytical report generation using Python",
+      "Replaced manual reporting equivalent to ~6–10 hours per week",
+      "Generated charts and tables programmatically with scheduled delivery",
+      "Improved consistency and reduced human error in reporting workflows",
     ],
     result:
       "Reduced manual reporting effort and improved consistency of scheduled reports.",
