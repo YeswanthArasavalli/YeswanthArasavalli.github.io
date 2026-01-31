@@ -104,6 +104,58 @@ export default function Index() {
         </div>
       </section>
 
+      {/* By the Numbers */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              By the Numbers
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              A snapshot of the scale and impact of my work across analytics and applied machine learning.
+            </p>
+          </div>
+      
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="bg-card rounded-xl border border-border p-6 text-center">
+              <p className="text-4xl font-bold text-primary mb-2">5+</p>
+              <p className="text-sm text-muted-foreground">
+                End-to-end projects delivered
+              </p>
+            </div>
+      
+            <div className="bg-card rounded-xl border border-border p-6 text-center">
+              <p className="text-4xl font-bold text-primary mb-2">568K+</p>
+              <p className="text-sm text-muted-foreground">
+                Records analyzed & processed
+              </p>
+            </div>
+      
+            <div className="bg-card rounded-xl border border-border p-6 text-center">
+              <p className="text-4xl font-bold text-primary mb-2">200+</p>
+              <p className="text-sm text-muted-foreground">
+                Retail SKU categories modeled
+              </p>
+            </div>
+      
+            <div className="bg-card rounded-xl border border-border p-6 text-center">
+              <p className="text-4xl font-bold text-primary mb-2">94%</p>
+              <p className="text-sm text-muted-foreground">
+                Top-5 model accuracy achieved
+              </p>
+            </div>
+      
+            <div className="bg-card rounded-xl border border-border p-6 text-center">
+              <p className="text-4xl font-bold text-primary mb-2">6–10</p>
+              <p className="text-sm text-muted-foreground">
+                Hours saved per week via automation
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* What I Do Section */}
       <section className="py-20" id="about">
         <div className="container">
