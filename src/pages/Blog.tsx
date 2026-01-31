@@ -10,9 +10,12 @@ export default function Blog() {
       <section className="py-16 md:py-24 bg-gradient-subtle">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center space-y-4 animate-slide-up">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">Blog</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+              Notes & Thinking
+            </h1>
             <p className="text-lg text-muted-foreground">
-              Insights on data analysis, visualization, and emerging technologies
+              How I approach data analysis, dashboards, and applied machine
+              learning problems.
             </p>
           </div>
         </div>
@@ -29,8 +32,11 @@ export default function Blog() {
                 className="bg-card rounded-lg border border-border overflow-hidden hover:shadow-lg hover:border-primary/30 transition-all group"
               >
                 <div className="aspect-video bg-accent/50 flex items-center justify-center">
-                  <span className="text-primary font-medium">{post.category}</span>
+                  <span className="text-primary font-medium">
+                    {post.category}
+                  </span>
                 </div>
+
                 <div className="p-6 space-y-4">
                   <div className="flex items-center gap-4 text-sm text-muted-foreground">
                     <span className="flex items-center gap-1">
@@ -42,12 +48,17 @@ export default function Blog() {
                       {post.readTime}
                     </span>
                   </div>
+
                   <h2 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                     {post.title}
                   </h2>
-                  <p className="text-muted-foreground text-sm">{post.excerpt}</p>
+
+                  <p className="text-muted-foreground text-sm">
+                    {post.excerpt}
+                  </p>
+
                   <span className="text-primary text-sm font-medium inline-flex items-center">
-                    Read More
+                    Read Article
                     <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </div>
