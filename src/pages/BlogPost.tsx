@@ -17,33 +17,50 @@ export default function BlogPost() {
       switch (section.type) {
         case "heading":
           return (
-            <h2 key={index} className="text-2xl font-bold text-foreground mt-10 mb-4">
+            <h2
+              key={index}
+              className="text-2xl font-bold text-foreground mt-10 mb-4"
+            >
               {section.content}
             </h2>
           );
         case "paragraph":
           return (
-            <p key={index} className="text-muted-foreground leading-relaxed mb-4">
+            <p
+              key={index}
+              className="text-muted-foreground leading-relaxed mb-4"
+            >
               {section.content}
             </p>
           );
         case "list":
           return (
-            <ul key={index} className="list-disc list-inside space-y-2 mb-4 text-muted-foreground">
+            <ul
+              key={index}
+              className="list-disc list-inside space-y-2 mb-4 text-muted-foreground"
+            >
               {section.items?.map((item, i) => (
-                <li key={i} className="leading-relaxed">{item}</li>
+                <li key={i} className="leading-relaxed">
+                  {item}
+                </li>
               ))}
             </ul>
           );
         case "code":
           return (
-            <pre key={index} className="bg-secondary/50 rounded-lg p-4 overflow-x-auto mb-4 text-sm">
+            <pre
+              key={index}
+              className="bg-secondary/50 rounded-lg p-4 overflow-x-auto mb-4 text-sm"
+            >
               <code className="text-foreground">{section.content}</code>
             </pre>
           );
         case "quote":
           return (
-            <blockquote key={index} className="border-l-4 border-primary pl-4 italic text-muted-foreground my-6">
+            <blockquote
+              key={index}
+              className="border-l-4 border-primary pl-4 italic text-muted-foreground my-6"
+            >
               {section.content}
             </blockquote>
           );
@@ -63,16 +80,18 @@ export default function BlogPost() {
             className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors mb-8"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Blog
+            Back to Notes
           </Link>
-          
+
           <div className="max-w-3xl space-y-6 animate-slide-up">
             <span className="inline-block px-3 py-1 bg-accent text-accent-foreground rounded-full text-sm font-medium">
               {post.category}
             </span>
+
             <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
               {post.title}
             </h1>
+
             <div className="flex items-center gap-6 text-muted-foreground">
               <span className="flex items-center gap-2">
                 <Calendar className="h-5 w-5" />
@@ -96,25 +115,29 @@ export default function BlogPost() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Soft CTA */}
       <section className="py-16 bg-gradient-subtle">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-              Need Help Implementing This?
+              Want to See This Applied in Practice?
             </h2>
+
             <p className="text-muted-foreground">
-              I can help your business apply these concepts and achieve real results with your data.
+              You can explore related projects or reach out if you’re working on
+              a similar data problem.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild variant="hero" size="lg">
+              <Button asChild variant="outline" size="lg">
+                <Link to="/projects">View Projects</Link>
+              </Button>
+
+              <Button asChild size="lg">
                 <Link to="/contact">
-                  Let's Discuss
+                  Get in Touch
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
-              </Button>
-              <Button asChild variant="hero-outline" size="lg">
-                <Link to="/services">View My Services</Link>
               </Button>
             </div>
           </div>
