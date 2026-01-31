@@ -9,7 +9,7 @@ interface CTASectionProps {
 
 export function CTASection({
   title = "Let’s Talk About Your Data Problem",
-  subtitle = "If you’re hiring or exploring a data project, feel free to reach out."
+  subtitle = "If you’re hiring, evaluating a candidate, or exploring a data or ML project, feel free to reach out."
 }: CTASectionProps) {
   return (
     <section className="py-20 bg-gradient-subtle">
