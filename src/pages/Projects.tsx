@@ -8,12 +8,13 @@ export default function Projects() {
     <Layout>
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
         <div className="container mx-auto px-4 py-20">
-          <div className="mb-12 text-center">
+          <div className="mb-12 text-center max-w-2xl mx-auto">
             <h1 className="mb-4 text-4xl font-bold text-slate-900">
-              My Projects
+              Project Case Studies
             </h1>
             <p className="text-lg text-slate-600">
-              Explore my data analysis, dashboarding, and AI projects
+              A selection of data analytics, dashboarding, and applied ML projects
+              focused on solving real-world problems.
             </p>
           </div>
 
@@ -25,7 +26,7 @@ export default function Projects() {
                 className="group block h-full transition-all"
               >
                 <div className="flex h-full flex-col rounded-lg bg-white p-6 shadow-lg hover:shadow-xl transition-shadow">
-                  {project.images && project.images.length > 0 && (
+                  {project.images?.length > 0 && (
                     <div className="mb-4 h-48 w-full overflow-hidden rounded-md bg-slate-200">
                       <img
                         src={project.images[0]}
@@ -34,12 +35,15 @@ export default function Projects() {
                       />
                     </div>
                   )}
+
                   <h3 className="mb-2 text-xl font-semibold text-slate-900 group-hover:text-cyan-600 transition-colors">
                     {project.title}
                   </h3>
+
                   <p className="mb-4 text-sm text-slate-600 flex-grow">
                     {project.summary}
                   </p>
+
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.slice(0, 3).map((tech) => (
                       <span
@@ -57,7 +61,7 @@ export default function Projects() {
 
           <div className="mt-12 text-center">
             <Link to="/">
-              <Button>Back to Home</Button>
+              <Button variant="outline">Back to Home</Button>
             </Link>
           </div>
         </div>
