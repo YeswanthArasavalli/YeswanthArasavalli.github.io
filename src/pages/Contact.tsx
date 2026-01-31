@@ -11,7 +11,6 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjknoaap";
 
 export default function Contact() {
   const whatsappNumberDisplay = "Yeswanth";
-  // wa.me number should NOT have +
   const whatsappNumber = "916303321322";
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 
@@ -27,16 +26,12 @@ export default function Contact() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-
-    // Optional: add subject for Formspree
-    formData.append("_subject", "New portfolio contact");
+    formData.append("_subject", "New message from portfolio");
 
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
-        headers: {
-          Accept: "application/json",
-        },
+        headers: { Accept: "application/json" },
         body: formData,
       });
 
@@ -45,13 +40,13 @@ export default function Contact() {
         form.reset();
       } else {
         const data = await res.json().catch(() => null);
-        const msg =
+        setError(
           data?.errors?.[0]?.message ||
-          "Something went wrong while sending your message. Please try again.";
-        setError(msg);
+            "Something went wrong. Please try again."
+        );
       }
-    } catch (err) {
-      setError("Network error. Please check your connection and try again.");
+    } catch {
+      setError("Network error. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -68,15 +63,16 @@ export default function Contact() {
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10">
                   <Mail className="h-3 w-3 text-primary" />
                 </span>
-                Open to freelance opportunities and collaborations
+                Open to full-time roles, freelance work, and collaborations
               </div>
 
               <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-                Let&apos;s work together
+                Get in Touch
               </h1>
+
               <p className="mx-auto max-w-2xl text-muted-foreground">
-                Have a project in mind or want to collaborate? Share a few
-                details and you&apos;ll get a response within 24 hours.
+                Whether you’re hiring, exploring a freelance project, or
+                discussing a data problem — feel free to reach out.
               </p>
             </section>
 
@@ -129,7 +125,7 @@ export default function Contact() {
                     <Textarea
                       id="message"
                       name="message"
-                      placeholder="Tell me about your project, timeline, or questions..."
+                      placeholder="Briefly describe what you’re looking for or the problem you want to solve..."
                       rows={6}
                       required
                       maxLength={1000}
@@ -138,7 +134,6 @@ export default function Contact() {
 
                   <Button
                     type="submit"
-                    variant="hero"
                     size="lg"
                     className="w-full"
                     disabled={isSubmitting}
@@ -149,7 +144,8 @@ export default function Contact() {
 
                   {isSuccess && (
                     <p className="text-xs text-emerald-500 text-center">
-                      Thanks for reaching out! Your message has been sent.
+                      Thanks — your message has been sent. I’ll get back to you
+                      soon.
                     </p>
                   )}
 
@@ -158,18 +154,18 @@ export default function Contact() {
                   )}
 
                   <p className="text-xs text-muted-foreground text-center">
-                    By submitting this form, your message will be securely
-                    delivered to my inbox.
+                    Your message will be delivered directly to my inbox.
                   </p>
                 </form>
               </section>
 
-              {/* Contact info */}
+              {/* Contact Info */}
               <section className="space-y-6">
                 <div className="rounded-2xl border border-border bg-card/60 p-6">
                   <h2 className="mb-4 text-sm font-semibold tracking-[0.18em] text-muted-foreground uppercase">
-                    Contact details
+                    Contact Details
                   </h2>
+
                   <div className="space-y-4 text-sm">
                     <div className="flex items-start gap-3">
                       <div className="mt-1 rounded-lg bg-primary/10 p-2">
@@ -225,7 +221,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                          Response time
+                          Response Time
                         </p>
                         <p className="font-medium">Within 24 hours</p>
                       </div>
