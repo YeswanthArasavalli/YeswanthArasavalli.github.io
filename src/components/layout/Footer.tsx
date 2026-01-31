@@ -9,13 +9,15 @@ export function Footer() {
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
             <h3 className="text-xl font-bold mb-2">Yeswanth Arasavalli</h3>
-            <p className="text-sm text-white/90 max-w-md">
-              Analytics, dashboards, and applied machine learning solutions for
-              real business and operational problems.
+            <p className="text-sm text-white/90">
+              Data analytics, dashboards, and applied machine learning.
             </p>
           </div>
 
           <nav className="flex flex-wrap gap-4 text-sm">
+            <Link to="/" className="hover:text-primary transition-colors">
+              Home
+            </Link>
             <Link to="/projects" className="hover:text-primary transition-colors">
               Projects
             </Link>
@@ -36,8 +38,8 @@ export function Footer() {
 
         {/* Bottom row */}
         <div className="mt-8 pt-6 border-t border-white/10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <p className="text-xs text-white/80">
-            © {new Date().getFullYear()} Yeswanth Arasavalli. All rights reserved.
+          <p className="text-xs text-white/70">
+            © {new Date().getFullYear()} Yeswanth Arasavalli
           </p>
 
           <div className="flex gap-4 items-center">
