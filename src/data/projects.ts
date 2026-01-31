@@ -9,6 +9,7 @@ export interface Project {
   impact: string[];
   result: string;
   codeUrl?: string;
+  demoUrl?: string;
   images: string[];
 }
 
@@ -67,6 +68,7 @@ export const projects: Project[] = [
       "Automated SKU identification from product images, reducing manual tagging effort and enabling faster analytics workflows.",
     codeUrl:
       "https://github.com/YeswanthArasavalli/retail-product-image-recognition",
+    demoUrl: "https://retail-image-recognition.streamlit.app/",
     images: [
       "/projects/retail_image/r_thumb.png",
       "/projects/retail_image/data.png",
@@ -111,6 +113,7 @@ export const projects: Project[] = [
       "Automated sentiment detection from food reviews, reducing manual analysis effort and enabling faster customer insights.",
     codeUrl:
       "https://github.com/YeswanthArasavalli/amazon-food-review-sentiment-analysis",
+    demoUrl: "https://huggingface.co/spaces/YeswanthArasavalli/Amazon_Food_Review_Analysis",
     images: [
       "/projects/amazon_food/a_thumb.png",
       "/projects/amazon_food/word.png",
