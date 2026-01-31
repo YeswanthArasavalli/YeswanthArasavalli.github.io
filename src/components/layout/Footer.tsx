@@ -6,72 +6,77 @@ export function Footer() {
     <footer className="bg-foreground text-white py-12">
       <div className="container mx-auto px-4">
         {/* Top row */}
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
-            <h3 className="text-xl font-bold mb-4">Yeswanth Arasavalli</h3>
-            <p className="text-sm text-white">
-              Data Analyst &amp; AI Explorer
-              <br />
-              helping businesses transform data into actionable insights.
+            <h3 className="text-xl font-bold mb-2">Yeswanth Arasavalli</h3>
+            <p className="text-sm text-white/90 max-w-md">
+              Analytics, dashboards, and applied machine learning solutions for
+              real business and operational problems.
             </p>
           </div>
 
-          <nav className="flex gap-4 text-sm">
-            <Link to="/about" className="text-white hover:text-primary">
-              About
+          <nav className="flex flex-wrap gap-4 text-sm">
+            <Link to="/projects" className="hover:text-primary transition-colors">
+              Projects
             </Link>
-            <Link to="/services" className="text-white hover:text-primary">
+            <Link to="/services" className="hover:text-primary transition-colors">
               Services
             </Link>
-            <Link to="/blog" className="text-white hover:text-primary">
+            <Link to="/about" className="hover:text-primary transition-colors">
+              About
+            </Link>
+            <Link to="/blog" className="hover:text-primary transition-colors">
               Blog
             </Link>
-            <Link to="/contact" className="text-white hover:text-primary">
+            <Link to="/contact" className="hover:text-primary transition-colors">
               Contact
             </Link>
           </nav>
         </div>
 
         {/* Bottom row */}
-        <div className="mt-6 pt-4 border-t border-border flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <p className="text-xs text-white">
+        <div className="mt-8 pt-6 border-t border-white/10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <p className="text-xs text-white/80">
             © {new Date().getFullYear()} Yeswanth Arasavalli. All rights reserved.
           </p>
 
-          <div className="flex gap-4 justify-start md:justify-end">
+          <div className="flex gap-4 items-center">
             <a
-              href="mailto:yeswanthdatalabs@gmail.com"
-              className="flex items-center gap-2 text-sm text-white hover:text-primary"
+              href="mailto:yeswantharasavalli@gmail.com"
+              className="flex items-center gap-2 text-sm hover:text-primary transition-colors"
             >
               <Mail className="h-4 w-4" />
               Email
             </a>
+
             <a
-              href="https://wa.me/+918500251322"
+              href="https://wa.me/916303321322"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm text-white hover:text-primary"
+              className="flex items-center gap-2 text-sm hover:text-primary transition-colors"
             >
               <MessageCircle className="h-4 w-4" />
               WhatsApp
             </a>
+
             <a
               href="https://github.com/YeswanthArasavalli"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2"
               aria-label="GitHub"
+              className="p-2 hover:text-primary transition-colors"
             >
-              <Github className="h-5 w-5 text-white" />
+              <Github className="h-5 w-5" />
             </a>
+
             <a
               href="https://www.linkedin.com/in/yeswanth-arasavalli/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2"
               aria-label="LinkedIn"
+              className="p-2 hover:text-primary transition-colors"
             >
-              <Linkedin className="h-5 w-5 text-white" />
+              <Linkedin className="h-5 w-5" />
             </a>
           </div>
         </div>
