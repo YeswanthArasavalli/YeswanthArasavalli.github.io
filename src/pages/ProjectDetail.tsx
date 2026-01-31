@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/sections/CTASection";
 import { getProjectBySlug } from "@/data/projects";
-import { ArrowLeft, Github, CheckCircle } from "lucide-react";
+import { ArrowLeft, Github, ExternalLink, CheckCircle } from "lucide-react";
 
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -19,7 +19,7 @@ export default function ProjectDetail() {
       <section className="py-16 md:py-24 bg-gradient-subtle">
         <div className="container">
           <Link
-            to="/#projects"
+            to="/projects"
             className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors mb-8"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
@@ -35,7 +35,21 @@ export default function ProjectDetail() {
               {project.summary}
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            {/* Primary CTAs */}
+            <div className="flex flex-wrap gap-4 pt-2">
+              {project.demoUrl && (
+                <Button asChild size="lg">
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="mr-2 h-5 w-5" />
+                    Try Live Demo
+                  </a>
+                </Button>
+              )}
+
               {project.codeUrl && (
                 <Button asChild variant="outline" size="lg">
                   <a
@@ -53,7 +67,7 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* Context */}
+      {/* Problem Context */}
       <section className="py-16">
         <div className="container">
           <div className="max-w-4xl mx-auto">
@@ -67,7 +81,7 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* Role & Stack */}
+      {/* Role & Tech Stack */}
       <section className="py-16 bg-secondary/30">
         <div className="container">
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
@@ -88,7 +102,7 @@ export default function ProjectDetail() {
                 {project.techStack.map((tech) => (
                   <span
                     key={tech}
-                    className="px-4 py-2 bg-card border border-border rounded-lg text-foreground text-sm"
+                    className="px-4 py-2 bg-card border border-border rounded-lg text-sm"
                   >
                     {tech}
                   </span>
@@ -99,7 +113,7 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* Decisions & Approach */}
+      {/* Key Decisions & Approach */}
       <section className="py-16">
         <div className="container">
           <div className="max-w-4xl mx-auto">
@@ -126,7 +140,7 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* Visuals */}
+      {/* Visual Evidence */}
       <section className="py-16 bg-secondary/30">
         <div className="container">
           <div className="max-w-5xl mx-auto">
@@ -142,7 +156,7 @@ export default function ProjectDetail() {
                 >
                   <img
                     src={image}
-                    alt={`Project visual ${index + 1}`}
+                    alt={`${project.title} screenshot ${index + 1}`}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -152,7 +166,7 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* Impact */}
+      {/* Impact & Outcomes */}
       <section className="py-16">
         <div className="container">
           <div className="max-w-4xl mx-auto">
@@ -167,7 +181,7 @@ export default function ProjectDetail() {
                   className="flex items-start gap-3 p-4 bg-accent/50 rounded-lg"
                 >
                   <CheckCircle className="h-6 w-6 text-primary shrink-0" />
-                  <p className="text-foreground font-medium">
+                  <p className="font-medium text-foreground">
                     {item}
                   </p>
                 </div>
