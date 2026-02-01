@@ -22,6 +22,9 @@ export default function ProjectDetail() {
     return <Navigate to="/404" replace />;
   }
 
+  const isAmazonProject =
+    project.slug === "amazon-food-reviews-sentiment-analysis";
+
   return (
     <Layout>
       {/* ================= HERO ================= */}
@@ -86,14 +89,15 @@ export default function ProjectDetail() {
         <div className="container max-w-4xl space-y-4">
           <h2 className="text-2xl font-bold">Problem Context</h2>
 
-          {/* Business framing (high impact) */}
-          <p className="text-muted-foreground leading-relaxed">
-            In real-world business environments, raw data often arrives at scale
-            and in unstructured or inconsistent formats. Manually extracting
-            insights from such data is slow, error-prone, and difficult to scale.
-            This project focuses on building a reliable, automated solution that
-            transforms raw inputs into actionable insights.
-          </p>
+          {isAmazonProject && (
+            <p className="text-muted-foreground leading-relaxed">
+              Large e-commerce platforms receive thousands of customer reviews
+              daily. Manually analyzing this feedback is slow, inconsistent, and
+              difficult to scale. Automating sentiment analysis enables faster
+              insight generation and supports data-driven product and customer
+              experience decisions.
+            </p>
+          )}
 
           <p className="text-muted-foreground leading-relaxed">
             {project.description}
@@ -274,15 +278,16 @@ export default function ProjectDetail() {
 
           <ul className="space-y-3 text-muted-foreground">
             <li>
-              • Establishing simple baselines is critical before applying
-              advanced models.
+              • Establishing simple baseline models is critical before applying
+              more complex approaches.
             </li>
             <li>
-              • Model performance must be balanced with inference speed and
-              deployability.
+              • Transformer models significantly improve contextual understanding
+              but require careful deployment considerations.
             </li>
             <li>
-              • Clear problem framing and deployment matter as much as accuracy.
+              • Framing problems in business terms is as important as technical
+              performance.
             </li>
           </ul>
         </div>
