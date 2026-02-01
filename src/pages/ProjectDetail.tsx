@@ -11,6 +11,7 @@ import {
   Target,
   Database,
   Quote,
+  Lightbulb,
 } from "lucide-react";
 
 export default function ProjectDetail() {
@@ -82,8 +83,18 @@ export default function ProjectDetail() {
 
       {/* ================= PROBLEM CONTEXT ================= */}
       <section className="py-16">
-        <div className="container max-w-4xl">
-          <h2 className="text-2xl font-bold mb-6">Problem Context</h2>
+        <div className="container max-w-4xl space-y-4">
+          <h2 className="text-2xl font-bold">Problem Context</h2>
+
+          {/* Business framing (high impact) */}
+          <p className="text-muted-foreground leading-relaxed">
+            In real-world business environments, raw data often arrives at scale
+            and in unstructured or inconsistent formats. Manually extracting
+            insights from such data is slow, error-prone, and difficult to scale.
+            This project focuses on building a reliable, automated solution that
+            transforms raw inputs into actionable insights.
+          </p>
+
           <p className="text-muted-foreground leading-relaxed">
             {project.description}
           </p>
@@ -250,6 +261,30 @@ export default function ProjectDetail() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ================= REFLECTION ================= */}
+      <section className="py-16 bg-secondary/30">
+        <div className="container max-w-4xl">
+          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+            <Lightbulb className="h-6 w-6 text-primary" />
+            What I Learned
+          </h2>
+
+          <ul className="space-y-3 text-muted-foreground">
+            <li>
+              • Establishing simple baselines is critical before applying
+              advanced models.
+            </li>
+            <li>
+              • Model performance must be balanced with inference speed and
+              deployability.
+            </li>
+            <li>
+              • Clear problem framing and deployment matter as much as accuracy.
+            </li>
+          </ul>
         </div>
       </section>
 
