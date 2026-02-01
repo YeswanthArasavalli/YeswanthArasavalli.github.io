@@ -7,23 +7,23 @@ import { ExternalLink } from "lucide-react";
 export default function Projects() {
   return (
     <Layout>
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+      <section className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
         <div className="container mx-auto px-4 py-20">
-          {/* Header */}
-          <div className="mb-14 text-center max-w-2xl mx-auto">
+          {/* ================= HEADER ================= */}
+          <header className="mb-14 text-center max-w-2xl mx-auto">
             <h1 className="mb-4 text-4xl font-bold text-slate-900">
               Project Case Studies
             </h1>
             <p className="text-lg text-slate-600">
-              End-to-end analytics and applied machine learning work,
+              End-to-end analytics and applied machine learning projects,
               focused on real problems, real data, and measurable outcomes.
             </p>
-          </div>
+          </header>
 
-          {/* Projects Grid */}
+          {/* ================= PROJECTS GRID ================= */}
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
-              <div
+              <article
                 key={project.slug}
                 className="group flex flex-col rounded-xl bg-white p-6 shadow-lg hover:shadow-xl transition-shadow"
               >
@@ -32,13 +32,13 @@ export default function Projects() {
                   <div className="mb-4 h-48 rounded-lg overflow-hidden bg-slate-200">
                     <img
                       src={project.images[0]}
-                      alt={project.title}
+                      alt={`${project.title} preview`}
                       className="h-full w-full object-cover group-hover:scale-105 transition-transform"
                     />
                   </div>
                 )}
 
-                {/* Case Study Label */}
+                {/* Case Study Badge */}
                 {project.caseStudy && (
                   <span className="mb-1 inline-block text-xs font-semibold uppercase tracking-wide text-primary">
                     Case Study
@@ -71,7 +71,7 @@ export default function Projects() {
                 <div className="mt-auto flex flex-wrap gap-3">
                   <Button asChild size="sm">
                     <Link to={`/projects/${project.slug}`}>
-                      View Case Study
+                      {project.caseStudy ? "View Case Study" : "View Project"}
                     </Link>
                   </Button>
 
@@ -88,18 +88,18 @@ export default function Projects() {
                     </Button>
                   )}
                 </div>
-              </div>
+              </article>
             ))}
           </div>
 
-          {/* Footer CTA */}
+          {/* ================= FOOTER CTA ================= */}
           <div className="mt-16 text-center">
             <Link to="/">
               <Button variant="outline">Back to Home</Button>
             </Link>
           </div>
         </div>
-      </div>
+      </section>
     </Layout>
   );
 }
