@@ -33,28 +33,29 @@ export interface Project {
 
 export const projects: Project[] = [
   /* ------------------------------------------------------------------ */
-  /* SALES DASHBOARD */
+  /* SALES PERFORMANCE DASHBOARD */
   /* ------------------------------------------------------------------ */
   {
     slug: "sales-performance-dashboard",
     title: "Sales Performance Dashboard",
     summary:
-      "Interactive Power BI dashboard for analyzing multi-year sales performance across regions and product categories.",
+      "Interactive Power BI dashboard analyzing multi-year sales performance across regions and product categories.",
+
     description:
-      "Built a Power BI dashboard consolidating sales data from multiple sources to track revenue trends, regional performance, and product-level metrics. Designed for management and sales teams to enable faster, self-serve access to KPIs.",
+      "Built a Power BI dashboard that consolidates sales data from multiple sources to track revenue trends, regional performance, and product-level KPIs. The dashboard was designed for management and sales teams to enable faster, self-serve access to insights.",
 
     caseStudy: true,
 
     goals: [
-      "Create a single source of truth for sales performance",
-      "Reduce dependency on manual Excel-based reporting",
-      "Enable stakeholders to explore data without analyst support",
+      "Create a single source of truth for sales performance reporting",
+      "Reduce dependency on manual Excel-based reports",
+      "Enable stakeholders to explore sales data independently",
     ],
 
     dataset: {
       source: "Internal sales data (simulated / anonymized)",
       size: "Multi-year transactional sales data",
-      notes: "Data modeled using a star schema for reporting efficiency",
+      notes: "Modeled using a star schema to support efficient reporting",
     },
 
     role:
@@ -63,9 +64,9 @@ export const projects: Project[] = [
     techStack: ["Power BI", "SQL", "Excel", "DAX"],
 
     approach: [
-      "Worked with stakeholders to define KPIs and reporting needs",
-      "Designed a star-schema data model",
-      "Built DAX measures for YoY growth and trends",
+      "Worked with stakeholders to define KPIs and reporting requirements",
+      "Designed a star-schema data model for sales analysis",
+      "Built DAX measures for YoY growth and trend analysis",
       "Created interactive dashboards with slicers and drill-downs",
       "Configured scheduled data refresh",
     ],
@@ -74,22 +75,26 @@ export const projects: Project[] = [
       "Consolidated multi-year sales data into a single dashboard",
       "Reduced reliance on manual Excel reporting",
       "Improved visibility into regional and product performance",
-      "Enabled faster sales and planning discussions",
+      "Enabled faster sales review and planning discussions",
     ],
 
     result:
       "Improved visibility into sales performance and reduced reliance on manual reporting.",
 
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    images: [
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+    ],
     imageCaptions: [
-      "Overall sales performance dashboard",
-      "Regional performance breakdown",
+      "Overall sales performance overview dashboard",
+      "Regional sales performance breakdown",
       "Product category trends over time",
     ],
   },
 
   /* ------------------------------------------------------------------ */
-  /* RETAIL IMAGE RECOGNITION */
+  /* RETAIL PRODUCT IMAGE RECOGNITION */
   /* ------------------------------------------------------------------ */
   {
     slug: "retail-product-image-recognition",
@@ -98,19 +103,19 @@ export const projects: Project[] = [
       "End-to-end computer vision system for identifying retail products from images, trained on ~200 SKU categories and deployed as a real-time Streamlit demo.",
 
     description:
-      "Built a computer vision–based SKU recognition system using transfer learning with EfficientNet-B0. The system classifies retail product images and demonstrates real-time inference through a Streamlit web interface.",
+      "Built a computer vision–based SKU recognition system using transfer learning with EfficientNet-B0. The system classifies retail product images and demonstrates real-time inference through an interactive Streamlit web interface.",
 
     caseStudy: true,
 
     goals: [
-      "Explore feasibility of automated SKU recognition from images",
+      "Evaluate feasibility of automated SKU recognition from images",
       "Apply transfer learning to a real-world retail dataset",
-      "Demonstrate real-time inference through a usable UI",
+      "Demonstrate real-time inference via a simple web interface",
     ],
 
     dataset: {
-      source: "Retail Product Classification (RPC-style dataset)",
-      size: "~200 SKU categories with thousands of images",
+      source: "Retail product image dataset (RPC-style)",
+      size: "~200 SKU categories with thousands of labeled images",
       notes: "Images resized and normalized for EfficientNet input",
     },
 
@@ -122,15 +127,15 @@ export const projects: Project[] = [
     approach: [
       "Preprocessed and organized product images by SKU category",
       "Fine-tuned EfficientNet-B0 using transfer learning",
-      "Evaluated performance using validation accuracy and top-5 accuracy",
-      "Built a Streamlit UI for real-time image upload and inference",
+      "Evaluated performance using validation and top-5 accuracy",
+      "Built a Streamlit UI for image upload and prediction",
     ],
 
     impact: [
       "Trained on ~200 retail SKU categories",
       "Achieved ~84.9% validation accuracy and ~94% top-5 accuracy",
       "Enabled real-time image inference via web interface",
-      "Demonstrated applicability of CV in retail analytics workflows",
+      "Demonstrated applicability of computer vision in retail analytics workflows",
     ],
 
     result:
@@ -138,7 +143,8 @@ export const projects: Project[] = [
 
     codeUrl:
       "https://github.com/YeswanthArasavalli/retail-product-image-recognition",
-    demoUrl: "https://retail-image-recognition.streamlit.app/",
+    demoUrl:
+      "https://retail-image-recognition.streamlit.app/",
 
     images: [
       "/projects/retail_image/r_thumb.png",
@@ -148,16 +154,16 @@ export const projects: Project[] = [
       "/projects/retail_image/img2.png",
     ],
     imageCaptions: [
-      "Streamlit demo interface for image upload",
-      "Sample training data distribution",
-      "Confusion matrix on validation data",
-      "Accuracy and loss curves during training",
-      "Example predictions on retail images",
+      "Streamlit interface for real-time image upload and prediction",
+      "Sample distribution of training images across SKU categories",
+      "Confusion matrix on validation dataset",
+      "Training accuracy and loss curves",
+      "Example predictions on retail product images",
     ],
   },
 
   /* ------------------------------------------------------------------ */
-  /* AMAZON SENTIMENT ANALYSIS */
+  /* AMAZON FOOD REVIEWS SENTIMENT ANALYSIS */
   /* ------------------------------------------------------------------ */
   {
     slug: "amazon-food-reviews-sentiment-analysis",
@@ -173,14 +179,14 @@ export const projects: Project[] = [
     goals: [
       "Automate sentiment classification for large-scale customer reviews",
       "Compare classical NLP models with transformer-based models",
-      "Deploy an interactive demo for real-time predictions",
+      "Deploy an interactive demo for real-time sentiment prediction",
     ],
 
     dataset: {
       source: "Amazon Fine Food Reviews (Kaggle)",
       size: "568,000+ customer reviews",
       notes:
-        "Ratings 1–2 mapped to negative, 4–5 mapped to positive; neutral reviews removed",
+        "Ratings 1–2 mapped to negative, 4–5 to positive; neutral reviews removed",
     },
 
     role:
@@ -197,17 +203,17 @@ export const projects: Project[] = [
     ],
 
     approach: [
-      "Cleaned and preprocessed large-scale text data",
-      "Built a TF-IDF + Logistic Regression baseline",
+      "Cleaned and preprocessed large-scale review text",
+      "Built a TF-IDF + Logistic Regression baseline model",
       "Fine-tuned DistilBERT using transfer learning",
       "Evaluated models using accuracy, F1-score, and confusion matrix",
-      "Deployed interactive Gradio demo on Hugging Face Spaces",
+      "Deployed an interactive Gradio demo on Hugging Face Spaces",
     ],
 
     impact: [
       "Trained on 568K+ customer reviews",
       "Improved accuracy from baseline (~89%) to ~92–94%",
-      "Average inference latency under ~300ms per review",
+      "Achieved average inference latency under ~300ms per review",
       "Enabled real-time sentiment analysis via web interface",
     ],
 
@@ -233,10 +239,10 @@ export const projects: Project[] = [
     ],
     imageCaptions: [
       "Gradio interface for real-time sentiment prediction",
-      "Word cloud of frequently occurring terms",
+      "Word cloud showing frequently occurring review terms",
       "ROC curve for model evaluation",
-      "Confusion matrix on validation data",
-      "Accuracy comparison across models",
+      "Confusion matrix on validation dataset",
+      "Accuracy comparison across baseline and transformer models",
     ],
   },
 ];
