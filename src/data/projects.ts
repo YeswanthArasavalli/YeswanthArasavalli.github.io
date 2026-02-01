@@ -1,12 +1,20 @@
+// src/data/projects.ts
+
 export interface Project {
   slug: string;
   title: string;
   summary: string;
+
+  /** Business-oriented problem framing */
   description: string;
 
+  /** Whether this project is a full case study */
   caseStudy: boolean;
 
+  /** Outcome-oriented goals */
   goals?: string[];
+
+  /** Dataset metadata (short, recruiter-friendly) */
   dataset?: {
     source: string;
     size: string;
@@ -16,13 +24,19 @@ export interface Project {
   role: string;
   techStack: string[];
   approach: string[];
+
+  /** Business + technical outcomes */
   impact: string[];
   result: string;
 
+  /** Optional example prediction (strong signal for ML projects) */
   examplePrediction?: {
     input: string;
     output: string;
   };
+
+  /** Reflection section (high-signal for recruiters) */
+  learnings?: string[];
 
   codeUrl?: string;
   demoUrl?: string;
@@ -32,9 +46,9 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  /* ------------------------------------------------------------------ */
+  /* ================================================================== */
   /* SALES PERFORMANCE DASHBOARD */
-  /* ------------------------------------------------------------------ */
+  /* ================================================================== */
   {
     slug: "sales-performance-dashboard",
     title: "Sales Performance Dashboard",
@@ -42,7 +56,7 @@ export const projects: Project[] = [
       "Interactive Power BI dashboard analyzing multi-year sales performance across regions and product categories.",
 
     description:
-      "Built a Power BI dashboard that consolidates sales data from multiple sources to track revenue trends, regional performance, and product-level KPIs. The dashboard was designed for management and sales teams to enable faster, self-serve access to insights.",
+      "Sales teams and management often rely on fragmented Excel reports that make it difficult to track performance trends consistently. This project focused on creating a centralized, self-serve analytics dashboard that enables faster visibility into revenue, regional performance, and product-level KPIs.",
 
     caseStudy: true,
 
@@ -55,7 +69,7 @@ export const projects: Project[] = [
     dataset: {
       source: "Internal sales data (simulated / anonymized)",
       size: "Multi-year transactional sales data",
-      notes: "Modeled using a star schema to support efficient reporting",
+      notes: "Modeled using a star schema to support efficient BI reporting",
     },
 
     role:
@@ -64,28 +78,30 @@ export const projects: Project[] = [
     techStack: ["Power BI", "SQL", "Excel", "DAX"],
 
     approach: [
-      "Worked with stakeholders to define KPIs and reporting requirements",
-      "Designed a star-schema data model for sales analysis",
+      "Collaborated with stakeholders to define business KPIs",
+      "Designed a star-schema data model for scalable reporting",
       "Built DAX measures for YoY growth and trend analysis",
       "Created interactive dashboards with slicers and drill-downs",
-      "Configured scheduled data refresh",
+      "Configured scheduled data refresh for up-to-date insights",
     ],
 
     impact: [
       "Consolidated multi-year sales data into a single dashboard",
-      "Reduced reliance on manual Excel reporting",
+      "Reduced reliance on manual Excel reporting workflows",
       "Improved visibility into regional and product performance",
       "Enabled faster sales review and planning discussions",
     ],
 
     result:
-      "Improved visibility into sales performance and reduced reliance on manual reporting.",
+      "Improved visibility into sales performance while reducing manual reporting effort.",
 
-    images: [
-      "/placeholder.svg",
-      "/placeholder.svg",
-      "/placeholder.svg",
+    learnings: [
+      "Well-designed data models are critical for scalable BI solutions",
+      "Stakeholder-defined KPIs drive dashboard adoption",
+      "Self-serve analytics reduces repetitive reporting requests",
     ],
+
+    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
     imageCaptions: [
       "Overall sales performance overview dashboard",
       "Regional sales performance breakdown",
@@ -93,9 +109,9 @@ export const projects: Project[] = [
     ],
   },
 
-  /* ------------------------------------------------------------------ */
+  /* ================================================================== */
   /* RETAIL PRODUCT IMAGE RECOGNITION */
-  /* ------------------------------------------------------------------ */
+  /* ================================================================== */
   {
     slug: "retail-product-image-recognition",
     title: "Retail Product Image Recognition System",
@@ -103,14 +119,14 @@ export const projects: Project[] = [
       "End-to-end computer vision system for identifying retail products from images, trained on ~200 SKU categories and deployed as a real-time Streamlit demo.",
 
     description:
-      "Built a computer vision–based SKU recognition system using transfer learning with EfficientNet-B0. The system classifies retail product images and demonstrates real-time inference through an interactive Streamlit web interface.",
+      "Manual product tagging in retail workflows is time-consuming and error-prone. This project explores how computer vision can automate SKU identification from product images, enabling faster product analytics and reducing operational overhead.",
 
     caseStudy: true,
 
     goals: [
       "Evaluate feasibility of automated SKU recognition from images",
       "Apply transfer learning to a real-world retail dataset",
-      "Demonstrate real-time inference via a simple web interface",
+      "Demonstrate real-time inference through a usable web interface",
     ],
 
     dataset: {
@@ -141,10 +157,15 @@ export const projects: Project[] = [
     result:
       "Automated SKU identification from product images, reducing manual tagging effort.",
 
+    learnings: [
+      "Transfer learning significantly reduces training time for vision tasks",
+      "Top-5 accuracy is critical for multi-class retail classification",
+      "Inference speed matters for real-world usability",
+    ],
+
     codeUrl:
       "https://github.com/YeswanthArasavalli/retail-product-image-recognition",
-    demoUrl:
-      "https://retail-image-recognition.streamlit.app/",
+    demoUrl: "https://retail-image-recognition.streamlit.app/",
 
     images: [
       "/projects/retail_image/r_thumb.png",
@@ -162,9 +183,9 @@ export const projects: Project[] = [
     ],
   },
 
-  /* ------------------------------------------------------------------ */
+  /* ================================================================== */
   /* AMAZON FOOD REVIEWS SENTIMENT ANALYSIS */
-  /* ------------------------------------------------------------------ */
+  /* ================================================================== */
   {
     slug: "amazon-food-reviews-sentiment-analysis",
     title: "Amazon Food Reviews Sentiment Analysis",
@@ -172,14 +193,14 @@ export const projects: Project[] = [
       "End-to-end NLP pipeline for sentiment classification on 568K+ Amazon food reviews using fine-tuned DistilBERT.",
 
     description:
-      "Developed a sentiment analysis pipeline using the Amazon Fine Food Reviews dataset. The project covers data preprocessing, baseline modeling, transformer fine-tuning, evaluation, and interactive deployment using Gradio.",
+      "Large e-commerce platforms receive thousands of customer reviews daily, making manual sentiment analysis slow and inconsistent. This project focuses on automating sentiment detection from customer feedback to enable faster insight generation and more data-driven product and customer experience decisions.",
 
     caseStudy: true,
 
     goals: [
-      "Automate sentiment classification for large-scale customer reviews",
-      "Compare classical NLP models with transformer-based models",
-      "Deploy an interactive demo for real-time sentiment prediction",
+      "Reduce manual review analysis by automating sentiment classification",
+      "Benchmark classical NLP models against transformer-based approaches",
+      "Deploy a real-time sentiment prediction interface",
     ],
 
     dataset: {
@@ -204,8 +225,8 @@ export const projects: Project[] = [
 
     approach: [
       "Cleaned and preprocessed large-scale review text",
-      "Built a TF-IDF + Logistic Regression baseline model",
-      "Fine-tuned DistilBERT using transfer learning",
+      "Built a TF-IDF + Logistic Regression baseline to establish a benchmark",
+      "Fine-tuned DistilBERT for improved contextual understanding",
       "Evaluated models using accuracy, F1-score, and confusion matrix",
       "Deployed an interactive Gradio demo on Hugging Face Spaces",
     ],
@@ -218,12 +239,18 @@ export const projects: Project[] = [
     ],
 
     result:
-      "Automated sentiment detection from large-scale customer feedback.",
+      "Automated sentiment detection from large-scale customer feedback, enabling faster customer insight workflows.",
 
     examplePrediction: {
       input: "The food tasted terrible and was completely stale.",
       output: "Negative (confidence ~0.96)",
     },
+
+    learnings: [
+      "Transformer models significantly outperform classical NLP for contextual sentiment",
+      "Baseline models are essential for meaningful performance comparison",
+      "Deployment considerations (latency, model size) matter as much as accuracy",
+    ],
 
     codeUrl:
       "https://github.com/YeswanthArasavalli/amazon-food-review-sentiment-analysis",
