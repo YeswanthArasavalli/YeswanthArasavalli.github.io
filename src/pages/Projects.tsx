@@ -9,24 +9,27 @@ export default function Projects() {
     <Layout>
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
         <div className="container mx-auto px-4 py-20">
-          <div className="mb-12 text-center max-w-2xl mx-auto">
+          {/* Header */}
+          <div className="mb-14 text-center max-w-2xl mx-auto">
             <h1 className="mb-4 text-4xl font-bold text-slate-900">
               Project Case Studies
             </h1>
             <p className="text-lg text-slate-600">
               End-to-end analytics and applied machine learning work,
-              focused on real problems and measurable outcomes.
+              focused on real problems, real data, and measurable outcomes.
             </p>
           </div>
 
+          {/* Projects Grid */}
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
               <div
                 key={project.slug}
-                className="group flex flex-col rounded-lg bg-white p-6 shadow-lg hover:shadow-xl transition-shadow"
+                className="group flex flex-col rounded-xl bg-white p-6 shadow-lg hover:shadow-xl transition-shadow"
               >
+                {/* Thumbnail */}
                 {project.images?.length > 0 && (
-                  <div className="mb-4 h-48 rounded-md overflow-hidden">
+                  <div className="mb-4 h-48 rounded-lg overflow-hidden bg-slate-200">
                     <img
                       src={project.images[0]}
                       alt={project.title}
@@ -35,19 +38,25 @@ export default function Projects() {
                   </div>
                 )}
 
-                <span className="text-xs font-medium text-primary mb-1">
-                  Case Study
-                </span>
+                {/* Case Study Label */}
+                {project.caseStudy && (
+                  <span className="mb-1 inline-block text-xs font-semibold uppercase tracking-wide text-primary">
+                    Case Study
+                  </span>
+                )}
 
-                <h3 className="text-xl font-semibold mb-2">
+                {/* Title */}
+                <h3 className="mb-2 text-xl font-semibold text-slate-900">
                   {project.title}
                 </h3>
 
-                <p className="text-sm text-slate-600 flex-grow">
+                {/* Summary */}
+                <p className="mb-4 text-sm text-slate-600 flex-grow">
                   {project.summary}
                 </p>
 
-                <div className="flex flex-wrap gap-2 my-4">
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-5">
                   {project.techStack.slice(0, 3).map((tech) => (
                     <span
                       key={tech}
@@ -58,7 +67,8 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="mt-auto flex gap-3">
+                {/* Actions */}
+                <div className="mt-auto flex flex-wrap gap-3">
                   <Button asChild size="sm">
                     <Link to={`/projects/${project.slug}`}>
                       View Case Study
@@ -82,6 +92,7 @@ export default function Projects() {
             ))}
           </div>
 
+          {/* Footer CTA */}
           <div className="mt-16 text-center">
             <Link to="/">
               <Button variant="outline">Back to Home</Button>
