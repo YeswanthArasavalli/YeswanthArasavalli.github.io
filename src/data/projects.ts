@@ -42,7 +42,7 @@ export interface Project {
     output: string;
   };
 
-  /** Reflection / learnings (used outside detail hero) */
+  /** Reflection / learnings (rendered outside hero section) */
   learnings?: string[];
 
   codeUrl?: string;
@@ -94,7 +94,7 @@ export const projects: Project[] = [
     ],
 
     metrics: [
-      { label: "Dashboards", value: "5+", icon: "model" },
+      { label: "Dashboards Built", value: "5+", icon: "model" },
       { label: "Years of Data", value: "3+", icon: "scale" },
       { label: "Manual Effort Reduced", value: "~70%", icon: "accuracy" },
     ],
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     ],
 
     result:
-      "Improved visibility into sales performance while reducing manual reporting effort.",
+      "Improved visibility into sales performance while significantly reducing manual reporting effort.",
 
     learnings: [
       "Well-designed data models are critical for scalable BI solutions",
@@ -183,14 +183,13 @@ export const projects: Project[] = [
       "Transfer learning significantly reduces training time",
       "Top-5 accuracy is essential for retail classification",
       "Dataset balance strongly impacts model performance",
-      "Inference speed is critical for UX",
+      "Inference speed is critical for user-facing ML systems",
     ],
 
     codeUrl:
       "https://github.com/YeswanthArasavalli/retail-product-image-recognition",
 
-    demoUrl:
-      "https://retail-image-recognition.streamlit.app/",
+    demoUrl: "https://retail-image-recognition.streamlit.app/",
 
     images: [
       "/projects/retail_image/r_thumb.png",
@@ -201,10 +200,10 @@ export const projects: Project[] = [
     ],
     imageCaptions: [
       "Streamlit interface for real-time image upload",
-      "Training data distribution",
-      "Confusion matrix",
-      "Training curves",
-      "Example predictions",
+      "Training data distribution across SKU categories",
+      "Confusion matrix on validation data",
+      "Training accuracy and loss curves",
+      "Example predictions on retail product images",
     ],
   },
 
@@ -252,14 +251,14 @@ export const projects: Project[] = [
     approach: [
       "Built TF-IDF + Logistic Regression baseline",
       "Fine-tuned DistilBERT using transfer learning",
-      "Evaluated with accuracy, F1, ROC, confusion matrix",
-      "Deployed real-time Gradio demo",
+      "Evaluated using accuracy, F1-score, ROC curve, and confusion matrix",
+      "Deployed a real-time Gradio-based demo",
     ],
 
     metrics: [
       { label: "Accuracy", value: "94%", icon: "accuracy" },
-      { label: "Latency", value: "<300ms", icon: "latency" },
-      { label: "Reviews", value: "568K+", icon: "scale" },
+      { label: "Inference Latency", value: "<300ms", icon: "latency" },
+      { label: "Reviews Processed", value: "568K+", icon: "scale" },
       { label: "Model", value: "DistilBERT", icon: "model" },
     ],
 
@@ -278,9 +277,9 @@ export const projects: Project[] = [
     },
 
     learnings: [
-      "Transformers outperform classical NLP on contextual sentiment",
-      "Baselines are essential for benchmarking",
-      "Latency matters as much as accuracy in production",
+      "Transformer models outperform classical NLP for contextual sentiment",
+      "Baselines are essential for meaningful benchmarking",
+      "Latency matters as much as accuracy in production systems",
       "Clear business framing improves ML adoption",
     ],
 
@@ -298,11 +297,11 @@ export const projects: Project[] = [
       "/projects/amazon_food/accuracy.png",
     ],
     imageCaptions: [
-      "Gradio interface",
-      "Word cloud",
-      "ROC curve",
-      "Confusion matrix",
-      "Accuracy comparison",
+      "Gradio interface for real-time sentiment prediction",
+      "Word cloud highlighting frequently occurring terms",
+      "ROC curve demonstrating model discrimination performance",
+      "Confusion matrix on the validation dataset",
+      "Accuracy comparison between baseline and transformer models",
     ],
   },
 ];
