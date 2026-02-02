@@ -219,7 +219,7 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* ================= VISUAL EVIDENCE ================= */}
+      {/* ================= VISUAL EVIDENCE (FIXED) ================= */}
       {project.images?.length > 0 && (
         <section className="py-16">
           <div className="container max-w-5xl">
@@ -233,11 +233,15 @@ export default function ProjectDetail() {
                   key={i}
                   className="bg-card border rounded-lg overflow-hidden"
                 >
-                  <img
-                    src={img}
-                    alt={`${project.title} visual ${i + 1}`}
-                    className="w-full h-auto object-cover"
-                  />
+                  <div className="aspect-video bg-muted">
+                    <img
+                      src={img}
+                      alt={`${project.title} visual ${i + 1}`}
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
                   {project.imageCaptions?.[i] && (
                     <figcaption className="p-3 text-sm text-muted-foreground">
                       {project.imageCaptions[i]}
