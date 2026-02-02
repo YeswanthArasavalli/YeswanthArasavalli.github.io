@@ -11,6 +11,7 @@ import {
   Target,
   Database,
   Quote,
+  Lightbulb,
 } from "lucide-react";
 
 export default function ProjectDetail() {
@@ -90,11 +91,11 @@ export default function ProjectDetail() {
 
           {isAmazonProject && (
             <p className="text-muted-foreground leading-relaxed">
-              Large e-commerce platforms receive thousands of customer reviews
-              daily. Manually analyzing this feedback is slow, inconsistent, and
-              difficult to scale. Automating sentiment analysis enables faster
-              insight generation and supports data-driven product and customer
-              experience decisions.
+              Large e-commerce platforms receive massive volumes of customer
+              reviews daily. Manually analyzing this feedback is slow,
+              inconsistent, and difficult to scale. Automating sentiment
+              analysis enables faster insight generation and supports
+              data-driven product and customer experience decisions.
             </p>
           )}
 
@@ -244,6 +245,34 @@ export default function ProjectDetail() {
                 </span>
               </p>
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* ================= RESULT ================= */}
+      <section className="py-16">
+        <div className="container max-w-4xl">
+          <h2 className="text-2xl font-bold mb-4">Result</h2>
+          <p className="text-muted-foreground leading-relaxed">
+            {project.result}
+          </p>
+        </div>
+      </section>
+
+      {/* ================= KEY LEARNINGS ================= */}
+      {project.learnings && (
+        <section className="py-16 bg-secondary/30">
+          <div className="container max-w-4xl">
+            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <Lightbulb className="h-6 w-6 text-primary" />
+              Key Learnings
+            </h2>
+
+            <ul className="space-y-3 text-muted-foreground">
+              {project.learnings.map((item, index) => (
+                <li key={index}>• {item}</li>
+              ))}
+            </ul>
           </div>
         </section>
       )}
