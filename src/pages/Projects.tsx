@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projects";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Lightbulb } from "lucide-react";
 
 export default function Projects() {
   return (
@@ -51,12 +51,12 @@ export default function Projects() {
                 </h3>
 
                 {/* Summary */}
-                <p className="mb-4 text-sm text-slate-600 flex-grow">
+                <p className="mb-4 text-sm text-slate-600">
                   {project.summary}
                 </p>
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2 mb-5">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.techStack.slice(0, 3).map((tech) => (
                     <span
                       key={tech}
@@ -66,6 +66,21 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
+
+                {/* ===== Key Learnings (High-Signal, Optional) ===== */}
+                {project.learnings && project.learnings.length > 0 && (
+                  <div className="mb-5 rounded-lg border border-dashed border-slate-200 bg-slate-50 p-3">
+                    <div className="mb-2 flex items-center gap-2 text-xs font-semibold text-slate-700">
+                      <Lightbulb className="h-4 w-4 text-primary" />
+                      Key Learnings
+                    </div>
+                    <ul className="space-y-1 text-xs text-slate-600">
+                      {project.learnings.slice(0, 2).map((learning, index) => (
+                        <li key={index}>• {learning}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 {/* Actions */}
                 <div className="mt-auto flex flex-wrap gap-3">
