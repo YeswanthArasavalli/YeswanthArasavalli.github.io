@@ -35,7 +35,7 @@ export interface Project {
     output: string;
   };
 
-  /** Reflection / learnings (rendered elsewhere, not in detail page) */
+  /** Reflection / learnings (rendered outside detail page) */
   learnings?: string[];
 
   codeUrl?: string;
@@ -99,7 +99,8 @@ export const projects: Project[] = [
     learnings: [
       "Well-designed data models are critical for scalable BI solutions",
       "Stakeholder-defined KPIs significantly improve dashboard adoption",
-      "Self-serve analytics reduces repetitive reporting requests",
+      "Self-serve dashboards reduce repetitive ad-hoc reporting requests",
+      "Data freshness and usability matter as much as visual design",
     ],
 
     images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
@@ -161,8 +162,9 @@ export const projects: Project[] = [
 
     learnings: [
       "Transfer learning significantly reduces training time for vision tasks",
-      "Top-5 accuracy is critical for large multi-class classification problems",
-      "Inference speed directly affects real-world usability",
+      "Top-5 accuracy is essential for large multi-class retail classification",
+      "Dataset quality and class balance strongly affect model performance",
+      "Inference speed is critical for user-facing ML applications",
     ],
 
     codeUrl:
@@ -252,9 +254,10 @@ export const projects: Project[] = [
     },
 
     learnings: [
-      "Transformer-based models outperform classical NLP for contextual sentiment",
+      "Transformer-based models outperform classical NLP for contextual sentiment tasks",
       "Baseline models are essential for meaningful performance benchmarking",
-      "Deployment constraints matter as much as raw model accuracy",
+      "Inference latency and model size are critical for real-world deployment",
+      "Clear business framing improves stakeholder understanding of ML value",
     ],
 
     codeUrl:
