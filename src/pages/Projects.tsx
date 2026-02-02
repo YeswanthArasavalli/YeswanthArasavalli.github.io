@@ -4,7 +4,28 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projects";
-import { ExternalLink, BarChart3 } from "lucide-react";
+import {
+  ExternalLink,
+  BarChart3,
+  Zap,
+  Brain,
+  Database,
+} from "lucide-react";
+
+const renderMetricIcon = (icon: string) => {
+  switch (icon) {
+    case "accuracy":
+      return <Brain className="h-3.5 w-3.5" />;
+    case "latency":
+      return <Zap className="h-3.5 w-3.5" />;
+    case "scale":
+      return <Database className="h-3.5 w-3.5" />;
+    case "model":
+      return <BarChart3 className="h-3.5 w-3.5" />;
+    default:
+      return null;
+  }
+};
 
 export default function Projects() {
   return (
@@ -70,10 +91,7 @@ export default function Projects() {
                 </div>
 
                 {/* ================= KEY METRICS ================= */}
-                {(project.slug ===
-                  "amazon-food-reviews-sentiment-analysis" ||
-                  project.slug ===
-                    "retail-product-image-recognition") && (
+                {project.metrics && (
                   <div className="mb-5">
                     <div className="flex items-center gap-2 mb-2 text-xs font-semibold text-slate-700">
                       <BarChart3 className="h-4 w-4" />
@@ -81,35 +99,17 @@ export default function Projects() {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      {project.slug ===
-                        "amazon-food-reviews-sentiment-analysis" && (
-                        <>
-                          <span className="rounded-md bg-emerald-100 px-2 py-1 text-xs font-medium text-emerald-700">
-                            Accuracy: 92–94%
+                      {project.metrics.map((metric, index) => (
+                        <span
+                          key={index}
+                          className="flex items-center gap-1 rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700"
+                        >
+                          {renderMetricIcon(metric.icon)}
+                          <span>
+                            {metric.label}: {metric.value}
                           </span>
-                          <span className="rounded-md bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700">
-                            Latency: &lt;300ms
-                          </span>
-                          <span className="rounded-md bg-purple-100 px-2 py-1 text-xs font-medium text-purple-700">
-                            Scale: 568K+ reviews
-                          </span>
-                        </>
-                      )}
-
-                      {project.slug ===
-                        "retail-product-image-recognition" && (
-                        <>
-                          <span className="rounded-md bg-emerald-100 px-2 py-1 text-xs font-medium text-emerald-700">
-                            Accuracy: 84.9%
-                          </span>
-                          <span className="rounded-md bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700">
-                            Top-5: 94%
-                          </span>
-                          <span className="rounded-md bg-purple-100 px-2 py-1 text-xs font-medium text-purple-700">
-                            Scale: ~200 SKUs
-                          </span>
-                        </>
-                      )}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 )}
