@@ -1,8 +1,10 @@
+// src/pages/Projects.tsx
+
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projects";
-import { ExternalLink, Lightbulb } from "lucide-react";
+import { ExternalLink, BarChart3 } from "lucide-react";
 
 export default function Projects() {
   return (
@@ -51,7 +53,7 @@ export default function Projects() {
                 </h3>
 
                 {/* Summary */}
-                <p className="mb-4 text-sm text-slate-600">
+                <p className="mb-4 text-sm text-slate-600 flex-grow">
                   {project.summary}
                 </p>
 
@@ -67,18 +69,48 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {/* ===== Key Learnings (High-Signal, Optional) ===== */}
-                {project.learnings && project.learnings.length > 0 && (
-                  <div className="mb-5 rounded-lg border border-dashed border-slate-200 bg-slate-50 p-3">
-                    <div className="mb-2 flex items-center gap-2 text-xs font-semibold text-slate-700">
-                      <Lightbulb className="h-4 w-4 text-primary" />
-                      Key Learnings
+                {/* ================= KEY METRICS ================= */}
+                {(project.slug ===
+                  "amazon-food-reviews-sentiment-analysis" ||
+                  project.slug ===
+                    "retail-product-image-recognition") && (
+                  <div className="mb-5">
+                    <div className="flex items-center gap-2 mb-2 text-xs font-semibold text-slate-700">
+                      <BarChart3 className="h-4 w-4" />
+                      Key Metrics
                     </div>
-                    <ul className="space-y-1 text-xs text-slate-600">
-                      {project.learnings.slice(0, 2).map((learning, index) => (
-                        <li key={index}>• {learning}</li>
-                      ))}
-                    </ul>
+
+                    <div className="flex flex-wrap gap-2">
+                      {project.slug ===
+                        "amazon-food-reviews-sentiment-analysis" && (
+                        <>
+                          <span className="rounded-md bg-emerald-100 px-2 py-1 text-xs font-medium text-emerald-700">
+                            Accuracy: 92–94%
+                          </span>
+                          <span className="rounded-md bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700">
+                            Latency: &lt;300ms
+                          </span>
+                          <span className="rounded-md bg-purple-100 px-2 py-1 text-xs font-medium text-purple-700">
+                            Scale: 568K+ reviews
+                          </span>
+                        </>
+                      )}
+
+                      {project.slug ===
+                        "retail-product-image-recognition" && (
+                        <>
+                          <span className="rounded-md bg-emerald-100 px-2 py-1 text-xs font-medium text-emerald-700">
+                            Accuracy: 84.9%
+                          </span>
+                          <span className="rounded-md bg-blue-100 px-2 py-1 text-xs font-medium text-blue-700">
+                            Top-5: 94%
+                          </span>
+                          <span className="rounded-md bg-purple-100 px-2 py-1 text-xs font-medium text-purple-700">
+                            Scale: ~200 SKUs
+                          </span>
+                        </>
+                      )}
+                    </div>
                   </div>
                 )}
 
