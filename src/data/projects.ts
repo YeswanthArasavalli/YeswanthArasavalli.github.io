@@ -29,13 +29,20 @@ export interface Project {
   impact: string[];
   result: string;
 
-  /** Optional example prediction (strong signal for ML projects) */
+  /** Key measurable metrics (used for badges + "By the Numbers") */
+  metrics?: {
+    label: string;
+    value: string;
+    icon: "accuracy" | "latency" | "scale" | "model";
+  }[];
+
+  /** Optional example prediction (ML projects) */
   examplePrediction?: {
     input: string;
     output: string;
   };
 
-  /** Reflection / learnings (rendered outside detail page) */
+  /** Reflection / learnings (used outside detail hero) */
   learnings?: string[];
 
   codeUrl?: string;
@@ -86,6 +93,12 @@ export const projects: Project[] = [
       "Configured scheduled data refresh for up-to-date insights",
     ],
 
+    metrics: [
+      { label: "Dashboards", value: "5+", icon: "model" },
+      { label: "Years of Data", value: "3+", icon: "scale" },
+      { label: "Manual Effort Reduced", value: "~70%", icon: "accuracy" },
+    ],
+
     impact: [
       "Consolidated multi-year sales data into a single dashboard",
       "Reduced reliance on manual Excel reporting workflows",
@@ -99,8 +112,8 @@ export const projects: Project[] = [
     learnings: [
       "Well-designed data models are critical for scalable BI solutions",
       "Stakeholder-defined KPIs significantly improve dashboard adoption",
-      "Self-serve dashboards reduce repetitive ad-hoc reporting requests",
-      "Data freshness and usability matter as much as visual design",
+      "Self-serve dashboards reduce repetitive ad-hoc reporting",
+      "Data freshness matters as much as visual design",
     ],
 
     images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
@@ -150,21 +163,27 @@ export const projects: Project[] = [
       "Built a Streamlit UI for image upload and prediction",
     ],
 
+    metrics: [
+      { label: "Top-1 Accuracy", value: "84.9%", icon: "accuracy" },
+      { label: "Top-5 Accuracy", value: "94%", icon: "accuracy" },
+      { label: "SKU Classes", value: "200+", icon: "scale" },
+      { label: "Inference Time", value: "<1s", icon: "latency" },
+    ],
+
     impact: [
       "Trained on ~200 retail SKU categories",
-      "Achieved ~84.9% validation accuracy and ~94% top-5 accuracy",
       "Enabled real-time image inference via web interface",
-      "Demonstrated applicability of computer vision in retail analytics workflows",
+      "Demonstrated applicability of computer vision in retail analytics",
     ],
 
     result:
       "Automated SKU identification from product images, reducing manual tagging effort.",
 
     learnings: [
-      "Transfer learning significantly reduces training time for vision tasks",
-      "Top-5 accuracy is essential for large multi-class retail classification",
-      "Dataset quality and class balance strongly affect model performance",
-      "Inference speed is critical for user-facing ML applications",
+      "Transfer learning significantly reduces training time",
+      "Top-5 accuracy is essential for retail classification",
+      "Dataset balance strongly impacts model performance",
+      "Inference speed is critical for UX",
     ],
 
     codeUrl:
@@ -181,11 +200,11 @@ export const projects: Project[] = [
       "/projects/retail_image/img2.png",
     ],
     imageCaptions: [
-      "Streamlit interface for real-time image upload and prediction",
-      "Sample distribution of training images across SKU categories",
-      "Confusion matrix on validation dataset",
-      "Training accuracy and loss curves",
-      "Example predictions on retail product images",
+      "Streamlit interface for real-time image upload",
+      "Training data distribution",
+      "Confusion matrix",
+      "Training curves",
+      "Example predictions",
     ],
   },
 
@@ -207,7 +226,7 @@ export const projects: Project[] = [
     goals: [
       "Reduce manual review analysis through automated sentiment classification",
       "Benchmark classical NLP techniques against transformer-based models",
-      "Deploy a real-time sentiment prediction interface for interactive use",
+      "Deploy a real-time sentiment prediction interface",
     ],
 
     dataset: {
@@ -218,7 +237,7 @@ export const projects: Project[] = [
     },
 
     role:
-      "Machine Learning Engineer (NLP) — Owned the full project lifecycle including data preprocessing, modeling, evaluation, and deployment.",
+      "Machine Learning Engineer (NLP) — Owned the full project lifecycle from data processing to deployment.",
 
     techStack: [
       "Python",
@@ -231,22 +250,27 @@ export const projects: Project[] = [
     ],
 
     approach: [
-      "Cleaned and preprocessed large-scale customer review text",
-      "Built a TF-IDF + Logistic Regression baseline for interpretability",
+      "Built TF-IDF + Logistic Regression baseline",
       "Fine-tuned DistilBERT using transfer learning",
-      "Evaluated models using accuracy, F1-score, ROC curve, and confusion matrix",
-      "Deployed an interactive Gradio demo on Hugging Face Spaces",
+      "Evaluated with accuracy, F1, ROC, confusion matrix",
+      "Deployed real-time Gradio demo",
+    ],
+
+    metrics: [
+      { label: "Accuracy", value: "94%", icon: "accuracy" },
+      { label: "Latency", value: "<300ms", icon: "latency" },
+      { label: "Reviews", value: "568K+", icon: "scale" },
+      { label: "Model", value: "DistilBERT", icon: "model" },
     ],
 
     impact: [
-      "Trained models on 568K+ real-world customer reviews",
-      "Improved accuracy from ~89% baseline to ~92–94%",
-      "Achieved average inference latency under ~300ms per review",
-      "Enabled real-time sentiment analysis via a web-based interface",
+      "Improved sentiment accuracy from ~89% to ~94%",
+      "Enabled real-time sentiment analysis",
+      "Reduced manual customer feedback analysis",
     ],
 
     result:
-      "Automated sentiment detection from large-scale customer feedback, reducing manual analysis effort and enabling faster customer insight workflows.",
+      "Automated sentiment detection from large-scale customer feedback, enabling faster insight workflows.",
 
     examplePrediction: {
       input: "The food tasted terrible and was completely stale.",
@@ -254,10 +278,10 @@ export const projects: Project[] = [
     },
 
     learnings: [
-      "Transformer-based models outperform classical NLP for contextual sentiment tasks",
-      "Baseline models are essential for meaningful performance benchmarking",
-      "Inference latency and model size are critical for real-world deployment",
-      "Clear business framing improves stakeholder understanding of ML value",
+      "Transformers outperform classical NLP on contextual sentiment",
+      "Baselines are essential for benchmarking",
+      "Latency matters as much as accuracy in production",
+      "Clear business framing improves ML adoption",
     ],
 
     codeUrl:
@@ -273,13 +297,12 @@ export const projects: Project[] = [
       "/projects/amazon_food/confusion.png",
       "/projects/amazon_food/accuracy.png",
     ],
-
     imageCaptions: [
-      "Gradio interface for real-time sentiment prediction",
-      "Word cloud highlighting frequently occurring terms",
-      "ROC curve demonstrating model discrimination performance",
-      "Confusion matrix on the validation dataset",
-      "Accuracy comparison between baseline and transformer models",
+      "Gradio interface",
+      "Word cloud",
+      "ROC curve",
+      "Confusion matrix",
+      "Accuracy comparison",
     ],
   },
 ];
