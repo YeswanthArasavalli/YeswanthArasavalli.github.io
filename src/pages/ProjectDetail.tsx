@@ -12,6 +12,9 @@ import {
   Database,
   Quote,
   Lightbulb,
+  Zap,
+  BarChart3,
+  Brain,
 } from "lucide-react";
 
 export default function ProjectDetail() {
@@ -22,8 +25,18 @@ export default function ProjectDetail() {
     return <Navigate to="/404" replace />;
   }
 
-  const isAmazonProject =
-    project.slug === "amazon-food-reviews-sentiment-analysis";
+  const renderMetricIcon = (icon: string) => {
+    switch (icon) {
+      case "performance":
+        return <Brain className="h-5 w-5 text-primary" />;
+      case "scale":
+        return <BarChart3 className="h-5 w-5 text-primary" />;
+      case "latency":
+        return <Zap className="h-5 w-5 text-primary" />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <Layout>
@@ -32,7 +45,7 @@ export default function ProjectDetail() {
         <div className="container max-w-4xl">
           <Link
             to="/projects"
-            className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors mb-8"
+            className="inline-flex items-center text-muted-foreground hover:text-primary mb-8"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Projects
@@ -40,12 +53,12 @@ export default function ProjectDetail() {
 
           <div className="space-y-6">
             {project.caseStudy && (
-              <span className="inline-block text-xs font-semibold tracking-wide text-primary uppercase">
+              <span className="inline-block text-xs font-semibold uppercase tracking-wide text-primary">
                 Case Study
               </span>
             )}
 
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+            <h1 className="text-4xl md:text-5xl font-bold">
               {project.title}
             </h1>
 
@@ -56,26 +69,18 @@ export default function ProjectDetail() {
             <div className="flex flex-wrap gap-4 pt-2">
               {project.demoUrl && (
                 <Button asChild size="lg">
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href={project.demoUrl} target="_blank" rel="noreferrer">
                     <ExternalLink className="mr-2 h-5 w-5" />
-                    Try Live Demo
+                    Live Demo
                   </a>
                 </Button>
               )}
 
               {project.codeUrl && (
                 <Button asChild variant="outline" size="lg">
-                  <a
-                    href={project.codeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <a href={project.codeUrl} target="_blank" rel="noreferrer">
                     <Github className="mr-2 h-5 w-5" />
-                    View GitHub
+                    GitHub
                   </a>
                 </Button>
               )}
@@ -86,19 +91,8 @@ export default function ProjectDetail() {
 
       {/* ================= PROBLEM CONTEXT ================= */}
       <section className="py-16">
-        <div className="container max-w-4xl space-y-4">
-          <h2 className="text-2xl font-bold">Problem Context</h2>
-
-          {isAmazonProject && (
-            <p className="text-muted-foreground leading-relaxed">
-              Large e-commerce platforms receive massive volumes of customer
-              reviews daily. Manually analyzing this feedback is slow,
-              inconsistent, and difficult to scale. Automating sentiment
-              analysis enables faster insight generation and supports
-              data-driven product and customer experience decisions.
-            </p>
-          )}
-
+        <div className="container max-w-4xl">
+          <h2 className="text-2xl font-bold mb-4">Problem Context</h2>
           <p className="text-muted-foreground leading-relaxed">
             {project.description}
           </p>
@@ -115,8 +109,8 @@ export default function ProjectDetail() {
             </h2>
 
             <ul className="space-y-3 text-muted-foreground">
-              {project.goals.map((goal, index) => (
-                <li key={index}>• {goal}</li>
+              {project.goals.map((goal, i) => (
+                <li key={i}>• {goal}</li>
               ))}
             </ul>
           </div>
@@ -133,12 +127,8 @@ export default function ProjectDetail() {
             </h2>
 
             <div className="grid sm:grid-cols-2 gap-4 text-muted-foreground">
-              <p>
-                <strong>Source:</strong> {project.dataset.source}
-              </p>
-              <p>
-                <strong>Size:</strong> {project.dataset.size}
-              </p>
+              <p><strong>Source:</strong> {project.dataset.source}</p>
+              <p><strong>Size:</strong> {project.dataset.size}</p>
               {project.dataset.notes && (
                 <p className="sm:col-span-2">
                   <strong>Notes:</strong> {project.dataset.notes}
@@ -149,8 +139,38 @@ export default function ProjectDetail() {
         </section>
       )}
 
+      {/* ================= BY THE NUMBERS ================= */}
+      {project.metrics && (
+        <section className="py-16 bg-secondary/30">
+          <div className="container max-w-5xl">
+            <h2 className="text-2xl font-bold mb-8 text-center">
+              By the Numbers
+            </h2>
+
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {project.metrics.map((metric, i) => (
+                <div
+                  key={i}
+                  className="bg-card border rounded-lg p-6 text-center space-y-2"
+                >
+                  <div className="flex justify-center">
+                    {renderMetricIcon(metric.icon)}
+                  </div>
+                  <p className="text-3xl font-bold text-foreground">
+                    {metric.value}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {metric.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ================= ROLE & STACK ================= */}
-      <section className="py-16 bg-secondary/30">
+      <section className="py-16">
         <div className="container max-w-4xl grid md:grid-cols-2 gap-12">
           <div>
             <h2 className="text-2xl font-bold mb-4">My Role</h2>
@@ -174,20 +194,17 @@ export default function ProjectDetail() {
       </section>
 
       {/* ================= APPROACH ================= */}
-      <section className="py-16">
+      <section className="py-16 bg-secondary/30">
         <div className="container max-w-4xl">
           <h2 className="text-2xl font-bold mb-8">
             Key Decisions & Approach
           </h2>
 
           <div className="space-y-4">
-            {project.approach.map((step, index) => (
-              <div
-                key={index}
-                className="flex gap-4 p-4 bg-card border rounded-lg"
-              >
-                <div className="w-8 h-8 bg-primary rounded-full text-primary-foreground flex items-center justify-center font-bold">
-                  {index + 1}
+            {project.approach.map((step, i) => (
+              <div key={i} className="flex gap-4 p-4 bg-card border rounded-lg">
+                <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold">
+                  {i + 1}
                 </div>
                 <p className="text-muted-foreground">{step}</p>
               </div>
@@ -195,59 +212,6 @@ export default function ProjectDetail() {
           </div>
         </div>
       </section>
-
-      {/* ================= VISUAL EVIDENCE ================= */}
-      <section className="py-16 bg-secondary/30">
-        <div className="container max-w-5xl">
-          <h2 className="text-2xl font-bold mb-8 text-center">
-            Visual Evidence
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {project.images.map((image, index) => (
-              <figure
-                key={index}
-                className="bg-card border rounded-lg overflow-hidden"
-              >
-                <img
-                  src={image}
-                  alt={`${project.title} screenshot ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
-                {project.imageCaptions?.[index] && (
-                  <figcaption className="p-3 text-sm text-muted-foreground">
-                    {project.imageCaptions[index]}
-                  </figcaption>
-                )}
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ================= EXAMPLE PREDICTION ================= */}
-      {project.examplePrediction && (
-        <section className="py-16">
-          <div className="container max-w-4xl">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-              <Quote className="h-6 w-6 text-primary" />
-              Example Prediction
-            </h2>
-
-            <div className="bg-card border rounded-lg p-6">
-              <p className="italic text-muted-foreground mb-3">
-                “{project.examplePrediction.input}”
-              </p>
-              <p className="font-medium text-foreground">
-                → Prediction:{" "}
-                <span className="text-primary">
-                  {project.examplePrediction.output}
-                </span>
-              </p>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* ================= RESULT ================= */}
       <section className="py-16">
@@ -259,35 +223,14 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* ================= KEY LEARNINGS ================= */}
-      {project.learnings && (
-        <section className="py-16 bg-secondary/30">
-          <div className="container max-w-4xl">
-            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-              <Lightbulb className="h-6 w-6 text-primary" />
-              Key Learnings
-            </h2>
-
-            <ul className="space-y-3 text-muted-foreground">
-              {project.learnings.map((item, index) => (
-                <li key={index}>• {item}</li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      )}
-
       {/* ================= IMPACT ================= */}
-      <section className="py-16">
+      <section className="py-16 bg-secondary/30">
         <div className="container max-w-4xl">
           <h2 className="text-2xl font-bold mb-8">Impact & Outcomes</h2>
 
           <div className="grid sm:grid-cols-2 gap-4">
-            {project.impact.map((item, index) => (
-              <div
-                key={index}
-                className="flex gap-3 p-4 bg-accent/50 rounded-lg"
-              >
+            {project.impact.map((item, i) => (
+              <div key={i} className="flex gap-3 p-4 bg-accent/50 rounded-lg">
                 <CheckCircle className="h-6 w-6 text-primary" />
                 <p className="font-medium">{item}</p>
               </div>
@@ -295,6 +238,24 @@ export default function ProjectDetail() {
           </div>
         </div>
       </section>
+
+      {/* ================= LEARNINGS ================= */}
+      {project.learnings && (
+        <section className="py-16">
+          <div className="container max-w-4xl">
+            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <Lightbulb className="h-6 w-6 text-primary" />
+              Key Learnings
+            </h2>
+
+            <ul className="space-y-3 text-muted-foreground">
+              {project.learnings.map((l, i) => (
+                <li key={i}>• {l}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <CTASection />
     </Layout>
