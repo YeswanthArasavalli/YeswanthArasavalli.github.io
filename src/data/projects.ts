@@ -186,77 +186,80 @@ export const projects: Project[] = [
   /* ================================================================== */
   /* AMAZON FOOD REVIEWS SENTIMENT ANALYSIS */
   /* ================================================================== */
+  
   {
     slug: "amazon-food-reviews-sentiment-analysis",
     title: "Amazon Food Reviews Sentiment Analysis",
+  
     summary:
-      "End-to-end NLP pipeline for sentiment classification on 568K+ Amazon food reviews using fine-tuned DistilBERT.",
-
+      "End-to-end NLP pipeline for sentiment classification on 568K+ Amazon food reviews using a fine-tuned DistilBERT model.",
+  
     description:
-      "Large e-commerce platforms receive thousands of customer reviews daily, making manual sentiment analysis slow and inconsistent. This project focuses on automating sentiment detection from customer feedback to enable faster insight generation and more data-driven product and customer experience decisions.",
-
+      "Large e-commerce platforms receive massive volumes of customer reviews daily, making manual sentiment analysis slow, inconsistent, and unscalable. This project automates sentiment detection from customer feedback to enable faster insight generation and support data-driven product and customer experience decisions.",
+  
     caseStudy: true,
-
+  
     goals: [
-      "Reduce manual review analysis by automating sentiment classification",
-      "Benchmark classical NLP models against transformer-based approaches",
-      "Deploy a real-time sentiment prediction interface",
+      "Reduce manual review analysis through automated sentiment classification",
+      "Benchmark classical NLP techniques against transformer-based models",
+      "Deploy a real-time sentiment prediction interface for interactive use",
     ],
-
+  
     dataset: {
       source: "Amazon Fine Food Reviews (Kaggle)",
       size: "568,000+ customer reviews",
       notes:
-        "Ratings 1–2 mapped to negative, 4–5 to positive; neutral reviews removed",
+        "Ratings 1–2 mapped to negative sentiment, 4–5 to positive; neutral (rating 3) reviews removed to avoid ambiguity",
     },
-
+  
     role:
-      "Machine Learning Engineer (NLP) — Managed data processing, model experimentation, evaluation, and deployment.",
-
+      "Machine Learning Engineer (NLP) — Owned the full project lifecycle including data preprocessing, model experimentation, evaluation, and deployment.",
+  
     techStack: [
-      "PyTorch",
-      "DistilBERT",
-      "Gradio",
       "Python",
+      "PyTorch",
       "Hugging Face Transformers",
+      "DistilBERT",
       "TF-IDF",
       "Logistic Regression",
+      "Gradio",
     ],
-
+  
     approach: [
-      "Cleaned and preprocessed large-scale review text",
-      "Built a TF-IDF + Logistic Regression baseline to establish a benchmark",
-      "Fine-tuned DistilBERT for improved contextual understanding",
-      "Evaluated models using accuracy, F1-score, and confusion matrix",
-      "Deployed an interactive Gradio demo on Hugging Face Spaces",
+      "Cleaned and preprocessed large-scale customer review text data",
+      "Built a TF-IDF + Logistic Regression baseline to establish an interpretable benchmark",
+      "Fine-tuned DistilBERT using transfer learning for improved contextual understanding",
+      "Evaluated models using accuracy, F1-score, ROC curve, and confusion matrix",
+      "Deployed an interactive Gradio-based demo on Hugging Face Spaces",
     ],
-
+  
     impact: [
-      "Trained on 568K+ customer reviews",
-      "Improved accuracy from baseline (~89%) to ~92–94%",
+      "Trained sentiment models on 568K+ real-world customer reviews",
+      "Improved accuracy from ~89% (baseline) to ~92–94% using transformer-based modeling",
       "Achieved average inference latency under ~300ms per review",
-      "Enabled real-time sentiment analysis via web interface",
+      "Enabled real-time sentiment analysis via a web-based interface",
     ],
-
+  
     result:
-      "Automated sentiment detection from large-scale customer feedback, enabling faster customer insight workflows.",
-
+      "Automated sentiment detection from large-scale customer feedback, reducing manual analysis effort and enabling faster customer insight workflows.",
+  
     examplePrediction: {
       input: "The food tasted terrible and was completely stale.",
-      output: "Negative (confidence ~0.96)",
+      output: "Negative (confidence ≈ 0.96)",
     },
-
+  
     learnings: [
-      "Transformer models significantly outperform classical NLP for contextual sentiment",
-      "Baseline models are essential for meaningful performance comparison",
-      "Deployment considerations (latency, model size) matter as much as accuracy",
+      "Transformer-based models significantly outperform classical NLP approaches for contextual sentiment tasks",
+      "Baseline models are essential for meaningful performance benchmarking",
+      "Deployment considerations such as latency and model size are as important as raw accuracy",
     ],
-
+  
     codeUrl:
       "https://github.com/YeswanthArasavalli/amazon-food-review-sentiment-analysis",
+  
     demoUrl:
       "https://huggingface.co/spaces/YeswanthArasavalli/Amazon_Food_Review_Analysis",
-
+  
     images: [
       "/projects/amazon_food/a_thumb.png",
       "/projects/amazon_food/word.png",
@@ -264,15 +267,15 @@ export const projects: Project[] = [
       "/projects/amazon_food/confusion.png",
       "/projects/amazon_food/accuracy.png",
     ],
+  
     imageCaptions: [
       "Gradio interface for real-time sentiment prediction",
-      "Word cloud showing frequently occurring review terms",
-      "ROC curve for model evaluation",
-      "Confusion matrix on validation dataset",
-      "Accuracy comparison across baseline and transformer models",
+      "Word cloud highlighting frequently occurring terms in reviews",
+      "ROC curve demonstrating model discrimination performance",
+      "Confusion matrix on the validation dataset",
+      "Accuracy comparison between baseline and transformer-based models",
     ],
   },
-];
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
