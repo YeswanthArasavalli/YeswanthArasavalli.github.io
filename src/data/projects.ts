@@ -35,7 +35,7 @@ export interface Project {
     output: string;
   };
 
-  /** Reflection section (high-signal for recruiters) */
+  /** Reflection / learnings (rendered elsewhere, not in detail page) */
   learnings?: string[];
 
   codeUrl?: string;
@@ -52,11 +52,12 @@ export const projects: Project[] = [
   {
     slug: "sales-performance-dashboard",
     title: "Sales Performance Dashboard",
+
     summary:
       "Interactive Power BI dashboard analyzing multi-year sales performance across regions and product categories.",
 
     description:
-      "Sales teams and management often rely on fragmented Excel reports that make it difficult to track performance trends consistently. This project focused on creating a centralized, self-serve analytics dashboard that enables faster visibility into revenue, regional performance, and product-level KPIs.",
+      "Sales teams and management often rely on fragmented Excel reports that make it difficult to track performance trends consistently. This project focused on building a centralized, self-serve analytics dashboard to improve visibility into revenue, regional performance, and product-level KPIs.",
 
     caseStudy: true,
 
@@ -69,7 +70,7 @@ export const projects: Project[] = [
     dataset: {
       source: "Internal sales data (simulated / anonymized)",
       size: "Multi-year transactional sales data",
-      notes: "Modeled using a star schema to support efficient BI reporting",
+      notes: "Modeled using a star schema for efficient BI reporting",
     },
 
     role:
@@ -97,7 +98,7 @@ export const projects: Project[] = [
 
     learnings: [
       "Well-designed data models are critical for scalable BI solutions",
-      "Stakeholder-defined KPIs drive dashboard adoption",
+      "Stakeholder-defined KPIs significantly improve dashboard adoption",
       "Self-serve analytics reduces repetitive reporting requests",
     ],
 
@@ -115,11 +116,12 @@ export const projects: Project[] = [
   {
     slug: "retail-product-image-recognition",
     title: "Retail Product Image Recognition System",
+
     summary:
       "End-to-end computer vision system for identifying retail products from images, trained on ~200 SKU categories and deployed as a real-time Streamlit demo.",
 
     description:
-      "Manual product tagging in retail workflows is time-consuming and error-prone. This project explores how computer vision can automate SKU identification from product images, enabling faster product analytics and reducing operational overhead.",
+      "Manual product tagging in retail workflows is time-consuming and error-prone. This project explores how computer vision can automate SKU identification from product images, reducing operational overhead and enabling faster product analytics.",
 
     caseStudy: true,
 
@@ -159,13 +161,15 @@ export const projects: Project[] = [
 
     learnings: [
       "Transfer learning significantly reduces training time for vision tasks",
-      "Top-5 accuracy is critical for multi-class retail classification",
-      "Inference speed matters for real-world usability",
+      "Top-5 accuracy is critical for large multi-class classification problems",
+      "Inference speed directly affects real-world usability",
     ],
 
     codeUrl:
       "https://github.com/YeswanthArasavalli/retail-product-image-recognition",
-    demoUrl: "https://retail-image-recognition.streamlit.app/",
+
+    demoUrl:
+      "https://retail-image-recognition.streamlit.app/",
 
     images: [
       "/projects/retail_image/r_thumb.png",
@@ -186,35 +190,34 @@ export const projects: Project[] = [
   /* ================================================================== */
   /* AMAZON FOOD REVIEWS SENTIMENT ANALYSIS */
   /* ================================================================== */
-  
   {
     slug: "amazon-food-reviews-sentiment-analysis",
     title: "Amazon Food Reviews Sentiment Analysis",
-  
+
     summary:
       "End-to-end NLP pipeline for sentiment classification on 568K+ Amazon food reviews using a fine-tuned DistilBERT model.",
-  
+
     description:
       "Large e-commerce platforms receive massive volumes of customer reviews daily, making manual sentiment analysis slow, inconsistent, and unscalable. This project automates sentiment detection from customer feedback to enable faster insight generation and support data-driven product and customer experience decisions.",
-  
+
     caseStudy: true,
-  
+
     goals: [
       "Reduce manual review analysis through automated sentiment classification",
       "Benchmark classical NLP techniques against transformer-based models",
       "Deploy a real-time sentiment prediction interface for interactive use",
     ],
-  
+
     dataset: {
       source: "Amazon Fine Food Reviews (Kaggle)",
       size: "568,000+ customer reviews",
       notes:
-        "Ratings 1–2 mapped to negative sentiment, 4–5 to positive; neutral (rating 3) reviews removed to avoid ambiguity",
+        "Ratings 1–2 mapped to negative, 4–5 to positive; neutral reviews removed",
     },
-  
+
     role:
-      "Machine Learning Engineer (NLP) — Owned the full project lifecycle including data preprocessing, model experimentation, evaluation, and deployment.",
-  
+      "Machine Learning Engineer (NLP) — Owned the full project lifecycle including data preprocessing, modeling, evaluation, and deployment.",
+
     techStack: [
       "Python",
       "PyTorch",
@@ -224,42 +227,42 @@ export const projects: Project[] = [
       "Logistic Regression",
       "Gradio",
     ],
-  
+
     approach: [
-      "Cleaned and preprocessed large-scale customer review text data",
-      "Built a TF-IDF + Logistic Regression baseline to establish an interpretable benchmark",
-      "Fine-tuned DistilBERT using transfer learning for improved contextual understanding",
+      "Cleaned and preprocessed large-scale customer review text",
+      "Built a TF-IDF + Logistic Regression baseline for interpretability",
+      "Fine-tuned DistilBERT using transfer learning",
       "Evaluated models using accuracy, F1-score, ROC curve, and confusion matrix",
-      "Deployed an interactive Gradio-based demo on Hugging Face Spaces",
+      "Deployed an interactive Gradio demo on Hugging Face Spaces",
     ],
-  
+
     impact: [
-      "Trained sentiment models on 568K+ real-world customer reviews",
-      "Improved accuracy from ~89% (baseline) to ~92–94% using transformer-based modeling",
+      "Trained models on 568K+ real-world customer reviews",
+      "Improved accuracy from ~89% baseline to ~92–94%",
       "Achieved average inference latency under ~300ms per review",
       "Enabled real-time sentiment analysis via a web-based interface",
     ],
-  
+
     result:
       "Automated sentiment detection from large-scale customer feedback, reducing manual analysis effort and enabling faster customer insight workflows.",
-  
+
     examplePrediction: {
       input: "The food tasted terrible and was completely stale.",
       output: "Negative (confidence ≈ 0.96)",
     },
-  
+
     learnings: [
-      "Transformer-based models significantly outperform classical NLP approaches for contextual sentiment tasks",
+      "Transformer-based models outperform classical NLP for contextual sentiment",
       "Baseline models are essential for meaningful performance benchmarking",
-      "Deployment considerations such as latency and model size are as important as raw accuracy",
+      "Deployment constraints matter as much as raw model accuracy",
     ],
-  
+
     codeUrl:
       "https://github.com/YeswanthArasavalli/amazon-food-review-sentiment-analysis",
-  
+
     demoUrl:
       "https://huggingface.co/spaces/YeswanthArasavalli/Amazon_Food_Review_Analysis",
-  
+
     images: [
       "/projects/amazon_food/a_thumb.png",
       "/projects/amazon_food/word.png",
@@ -267,13 +270,13 @@ export const projects: Project[] = [
       "/projects/amazon_food/confusion.png",
       "/projects/amazon_food/accuracy.png",
     ],
-  
+
     imageCaptions: [
       "Gradio interface for real-time sentiment prediction",
-      "Word cloud highlighting frequently occurring terms in reviews",
+      "Word cloud highlighting frequently occurring terms",
       "ROC curve demonstrating model discrimination performance",
       "Confusion matrix on the validation dataset",
-      "Accuracy comparison between baseline and transformer-based models",
+      "Accuracy comparison between baseline and transformer models",
     ],
   },
 ];
