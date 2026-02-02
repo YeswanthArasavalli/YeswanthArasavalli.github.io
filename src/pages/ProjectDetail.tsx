@@ -11,7 +11,6 @@ import {
   Target,
   Database,
   Quote,
-  Lightbulb,
 } from "lucide-react";
 
 export default function ProjectDetail() {
@@ -265,31 +264,6 @@ export default function ProjectDetail() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ================= REFLECTION ================= */}
-      <section className="py-16 bg-secondary/30">
-        <div className="container max-w-4xl">
-          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-            <Lightbulb className="h-6 w-6 text-primary" />
-            What I Learned
-          </h2>
-
-          <ul className="space-y-3 text-muted-foreground">
-            <li>
-              • Establishing simple baseline models is critical before applying
-              more complex approaches.
-            </li>
-            <li>
-              • Transformer models significantly improve contextual understanding
-              but require careful deployment considerations.
-            </li>
-            <li>
-              • Framing problems in business terms is as important as technical
-              performance.
-            </li>
-          </ul>
         </div>
       </section>
 
