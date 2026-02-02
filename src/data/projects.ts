@@ -276,6 +276,7 @@ export const projects: Project[] = [
       "Accuracy comparison between baseline and transformer-based models",
     ],
   },
+];
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
