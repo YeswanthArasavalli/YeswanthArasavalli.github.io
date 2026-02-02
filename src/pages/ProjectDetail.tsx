@@ -1,3 +1,5 @@
+// src/pages/ProjectDetail.tsx
+
 import { useParams, Navigate, Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
@@ -15,6 +17,7 @@ import {
   Zap,
   BarChart3,
   Brain,
+  Boxes,
 } from "lucide-react";
 
 export default function ProjectDetail() {
@@ -25,14 +28,19 @@ export default function ProjectDetail() {
     return <Navigate to="/404" replace />;
   }
 
-  const renderMetricIcon = (icon: string) => {
+  /* ================= METRIC ICON MAP ================= */
+  const renderMetricIcon = (
+    icon: "accuracy" | "latency" | "scale" | "model"
+  ) => {
     switch (icon) {
-      case "performance":
+      case "accuracy":
         return <Brain className="h-5 w-5 text-primary" />;
-      case "scale":
-        return <BarChart3 className="h-5 w-5 text-primary" />;
       case "latency":
         return <Zap className="h-5 w-5 text-primary" />;
+      case "scale":
+        return <BarChart3 className="h-5 w-5 text-primary" />;
+      case "model":
+        return <Boxes className="h-5 w-5 text-primary" />;
       default:
         return null;
     }
@@ -147,7 +155,7 @@ export default function ProjectDetail() {
               By the Numbers
             </h2>
 
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
               {project.metrics.map((metric, i) => (
                 <div
                   key={i}
@@ -156,9 +164,7 @@ export default function ProjectDetail() {
                   <div className="flex justify-center">
                     {renderMetricIcon(metric.icon)}
                   </div>
-                  <p className="text-3xl font-bold text-foreground">
-                    {metric.value}
-                  </p>
+                  <p className="text-3xl font-bold">{metric.value}</p>
                   <p className="text-sm text-muted-foreground">
                     {metric.label}
                   </p>
@@ -213,8 +219,39 @@ export default function ProjectDetail() {
         </div>
       </section>
 
+      {/* ================= VISUAL EVIDENCE ================= */}
+      {project.images?.length > 0 && (
+        <section className="py-16">
+          <div className="container max-w-5xl">
+            <h2 className="text-2xl font-bold mb-8 text-center">
+              Visual Evidence
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {project.images.map((img, i) => (
+                <figure
+                  key={i}
+                  className="bg-card border rounded-lg overflow-hidden"
+                >
+                  <img
+                    src={img}
+                    alt={`${project.title} visual ${i + 1}`}
+                    className="w-full h-auto object-cover"
+                  />
+                  {project.imageCaptions?.[i] && (
+                    <figcaption className="p-3 text-sm text-muted-foreground">
+                      {project.imageCaptions[i]}
+                    </figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ================= RESULT ================= */}
-      <section className="py-16">
+      <section className="py-16 bg-secondary/30">
         <div className="container max-w-4xl">
           <h2 className="text-2xl font-bold mb-4">Result</h2>
           <p className="text-muted-foreground leading-relaxed">
@@ -224,7 +261,7 @@ export default function ProjectDetail() {
       </section>
 
       {/* ================= IMPACT ================= */}
-      <section className="py-16 bg-secondary/30">
+      <section className="py-16">
         <div className="container max-w-4xl">
           <h2 className="text-2xl font-bold mb-8">Impact & Outcomes</h2>
 
@@ -241,7 +278,7 @@ export default function ProjectDetail() {
 
       {/* ================= LEARNINGS ================= */}
       {project.learnings && (
-        <section className="py-16">
+        <section className="py-16 bg-secondary/30">
           <div className="container max-w-4xl">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <Lightbulb className="h-6 w-6 text-primary" />
