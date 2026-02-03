@@ -132,58 +132,70 @@ export const projects: Project[] = [
     title: "Retail Product Image Recognition System",
 
     summary:
-      "End-to-end computer vision system for identifying retail products from images, trained on ~200 SKU categories and deployed as a real-time Streamlit demo.",
+      "End-to-end computer vision system for automated retail SKU recognition, evaluated with analytical dashboards and deployed as a real-time Streamlit application.",
 
     description:
-      "Manual product tagging in retail workflows is time-consuming and error-prone. This project explores how computer vision can automate SKU identification from product images, reducing operational overhead and enabling faster product analytics.",
+      "Manual product tagging and SKU classification are time-consuming and error-prone in retail operations, especially at scale. This project explores how deep learning–based computer vision can automate product identification from images, while providing transparency into model performance through analytical evaluation dashboards.",
 
     caseStudy: true,
 
     goals: [
-      "Evaluate feasibility of automated SKU recognition from images",
-      "Apply transfer learning to a real-world retail dataset",
-      "Demonstrate real-time inference through a usable web interface",
+      "Assess feasibility of automated SKU recognition from product images",
+      "Build a scalable image classification pipeline using transfer learning",
+      "Evaluate model behavior using interpretable analytics dashboards",
+      "Demonstrate real-time inference through a deployable web interface",
     ],
 
     dataset: {
       source: "Retail product image dataset (RPC-style)",
-      size: "~200 SKU categories with thousands of labeled images",
-      notes: "Images resized and normalized for EfficientNet input",
+      size: "~200 SKU categories with hundreds of thousands of images",
+      notes:
+        "Images preprocessed, normalized, and structured for EfficientNet input",
     },
 
     role:
-      "Machine Learning Engineer — Handled data preprocessing, model training, evaluation, and demo deployment.",
+      "Machine Learning Engineer — Owned the full lifecycle including data preparation, model training, evaluation, analytics, and deployment.",
 
-    techStack: ["PyTorch", "EfficientNet-B0", "Streamlit", "Python", "NumPy"],
+    techStack: [
+      "Python",
+      "PyTorch",
+      "EfficientNet-B0",
+      "Streamlit",
+      "Tableau",
+      "NumPy",
+    ],
 
     approach: [
-      "Preprocessed and organized product images by SKU category",
-      "Fine-tuned EfficientNet-B0 using transfer learning",
-      "Evaluated performance using validation and top-5 accuracy",
-      "Built a Streamlit UI for image upload and prediction",
+      "Structured and preprocessed large-scale retail image data by SKU category",
+      "Applied data augmentation and transfer learning with EfficientNet-B0",
+      "Trained and evaluated the model using Top-1 and Top-5 accuracy metrics",
+      "Exported inference results to build Tableau dashboards for performance analysis",
+      "Analyzed class-level accuracy, confusion patterns, and prediction confidence",
+      "Deployed a Streamlit application for real-time image upload and prediction",
     ],
 
     metrics: [
-      { label: "Top-1 Accuracy", value: "84.9%", icon: "accuracy" },
+      { label: "Top-1 Accuracy", value: "85.4%", icon: "accuracy" },
       { label: "Top-5 Accuracy", value: "94%", icon: "accuracy" },
       { label: "SKU Classes", value: "200+", icon: "scale" },
-      { label: "Inference Time", value: "<1s", icon: "latency" },
+      { label: "Inference Latency", value: "<1s", icon: "latency" },
     ],
 
     impact: [
-      "Trained on ~200 retail SKU categories",
-      "Enabled real-time image inference via web interface",
-      "Demonstrated applicability of computer vision in retail analytics",
+      "Demonstrated automated SKU identification across 200+ retail categories",
+      "Reduced reliance on manual product tagging workflows",
+      "Identified error patterns and class confusion through Tableau analytics",
+      "Validated model reliability and confidence calibration for deployment readiness",
     ],
 
     result:
-      "Automated SKU identification from product images, reducing manual tagging effort.",
+      "Delivered an end-to-end retail image recognition system with measurable accuracy, interpretable analytics, and real-time deployment capability.",
 
     learnings: [
-      "Transfer learning significantly reduces training time",
-      "Top-5 accuracy is essential for retail classification",
-      "Dataset balance strongly impacts model performance",
-      "Inference speed is critical for user-facing ML systems",
+      "Transfer learning significantly improves performance on limited SKU data",
+      "Top-5 accuracy is critical for practical retail classification workflows",
+      "Analytical dashboards are essential for model trust and validation",
+      "Inference speed and usability matter as much as model accuracy",
     ],
 
     codeUrl:
@@ -199,11 +211,11 @@ export const projects: Project[] = [
       "/projects/retail_image/img2.png",
     ],
     imageCaptions: [
-      "Streamlit interface for real-time image upload",
-      "Training data distribution across SKU categories",
-      "Confusion matrix on validation data",
-      "Training accuracy and loss curves",
-      "Example predictions on retail product images",
+      "Streamlit interface for real-time retail product prediction",
+      "Distribution of retail SKU categories used for training and evaluation",
+      "Confusion matrix highlighting class-level prediction patterns",
+      "Training and validation accuracy and loss trends",
+      "Example model predictions with confidence scores",
     ],
   },
 
