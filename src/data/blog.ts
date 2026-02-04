@@ -17,6 +17,43 @@ interface BlogSection {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "why-i-write-these-blogs",
+    title: "Why I Write These Blogs",
+    excerpt:
+      "These blogs are not tutorials. They are reflections on real decisions, trade-offs, and mistakes made while working on analytics and machine learning problems.",
+    date: "Jan 2025",
+    readTime: "3 min read",
+    category: "Portfolio",
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "Most technical blogs focus on how to use tools or implement algorithms. I write for a different reason — to document how decisions are made when working with real data, real constraints, and real stakeholders.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In practice, analytics and machine learning problems are rarely about choosing the most advanced technique. They are about deciding what is worth building, what is safe to assume, and where complexity actually adds value.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Each blog on this site reflects a specific judgment call: when to keep things simple, when to invest in complexity, and when a problem is better solved without machine learning at all.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "These posts are written from hands-on experience — building dashboards, cleaning unreliable data, training models, and deploying systems that others depend on. The goal is not to teach syntax, but to share how thinking evolves through real projects.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If these blogs resonate, it’s likely because the challenges described here mirror the ones faced inside actual data teams.",
+      },
+    ],
+  },
+
+  {
     slug: "power-bi-vs-tableau",
     title: "Power BI vs Tableau Is the Wrong Question — Here’s What Actually Matters",
     excerpt:
@@ -377,7 +414,7 @@ export const blogPosts: BlogPost[] = [
       {
         type: "paragraph",
         content:
-          "In my Amazon Food Reviews sentiment analysis project, I started with a TF-IDF vectorizer combined with Logistic Regression. The goal wasn’t maximum performance — it was to create a fast, interpretable reference point that could be improved upon deliberately.",
+          “This became clear while working on a large-scale sentiment classification problem involving hundreds of thousands of customer reviews. Before touching transformer models, I established a TF-IDF + Logistic Regression baseline to understand what ‘good enough’ actually looked like.”,
       },
       {
         type: "code",
@@ -434,6 +471,88 @@ export const blogPosts: BlogPost[] = [
         type: "paragraph",
         content:
           "The key lesson isn’t to avoid complex models, but to earn the right to use them through evidence and clear trade-off analysis.",
+      },
+    ],
+  },
+
+  {
+    slug: "when-not-to-use-machine-learning",
+    title: "When NOT to Use Machine Learning",
+    excerpt:
+      "Machine learning is powerful — but often unnecessary. This article explains when ML adds little value, introduces avoidable risk, and why simpler approaches are sometimes the better decision.",
+    date: "Jan 2025",
+    readTime: "7 min read",
+    category: "Machine Learning",
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "Machine learning is often presented as the default solution to data problems. In practice, many successful analytics systems deliberately avoid ML — not because of technical limitations, but because simpler approaches are more reliable, interpretable, and cost-effective.",
+      },
+  
+      {
+        type: "heading",
+        content: "When the Problem Is Already Well-Defined",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If business rules are stable and outcomes are predictable, rule-based logic or SQL-driven analysis often outperforms machine learning in reliability and transparency. Adding ML in these cases usually increases maintenance cost without improving decisions.",
+      },
+  
+      {
+        type: "heading",
+        content: "When Data Quality Is the Real Bottleneck",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Poorly labeled, inconsistent, or biased data will not improve simply because a more complex model is used. In these scenarios, investing in data quality and metric clarity delivers far more value than model tuning.",
+      },
+  
+      {
+        type: "heading",
+        content: "When Interpretability Matters More Than Accuracy",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In regulated environments or high-stakes decisions, understanding why a prediction was made often matters more than squeezing out a few extra percentage points of accuracy. Simple models and transparent logic build trust that black-box systems struggle to earn.",
+      },
+  
+      {
+        type: "heading",
+        content: "When Latency and Stability Are Critical",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Real-time systems with strict latency or uptime requirements often suffer when heavy ML models are introduced prematurely. Simpler approaches are easier to test, monitor, and recover when things go wrong.",
+      },
+  
+      {
+        type: "heading",
+        content: "What This Changed in My Own Work",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Working on applied machine learning projects taught me that restraint is a skill. Some of the most effective solutions I’ve built relied on strong baselines, clean data, and clear metrics — not complex models.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Machine learning delivers its best results when it is chosen deliberately, not reflexively.",
+      },
+  
+      {
+        type: "heading",
+        content: "When ML *Is* the Right Choice",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Machine learning becomes valuable when problems involve unstructured data, non-linear patterns, or when prediction accuracy directly impacts revenue, risk, or user experience — and when the organization is ready to support it operationally.",
       },
     ],
   },
