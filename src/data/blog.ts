@@ -233,7 +233,7 @@ export const blogPosts: BlogPost[] = [
           "The key lesson is not to avoid machine learning, but to apply it intentionally, with a clear understanding of its cost and value.",
       },
     ],
-  }
+  },
 
   {
     slug: "baseline-models-first",
