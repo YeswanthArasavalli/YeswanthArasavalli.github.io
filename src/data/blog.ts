@@ -199,6 +199,108 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "baseline-models-first",
+    title: "Baseline Models First: The Most Ignored Rule in Data Science",
+    excerpt:
+      "Why I always start with simple baseline models before jumping to complex ML — and how this approach saved time, improved decisions, and set realistic expectations in real projects.",
+    date: "Jan 2025",
+    readTime: "8 min read",
+    category: "Data Science",
+    content: [
+      {
+        type: "heading",
+        content: "Problem / Question",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In many machine learning projects, the first instinct is to try complex models — deep learning, transformers, or ensemble methods. The question I now ask instead is: what is the simplest model that solves this problem reasonably well?",
+      },
+  
+      {
+        type: "heading",
+        content: "Why It Matters in Real Projects",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In real teams, time, compute, and explainability matter as much as accuracy. Without a baseline, it becomes impossible to judge whether a complex model is truly better or just marginally improved at a much higher cost.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Baseline models help set expectations for stakeholders, expose data quality issues early, and often perform well enough to challenge the need for heavier solutions.",
+      },
+  
+      {
+        type: "heading",
+        content: "My Approach",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In my Amazon Food Reviews sentiment analysis project, I began with a TF-IDF vectorizer combined with Logistic Regression. The goal was not maximum performance, but to establish a strong reference point using interpretable and fast models.",
+      },
+      {
+        type: "code",
+        content:
+          "from sklearn.feature_extraction.text import TfidfVectorizer\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.pipeline import Pipeline\n\npipeline = Pipeline([\n  ('tfidf', TfidfVectorizer(max_features=50000)),\n  ('clf', LogisticRegression(max_iter=1000))\n])\n\npipeline.fit(X_train, y_train)\n",
+        language: "python",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This baseline achieved close to 89% accuracy, which immediately raised an important question: how much better does a more complex model really need to be to justify its cost?",
+      },
+  
+      {
+        type: "heading",
+        content: "Trade-offs & Decisions",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Starting with a baseline allowed me to quantify trade-offs clearly. While fine-tuning DistilBERT improved performance to around 94%, it also introduced longer training times, higher inference latency, and deployment complexity.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Because I had a baseline, I could justify the upgrade based on measurable gains rather than intuition or hype.",
+      },
+  
+      {
+        type: "heading",
+        content: "What I Learned",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Baseline models are not a shortcut — they are a diagnostic tool. They reveal data leakage, weak labels, feature issues, and unrealistic expectations before expensive modeling decisions are made.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In several cases, the baseline performed well enough that complex models became optional rather than mandatory.",
+      },
+  
+      {
+        type: "heading",
+        content: "When I Would Do It Differently",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If the problem involved highly unstructured inputs, real-time constraints, or clear non-linear relationships from the start, I would still build a baseline — but much faster and with fewer iterations — before moving on.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The key lesson is not to avoid complex models, but to earn the right to use them.",
+      },
+    ],
+  },
+
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
