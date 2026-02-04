@@ -18,76 +18,142 @@ interface BlogSection {
 export const blogPosts: BlogPost[] = [
   {
     slug: "power-bi-vs-tableau",
-    title: "Power BI vs Tableau: Choosing the Right BI Tool",
+    title: "Power BI vs Tableau Is the Wrong Question — Here’s What Actually Matters",
     excerpt:
-      "A practical comparison of Power BI and Tableau, focusing on cost, usability, and real-world business use cases.",
-    date: "Dec 2024",
-    readTime: "5 min read",
+      "Why choosing between BI tools matters far less than understanding data modeling, stakeholder needs, and decision workflows in real analytics teams.",
+    date: "Jan 2025",
+    readTime: "6 min read",
     category: "Business Intelligence",
     content: [
       {
-        type: "paragraph",
-        content:
-          "Choosing the right business intelligence tool is a critical decision for data-driven teams. Power BI and Tableau are both industry leaders, but they serve different organizational needs, budgets, and technical environments. This article breaks down the key trade-offs to help make an informed choice.",
+        type: "heading",
+        content: "Problem / Question",
       },
-      { type: "heading", content: "Pricing and Licensing" },
       {
         type: "paragraph",
         content:
-          "Power BI offers a cost advantage, particularly for organizations already using Microsoft 365. Tableau, while more expensive, provides greater flexibility and advanced visualization capabilities out of the box.",
+          "One of the most common questions in analytics is whether Power BI or Tableau is the better tool. The real issue, however, is not the tool itself but whether the analytics workflow supports reliable decision-making.",
       },
-      { type: "heading", content: "Ease of Use" },
+  
+      {
+        type: "heading",
+        content: "Why It Matters in Real Projects",
+      },
       {
         type: "paragraph",
         content:
-          "Power BI has a gentler learning curve for Excel users, while Tableau requires more upfront learning but offers more freedom in visualization design once mastered.",
+          "Teams often spend weeks debating BI tools while overlooking fundamental issues such as inconsistent metrics, poor data models, and unclear stakeholder requirements. These problems persist regardless of the visualization layer.",
       },
-      { type: "heading", content: "Data Connectivity" },
       {
         type: "paragraph",
         content:
-          "Both tools support a wide range of data sources. Power BI integrates tightly with Microsoft products, while Tableau performs well with live connections and large datasets.",
+          "A well-modeled dataset with clear KPIs will perform well in almost any modern BI tool.",
       },
-      { type: "heading", content: "Visualization Capabilities" },
+  
+      {
+        type: "heading",
+        content: "My Approach",
+      },
       {
         type: "paragraph",
         content:
-          "Tableau still leads in advanced visualizations, but Power BI now covers most business use cases effectively.",
+          "When evaluating BI tools, I focus first on the analytics workflow: data freshness, metric definitions, access controls, and performance constraints. Only then does the choice of visualization tool become relevant.",
       },
-      { type: "heading", content: "Recommendation" },
       {
         type: "paragraph",
         content:
-          "Power BI is often the better choice for budget-conscious teams and Microsoft-centric environments. Tableau is better suited for teams prioritizing advanced visual design and flexibility.",
+          "In practice, I’ve used both Power BI and Tableau successfully by aligning the tool choice with the team’s technical environment and reporting needs.",
       },
-      { type: "heading", content: "Conclusion" },
+  
+      {
+        type: "heading",
+        content: "Trade-offs & Decisions",
+      },
       {
         type: "paragraph",
         content:
-          "There is no universal winner — the right tool depends on the problem, team, and constraints.",
+          "Power BI integrates tightly with Microsoft ecosystems and offers strong cost efficiency for standardized reporting. Tableau provides more flexibility for exploratory analysis and complex visual storytelling.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Neither tool compensates for poorly defined KPIs, weak data models, or unclear business questions.",
+      },
+  
+      {
+        type: "heading",
+        content: "What I Learned",
+      },
+      {
+        type: "paragraph",
+        content:
+          "High-impact dashboards are driven by clarity, not creativity. Stakeholders value consistency, trust, and speed over advanced visual effects.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Tool selection is a downstream decision — analytics design comes first.",
+      },
+  
+      {
+        type: "heading",
+        content: "When I Would Do It Differently",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For highly exploratory or design-heavy use cases, I would prioritize Tableau earlier. For operational reporting and standardized metrics, Power BI often provides faster adoption.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The right choice depends less on features and more on how the organization uses data.",
       },
     ],
   },
 
   {
     slug: "how-i-clean-messy-data",
-    title: "How I Clean Messy Data: A Practical Workflow",
+    title: "From Messy Data to Decision-Ready: How I Clean Data in Real Projects",
     excerpt:
-      "A repeatable workflow I use to transform messy datasets into reliable, analysis-ready data using Python and SQL.",
-    date: "Nov 2024",
-    readTime: "7 min read",
-    category: "Data Engineering",
+      "A practical data cleaning workflow focused on preventing incorrect insights, broken dashboards, and misleading business decisions — not just fixing null values.",
+    date: "Jan 2025",
+    readTime: "8 min read",
+    category: "Data Analytics",
     content: [
       {
-        type: "paragraph",
-        content:
-          "Data cleaning often consumes most of the time in analytics projects. Over time, I’ve developed a structured workflow that helps ensure consistency, reliability, and reproducibility when working with messy datasets.",
+        type: "heading",
+        content: "Problem / Question",
       },
-      { type: "heading", content: "Step 1: Initial Assessment" },
       {
         type: "paragraph",
         content:
-          "Before writing code, I explore the dataset to understand its structure, data types, missing values, duplicates, and obvious anomalies.",
+          "In most analytics projects, inaccurate insights are rarely caused by bad models or dashboards. They usually originate from poorly understood, inconsistently cleaned data. The real challenge is deciding what to clean, what to preserve, and what assumptions are safe to make.",
+      },
+  
+      {
+        type: "heading",
+        content: "Why It Matters in Real Projects",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In production analytics, cleaning data incorrectly can be worse than not cleaning it at all. Dropping rows, filling missing values, or deduplicating records without business context often leads to misleading KPIs and broken stakeholder trust.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Good data cleaning ensures that downstream dashboards, reports, and models reflect reality rather than convenient assumptions.",
+      },
+  
+      {
+        type: "heading",
+        content: "My Approach",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I treat data cleaning as a decision-making process rather than a mechanical task. Before writing transformations, I first assess how the data is generated, what each field represents, and how errors could impact business interpretation.",
       },
       {
         type: "code",
@@ -95,17 +161,25 @@ export const blogPosts: BlogPost[] = [
           "import pandas as pd\n\ndf = pd.read_csv('raw_data.csv')\nprint(df.info())\nprint(df.describe())\nprint(df.isnull().sum())",
         language: "python",
       },
-      { type: "heading", content: "Step 2: Handle Missing Values" },
       {
         type: "paragraph",
         content:
-          "Missing data is handled based on context and impact, not by blindly dropping or filling values.",
+          "Instead of applying generic rules, I evaluate missing values, duplicates, and anomalies based on their impact on metrics and reporting logic.",
       },
-      { type: "heading", content: "Step 3: Standardize Formats" },
+  
+      {
+        type: "heading",
+        content: "Trade-offs & Decisions",
+      },
       {
         type: "paragraph",
         content:
-          "Standardizing dates, text fields, and categories helps ensure consistency across analysis and reporting.",
+          "Handling missing values often involves trade-offs. Dropping records may simplify analysis but reduce coverage. Imputation preserves volume but risks introducing bias if assumptions are incorrect.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For duplicates, I rely on business keys and event logic rather than exact matches, especially when working with transactional or log data.",
       },
       {
         type: "code",
@@ -113,28 +187,35 @@ export const blogPosts: BlogPost[] = [
           "df['date'] = pd.to_datetime(df['date'], errors='coerce')\ndf['name'] = df['name'].str.strip().str.title()\ndf['category'] = df['category'].str.lower()",
         language: "python",
       },
-      { type: "heading", content: "Step 4: Remove Duplicates" },
+  
       {
-        type: "paragraph",
-        content:
-          "Duplicates are identified using business logic rather than relying solely on exact matches.",
+        type: "heading",
+        content: "What I Learned",
       },
-      { type: "heading", content: "Step 5: Validate and Document" },
       {
         type: "paragraph",
         content:
-          "Final validation ensures the data meets expectations, and all transformations are documented for reuse.",
+          "Most data quality issues are discovered too late — after dashboards are built or models are trained. Investing time upfront in understanding data behavior reduces rework and prevents incorrect conclusions.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Well-cleaned data makes analysis feel effortless, while poor cleaning quietly compounds errors across every downstream step.",
+      },
+  
+      {
+        type: "heading",
+        content: "When I Would Do It Differently",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For exploratory analysis or one-off investigations, I may accept looser cleaning standards. However, for recurring reports or production dashboards, I prioritize reproducibility, validation checks, and documentation.",
       },
       {
         type: "quote",
         content:
-          "Good data cleaning is invisible — problems only surface when it’s done poorly.",
-      },
-      { type: "heading", content: "Tools I Use" },
-      {
-        type: "paragraph",
-        content:
-          "Python, SQL, and lightweight validation checks form the backbone of most cleaning workflows.",
+          "Good data cleaning is invisible — its absence is what makes problems obvious.",
       },
     ],
   },
