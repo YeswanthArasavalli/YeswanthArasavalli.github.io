@@ -141,64 +141,100 @@ export const blogPosts: BlogPost[] = [
 
   {
     slug: "analytics-to-applied-machine-learning",
-    title: "From Analytics to Applied Machine Learning",
+    title: "From Analytics to Applied Machine Learning: How I Decide When ML Is Worth It",
     excerpt:
-      "How I approach machine learning from an analytics background and decide when ML actually adds value.",
-    date: "Nov 2024",
-    readTime: "6 min read",
+      "How I approach machine learning from an analytics background — and how I decide whether ML adds real value or unnecessary complexity in real projects.",
+    date: "Jan 2025",
+    readTime: "7 min read",
     category: "Machine Learning",
     content: [
       {
-        type: "paragraph",
-        content:
-          "Coming from an analytics background, I approached machine learning as an extension of decision-making rather than a replacement for traditional analysis.",
+        type: "heading",
+        content: "Problem / Question",
       },
-      { type: "heading", content: "Why Analysts Should Understand ML" },
-      {
-        type: "paragraph",
-        content:
-          "Understanding ML helps analysts recognize when predictive techniques are useful and when simpler approaches are sufficient.",
-      },
-      { type: "heading", content: "My Learning Approach" },
       {
         type: "paragraph",
         content:
-          "I focused on fundamentals first — statistics, regression, classification, and clustering — before moving on to more complex models.",
+          "Many analytics problems can be solved with SQL, dashboards, or simple statistical models. The challenge is knowing when machine learning genuinely improves outcomes — and when it only adds complexity without business impact.",
       },
-      { type: "heading", content: "Start With Simple Models" },
-      {
-        type: "paragraph",
-        content:
-          "Simple models are often more interpretable and easier to explain to stakeholders, making them suitable for many business problems.",
-      },
-      { type: "heading", content: "Learning Through Projects" },
-      {
-        type: "paragraph",
-        content:
-          "Real understanding came from applying ML techniques to real datasets and evaluating their impact on decisions.",
-      },
-      {
-        type: "code",
-        content:
-          "from sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.metrics import r2_score\n\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)\nprint(r2_score(y_test, model.predict(X_test)))",
-        language: "python",
-      },
+  
       {
         type: "heading",
-        content: "Common Pitfalls",
+        content: "Why It Matters in Real Projects",
       },
       {
         type: "paragraph",
         content:
-          "Common issues include overfitting, ignoring feature engineering, and optimizing metrics without considering business impact.",
+          "In production environments, machine learning introduces costs: longer development cycles, harder debugging, model monitoring, and stakeholder trust issues. Applying ML too early often leads to fragile solutions that are difficult to explain or maintain.",
       },
       {
-        type: "quote",
+        type: "paragraph",
         content:
-          "Machine learning is most effective when it supports decisions — not when it’s used for complexity’s sake.",
+          "Teams that succeed with ML usually start by exhausting analytical approaches first, then move to predictive models only when clear limitations appear.",
+      },
+  
+      {
+        type: "heading",
+        content: "My Approach",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Coming from an analytics background, I treat machine learning as a continuation of decision-making rather than a replacement for analysis. I first ask whether trends, rules, or simple models already answer the business question.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In multiple projects, including customer behavior analysis and sentiment classification, I began with exploratory analysis and baseline models before considering more complex approaches.",
+      },
+  
+      {
+        type: "heading",
+        content: "Trade-offs & Decisions",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Simple models offer interpretability, faster iteration, and easier stakeholder buy-in. However, they may fail when relationships are non-linear, inputs are unstructured, or prediction accuracy directly affects revenue or risk.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Machine learning becomes justified when these limitations are measurable and when the expected performance gain outweighs the added operational cost.",
+      },
+  
+      {
+        type: "heading",
+        content: "What I Learned",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Applied machine learning is less about algorithms and more about judgment. The strongest signal of ML readiness is not model complexity, but clarity in problem definition, evaluation metrics, and deployment constraints.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In practice, many problems benefit more from better features and cleaner data than from more advanced models.",
+      },
+  
+      {
+        type: "heading",
+        content: "When I Would Do It Differently",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If a problem involves large-scale unstructured data, real-time predictions, or clear non-linear behavior from the start, I would move to ML earlier — but still establish a lightweight baseline for comparison.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The key lesson is not to avoid machine learning, but to apply it intentionally, with a clear understanding of its cost and value.",
       },
     ],
-  },
+  }
+
   {
     slug: "baseline-models-first",
     title: "Baseline Models First: The Most Ignored Rule in Data Science",
