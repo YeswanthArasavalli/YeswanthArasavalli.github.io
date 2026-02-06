@@ -281,6 +281,357 @@ export const blogPosts: BlogPost[] = [
   },
 
   {
+    slug: "kpis-lie",
+    title: "KPIs Lie: How I Choose Metrics That Actually Drive Business Decisions",
+    excerpt:
+      "KPIs often look objective but quietly distort decisions when chosen poorly. This article explains how I evaluate, validate, and challenge metrics so they reflect real business outcomes — not vanity numbers.",
+    date: "Jan 2025",
+    readTime: "7 min read",
+    category: "Data Analytics",
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "KPIs are meant to clarify performance, but in many organizations they do the opposite. Over time, I’ve seen teams optimize dashboards flawlessly while decisions based on those dashboards steadily got worse.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The issue usually isn’t data quality or visualization. It’s that the chosen KPIs don’t reflect how the business actually creates value, absorbs risk, or makes trade-offs.",
+      },
+  
+      {
+        type: "heading",
+        content: "Why KPIs Fail More Often Than We Admit",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Most KPIs start as proxies — simplified representations of complex outcomes like growth, engagement, or efficiency. Problems arise when those proxies are treated as the outcome itself rather than as an approximation.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Once teams begin optimizing for the metric instead of the underlying goal, dashboards may show improvement while real performance stagnates or quietly declines.",
+      },
+  
+      {
+        type: "heading",
+        content: "How I Evaluate Whether a KPI Is Worth Tracking",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Before trusting any metric, I ask a simple question: what decision would change if this number moved up or down? If no concrete action follows, the KPI is informational at best — and misleading at worst.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This became clear while building performance dashboards where high-level KPIs such as overall utilization and average throughput looked healthy, yet deeper analysis revealed declining customer retention and growing operational inefficiencies beneath the surface.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In that case, shifting focus from aggregate averages to cohort-based retention and failure-rate metrics immediately changed prioritization and surfaced issues that had been hidden by the original KPIs.",
+      },
+  
+      {
+        type: "heading",
+        content: "Leading vs Lagging Indicators",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Lagging indicators confirm what has already happened, while leading indicators help anticipate what will happen next. Many dashboards over-index on lagging KPIs because they are easier to measure, validate, and explain.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In practice, I prioritize metrics that provide earlier signals — even if they are noisier — because they enable intervention before outcomes are locked in.",
+      },
+  
+      {
+        type: "heading",
+        content: "Trade-offs in Metric Design",
+      },
+      {
+        type: "paragraph",
+        content:
+          "No metric is neutral. Choosing one KPI over another implicitly defines what the organization values. Optimizing for averages can hide extreme failures, while focusing exclusively on growth may obscure sustainability or quality issues.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Because of this, I treat metric selection as a trade-off analysis rather than a purely technical exercise, balancing simplicity, actionability, and alignment with business incentives.",
+      },
+  
+      {
+        type: "heading",
+        content: "How This Changed My Dashboards",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Once I started challenging KPIs instead of accepting them by default, dashboards became more focused and less crowded. Fewer metrics, clearly tied to decisions, consistently led to more productive conversations with stakeholders.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In several cases, removing a misleading KPI improved decision quality more than adding a new one ever could.",
+      },
+  
+      {
+        type: "heading",
+        content: "When KPIs Still Matter",
+      },
+      {
+        type: "paragraph",
+        content:
+          "KPIs are still valuable when they are treated as signals rather than targets. Used correctly, they guide attention, prompt investigation, and support informed judgment rather than replace it.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The strongest analytics teams I’ve worked with don’t chase perfect KPIs. They continuously revisit whether their metrics still reflect how the business actually operates — and adjust them as reality changes.",
+      },
+    ],
+  },
+
+  {
+    slug: "accuracy-is-not-enough",
+    title: "Accuracy Is Not Enough: How I Evaluate Models in Real Projects",
+    excerpt:
+      "High accuracy doesn’t always mean a good model. This article explains how I evaluate machine learning models using business context, error costs, and real-world constraints — not just metrics.",
+    date: "Jan 2025",
+    readTime: "8 min read",
+    category: "Data Science",
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "Accuracy is often the first metric people look at when evaluating machine learning models. Early in my work, I treated it the same way. Over time, I learned that accuracy alone can be misleading — and in some cases, actively harmful — when used as the primary decision signal.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The real challenge is not building a model with high accuracy, but understanding whether that accuracy actually leads to better decisions in real projects.",
+      },
+  
+      {
+        type: "heading",
+        content: "Why Accuracy Breaks Down in Real Projects",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In many real-world datasets, classes are imbalanced, labels are noisy, and different types of errors carry very different business costs. A model can achieve high accuracy simply by optimizing for the majority class while performing poorly where it actually matters.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In production environments, stakeholders care far less about abstract metrics and far more about whether a model reduces risk, saves time, or improves outcomes in measurable ways.",
+      },
+  
+      {
+        type: "heading",
+        content: "How I Think About Model Evaluation",
+      },
+      {
+        type: "paragraph",
+        content:
+          "When evaluating models, I start by understanding what different types of errors mean in practice. False positives and false negatives rarely carry equal weight, and optimizing for overall accuracy often hides these differences.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This became especially clear while working on a large-scale sentiment classification problem involving hundreds of thousands of customer reviews. The goal wasn’t simply to predict sentiment correctly, but to understand where misclassifications would impact downstream analysis and business decisions.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In that case, missing negative sentiment was more costly than misclassifying neutral or positive reviews. A model with slightly lower overall accuracy but higher recall for negative sentiment proved far more valuable for identifying product issues and customer dissatisfaction early.",
+      },
+  
+      {
+        type: "heading",
+        content: "Metrics I Prioritize Beyond Accuracy",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Depending on the problem, I prioritize metrics such as precision, recall, F1-score, and confusion matrices to understand how the model behaves across different classes. These metrics reveal patterns and failure modes that accuracy alone completely hides.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "For example, a model with marginally lower accuracy but significantly better recall on critical classes can outperform a higher-accuracy model when the cost of missed cases is high.",
+      },
+  
+      {
+        type: "heading",
+        content: "Trade-offs That Influence Model Choice",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Improving evaluation metrics almost always introduces trade-offs. Increasing recall may reduce precision, while more complex models may improve performance at the cost of interpretability, latency, or operational stability.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Because of this, I evaluate models not just by their metric scores, but by how well those scores align with business priorities, deployment constraints, and long-term maintenance effort.",
+      },
+  
+      {
+        type: "heading",
+        content: "How This Changed My Workflow",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Shifting focus away from accuracy changed how I approach modeling altogether. Instead of chasing marginal metric improvements, I spend more time analyzing error patterns, validating assumptions, and stress-testing models against realistic scenarios.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In several projects, this led to choosing simpler models that were easier to explain, deploy, and trust — even when more complex alternatives showed slightly better accuracy.",
+      },
+  
+      {
+        type: "heading",
+        content: "When Accuracy Still Matters",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Accuracy is not useless — it still provides a useful high-level signal, especially when combined with other metrics. The mistake is treating it as the sole measure of success rather than one input into a broader evaluation framework.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The strongest models I’ve worked with weren’t defined by the highest accuracy, but by how well their performance aligned with real-world constraints, business impact, and decision-making needs.",
+      },
+    ],
+  },
+
+  {
+    slug: "why-model-deployment-matters-more-than-accuracy",
+    title: "Why Model Deployment Matters More Than Model Accuracy",
+    excerpt:
+      "A highly accurate model is useless if it cannot be reliably deployed, monitored, and maintained. This article explains why deployment considerations often matter more than marginal accuracy gains in real ML systems.",
+    date: "Jan 2025",
+    readTime: "8 min read",
+    category: "Applied Machine Learning",
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "Early in machine learning projects, accuracy tends to dominate every discussion. Models are compared, tuned, and celebrated based on leaderboard scores. In real systems, however, I’ve learned that accuracy is rarely the reason a model succeeds or fails after deployment.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "What matters more is whether the model can be deployed reliably, produce predictions within acceptable latency, and continue functioning as data, usage patterns, and system constraints evolve.",
+      },
+  
+      {
+        type: "heading",
+        content: "Why High-Accuracy Models Still Fail in Production",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Many high-performing models never deliver value because they are difficult to integrate into real workflows. Training environments are controlled and forgiving, while production systems are not.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Issues such as slow inference, unstable dependencies, unclear input assumptions, and lack of monitoring often surface only after deployment — when fixes become costly, disruptive, and highly visible.",
+      },
+  
+      {
+        type: "heading",
+        content: "How Deployment Changes Model Decisions",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Once deployment is treated as a first-class concern, model selection changes. A slightly less accurate model that is faster, more interpretable, and easier to maintain often delivers more long-term value than a complex alternative.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This became clear while working on deployed NLP and computer vision applications, where inference latency, memory usage, and failure handling mattered as much as predictive performance.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In one case, a simpler model with marginally lower accuracy was chosen because it met strict latency requirements and degraded gracefully under unexpected inputs — while the more accurate model caused timeouts and brittle failure modes.",
+      },
+  
+      {
+        type: "heading",
+        content: "Trade-offs Between Accuracy, Latency, and Stability",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Optimizing purely for accuracy often increases model size and computational cost. In production, this translates directly into slower response times, higher infrastructure costs, and degraded user experience.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I evaluate these trade-offs explicitly: how much accuracy is gained, what latency is introduced, how failures are handled, and whether the system can degrade gracefully when inputs or upstream services change.",
+      },
+  
+      {
+        type: "heading",
+        content: "What Deployment Changed About My Evaluation Process",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Deploying models fundamentally changed how I evaluate them. Instead of asking whether a model performs best in isolation, I now ask whether it performs consistently under realistic conditions.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In several projects, models with marginally lower accuracy but simpler architectures proved more robust, easier to debug, and more trusted by downstream users and stakeholders.",
+      },
+  
+      {
+        type: "heading",
+        content: "Why Demos and Prototypes Matter",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Building lightweight demos using tools like Streamlit or Gradio surfaces deployment issues early. It forces assumptions about inputs, outputs, latency, and error handling to become explicit before full production integration.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "These prototypes often reveal that usability, reliability, and predictability matter far more to users than small performance improvements on paper.",
+      },
+  
+      {
+        type: "heading",
+        content: "When Accuracy Still Takes Priority",
+      },
+      {
+        type: "paragraph",
+        content:
+          "There are cases where accuracy remains the dominant concern — such as safety-critical systems or high-risk predictions. Even then, deployment constraints shape how that accuracy is achieved, monitored, and sustained over time.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The strongest ML systems balance accuracy with deployability, treating production readiness as a core evaluation criterion rather than an afterthought.",
+      },
+    ],
+  },
+
+  {
     slug: "analytics-to-applied-machine-learning",
     title: "From Analytics to Applied Machine Learning: How I Decide When ML Is Worth It",
     excerpt:
@@ -368,6 +719,200 @@ export const blogPosts: BlogPost[] = [
         type: "paragraph",
         content:
           "The key lesson is not to avoid machine learning, but to apply it intentionally, with a clear understanding of both its value and its cost in real production systems.",
+      },
+    ],
+  },
+
+  {
+    slug: "logistic-regression-vs-transformers",
+    title: "How I Decide Between Logistic Regression and Transformers",
+    excerpt:
+      "Model choice isn’t about using the most advanced algorithm available. This article explains how I decide between simple models and transformers based on data characteristics, system constraints, and real-world impact.",
+    date: "Jan 2025",
+    readTime: "7 min read",
+    category: "Applied Machine Learning",
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "One of the most common mistakes in machine learning projects is assuming that more complex models are automatically better. In practice, deciding between Logistic Regression and transformer-based models is far less about technical capability and far more about context.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Over time, I’ve learned to treat model selection as a decision-making problem rather than an algorithmic upgrade path.",
+      },
+  
+      {
+        type: "heading",
+        content: "Why This Decision Comes Up So Often",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Many real-world problems sit in a gray zone where both simple models and deep learning approaches appear viable. Text classification, customer segmentation, and risk scoring frequently fall into this category.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The challenge is determining whether the added complexity of a transformer model will meaningfully change outcomes — or simply improve metrics without affecting decisions.",
+      },
+  
+      {
+        type: "heading",
+        content: "What Logistic Regression Gets Right",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Logistic Regression paired with strong feature engineering often delivers surprisingly strong performance. It trains quickly, is easy to interpret, and is inexpensive to deploy and maintain.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In several projects, these simpler models provided a reliable baseline that stakeholders could understand and trust, making validation and iteration faster and more collaborative.",
+      },
+  
+      {
+        type: "heading",
+        content: "When Transformers Start to Make Sense",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Transformer models become valuable when inputs are highly unstructured, context matters deeply, or subtle semantic differences materially affect outcomes. They excel when manual feature engineering reaches its limits.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In sentiment analysis tasks involving nuanced language, transformers captured patterns that simpler models consistently missed — but only after strong baselines made those gains measurable and meaningful.",
+      },
+  
+      {
+        type: "heading",
+        content: "Trade-offs I Evaluate Explicitly",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Choosing a transformer introduces clear trade-offs: longer training times, higher inference latency, increased infrastructure cost, and reduced interpretability.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I evaluate whether the performance improvement changes decisions or downstream behavior, or whether it simply looks better on paper.",
+      },
+  
+      {
+        type: "heading",
+        content: "What This Decision Process Changed",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Treating model choice as a trade-off analysis reduced unnecessary complexity across my projects. In some cases, Logistic Regression remained the final solution. In others, transformers were clearly justified by measurable gains.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The key lesson is that model sophistication should be earned through evidence — not assumed by default.",
+      },
+    ],
+  },
+
+  {
+    slug: "distilbert-vs-bert",
+    title: "DistilBERT vs BERT: Why I Chose the Smaller Model",
+    excerpt:
+      "Bigger models aren’t always better. This article explains why I chose DistilBERT over BERT, and how model size, latency, and deployment constraints shaped that decision.",
+    date: "Jan 2025",
+    readTime: "7 min read",
+    category: "Applied Machine Learning",
+    content: [
+      {
+        type: "paragraph",
+        content:
+          "When working with transformer models, it’s tempting to assume that larger architectures automatically deliver better results. In practice, I’ve found that smaller models often provide greater overall value once real deployment constraints are considered.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The decision between BERT and DistilBERT is a clear example of how performance, efficiency, and system design intersect in applied machine learning.",
+      },
+  
+      {
+        type: "heading",
+        content: "Why Bigger Models Are Appealing",
+      },
+      {
+        type: "paragraph",
+        content:
+          "BERT offers strong language understanding and has become a standard benchmark across many NLP tasks. Its performance gains make it an attractive default choice during experimentation.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Those gains, however, come with increased computational cost, higher memory usage, and slower inference times — trade-offs that matter far more in production than in notebooks.",
+      },
+  
+      {
+        type: "heading",
+        content: "What DistilBERT Trades Off",
+      },
+      {
+        type: "paragraph",
+        content:
+          "DistilBERT retains much of BERT’s performance while significantly reducing model size. This makes it faster to train, cheaper to run, and easier to deploy in resource-constrained environments.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In my sentiment analysis work, DistilBERT achieved performance close to full BERT while enabling smoother deployment and more responsive user interactions.",
+      },
+  
+      {
+        type: "heading",
+        content: "Deployment Constraints That Shaped the Choice",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Once the model needed to run behind an API and support interactive usage, latency and resource consumption became first-class concerns. A marginally more accurate but slower model would have directly degraded user experience.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Choosing DistilBERT allowed the system to remain responsive and stable without sacrificing meaningful predictive quality.",
+      },
+  
+      {
+        type: "heading",
+        content: "What This Decision Reinforced",
+      },
+      {
+        type: "paragraph",
+        content:
+          "This experience reinforced that model selection does not end at training metrics. The best model is the one that fits the system it operates in — technically and operationally.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "In applied machine learning, efficiency, reliability, and maintainability often matter more than squeezing out the last few percentage points of accuracy.",
+      },
+  
+      {
+        type: "heading",
+        content: "When I Would Choose Full BERT",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If the task required maximum language understanding and latency was not a constraint — such as offline analysis or batch processing — I would still consider full BERT.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The key is to treat model size as a deliberate design decision, not an afterthought.",
       },
     ],
   },
